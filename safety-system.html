@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Safety System | FORPRO</title>
+
+<style>
+
+/* ===== ROOT VARIABLES ===== */
+
+:root{
+
+--navy:#061b2e;
+--navy2:#0b2945;
+
+--blue:#0877c9;
+--blue-light:#2aa8ff;
+
+--white:#ffffff;
+--light:#f3f8fc;
+
+--grey:#66798a;
+--line:#dce8f1;
+
+}
+
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+body{
+
+font-family:
+Arial,Helvetica,sans-serif;
+
+color:#102235;
+
+line-height:1.6;
+
+overflow-x:hidden;
+
+background:var(--light);
+
+}
+
+
+a{
+
+text-decoration:none;
+color:inherit;
+
+}
+
+
+.container{
+
+width:min(92%,1320px);
+
+margin:auto;
+
+}
+
+
+/* ===== HEADER ===== */
+
+
+header{
+
+position:fixed;
+
+top:0;
+
+width:100%;
+
+z-index:99;
+
+background:
+
+rgba(6,27,46,.95);
+
+backdrop-filter:
+
+blur(15px);
+
+border-bottom:
+
+1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+nav{
+
+height:80px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+}
+
+
+
+.logo{
+
+font-size:30px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+color:white;
+
+}
+
+
+
+.logo span{
+
+color:var(--blue-light);
+
+}
+
+
+/* ===== NAVIGATION ===== */
+
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+align-items:center;
+
+color:white;
+
+font-size:14px;
+
+font-weight:700;
+
+list-style:none;
+
+margin:0;
+
+padding:0;
+
+}
+
+
+.nav-links a{
+
+display:block;
+
+padding:10px 0;
+
+color:white;
+
+transition:color 0.3s;
+
+}
+
+
+.nav-links a:hover{
+
+color:var(--blue-light);
+
+}
+
+
+/* Dropdown */
+
+.dropdown{
+
+position:relative;
+
+}
+
+
+.dropdown-menu{
+
+position:absolute;
+
+top:100%;
+
+left:0;
+
+background:white;
+
+min-width:280px;
+
+border-radius:8px;
+
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+
+list-style:none;
+
+padding:10px 0;
+
+margin:0;
+
+opacity:0;
+
+visibility:hidden;
+
+transform:translateY(15px);
+
+transition:all 0.3s ease;
+
+border-top:4px solid var(--blue);
+
+z-index:100;
+
+}
+
+
+.dropdown:hover .dropdown-menu{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateY(0);
+
+}
+
+
+.dropdown-menu li a{
+
+color:var(--navy);
+
+padding:12px 22px;
+
+font-weight:600;
+
+font-size:14px;
+
+border-left:3px solid transparent;
+
+transition:all 0.25s ease;
+
+background:white;
+
+display:block;
+
+}
+
+
+.dropdown-menu li a:hover{
+
+background:var(--light);
+
+color:var(--blue);
+
+border-left:3px solid var(--blue);
+
+padding-left:30px;
+
+}
+
+
+.nav-links .quote{
+
+background:var(--blue);
+
+padding:14px 25px;
+
+border-radius:4px;
+
+font-weight:800;
+
+transition:background 0.3s;
+
+}
+
+
+.nav-links .quote:hover{
+
+background:var(--blue-light) !important;
+
+color:white !important;
+
+}
+
+
+/* ===== PAGE HERO ===== */
+
+
+.page-hero{
+
+padding-top:120px;
+
+padding-bottom:60px;
+
+background:
+
+linear-gradient(135deg, rgba(6,27,46,0.92), rgba(8,119,201,0.8)),
+
+url('https://images.unsplash.com/photo-1590479773265-7464e5d48118?auto=format&fit=crop&w=1600&q=90');
+
+background-size:cover;
+
+background-position:center;
+
+background-attachment:fixed;
+
+color:white;
+
+animation:heroFadeIn 1.2s ease forwards;
+
+}
+
+
+.page-hero h1{
+
+font-size:clamp(44px,6vw,70px);
+
+font-weight:900;
+
+letter-spacing:-2px;
+
+margin-bottom:10px;
+
+}
+
+
+.page-hero p{
+
+font-size:18px;
+
+color:#c2d6e4;
+
+max-width:600px;
+
+}
+
+
+/* ===== BREADCRUMB ===== */
+
+
+.breadcrumb{
+
+padding:20px 0 30px 0;
+
+background:var(--light);
+
+border-bottom:1px solid var(--line);
+
+animation:fadeInUp 0.8s ease forwards;
+
+}
+
+
+.breadcrumb a{
+
+color:var(--blue);
+
+font-weight:600;
+
+font-size:14px;
+
+transition:color 0.3s;
+
+}
+
+
+.breadcrumb a:hover{
+
+color:var(--navy);
+
+}
+
+
+.breadcrumb span{
+
+color:var(--grey);
+
+font-size:14px;
+
+}
+
+
+.breadcrumb .current{
+
+color:var(--navy);
+
+font-weight:700;
+
+}
+
+
+/* ===== MAIN CONTENT ===== */
+
+
+.main-content{
+
+display:grid;
+
+grid-template-columns:280px 1fr;
+
+gap:50px;
+
+padding:50px 0 80px 0;
+
+animation:fadeInUp 1s ease forwards;
+
+}
+
+
+/* ===== SIDEBAR ===== */
+
+
+.sidebar{
+
+background:white;
+
+border-radius:12px;
+
+padding:25px 0;
+
+box-shadow:0 5px 25px rgba(0,0,0,0.06);
+
+border:1px solid var(--line);
+
+height:fit-content;
+
+position:sticky;
+
+top:110px;
+
+}
+
+
+.sidebar h3{
+
+padding:0 25px 15px 25px;
+
+font-size:16px;
+
+color:var(--navy);
+
+border-bottom:2px solid var(--blue);
+
+margin-bottom:10px;
+
+letter-spacing:1px;
+
+}
+
+
+.sidebar ul{
+
+list-style:none;
+
+padding:0;
+
+margin:0;
+
+}
+
+
+.sidebar ul li{
+
+border-bottom:1px solid #f0f4f8;
+
+}
+
+
+.sidebar ul li a{
+
+display:block;
+
+padding:14px 25px;
+
+color:var(--grey);
+
+font-weight:600;
+
+font-size:14px;
+
+transition:all 0.3s ease;
+
+position:relative;
+
+border-left:3px solid transparent;
+
+}
+
+
+.sidebar ul li a:hover{
+
+background:var(--light);
+
+color:var(--blue);
+
+border-left:3px solid var(--blue);
+
+padding-left:32px;
+
+}
+
+
+.sidebar ul li a.active{
+
+background:var(--light);
+
+color:var(--blue);
+
+border-left:3px solid var(--blue);
+
+font-weight:700;
+
+}
+
+
+/* ===== PRODUCT SECTIONS ===== */
+
+
+.products-section{
+
+padding:0;
+
+}
+
+
+.section-block{
+
+margin-bottom:60px;
+
+}
+
+
+.section-block:last-child{
+
+margin-bottom:0;
+
+}
+
+
+.section-block .label{
+
+color:var(--blue);
+
+font-size:12px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+margin-bottom:5px;
+
+}
+
+
+.section-block h2{
+
+font-size:clamp(28px,3vw,38px);
+
+color:var(--navy);
+
+margin-bottom:15px;
+
+}
+
+
+.section-block .intro-text{
+
+color:var(--grey);
+
+font-size:16px;
+
+line-height:1.8;
+
+max-width:800px;
+
+margin-bottom:30px;
+
+}
+
+
+/* Product sub-cards */
+
+.sub-product-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+
+gap:30px;
+
+margin-top:10px;
+
+}
+
+
+.sub-product-item{
+
+background:white;
+
+border-radius:16px;
+
+overflow:hidden;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+
+border:1px solid var(--line);
+
+transition:all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+cursor:pointer;
+
+}
+
+
+.sub-product-item:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 25px 50px rgba(0,104,183,0.15);
+
+border-color:var(--blue-light);
+
+}
+
+
+.sub-product-item .image{
+
+height:200px;
+
+background-size:cover;
+
+background-position:center;
+
+transition:transform 0.6s ease;
+
+overflow:hidden;
+
+position:relative; /* ✅ Added to make absolute caption work */
+
+}
+
+
+.sub-product-item:hover .image{
+
+transform:scale(1.04);
+
+}
+
+
+/* ✅ NEW STYLING FOR THE TEXT CAPTION ON IMAGES */
+
+.sub-product-item .caption {
+
+position: absolute;
+
+bottom: 0;
+
+left: 0;
+
+width: 100%;
+
+background: rgba(0, 0, 0, 0.7);
+
+color: white;
+
+padding: 10px 0;
+
+text-align: center;
+
+font-weight: 700;
+
+font-size: 15px;
+
+letter-spacing: 0.5px;
+
+pointer-events: none;
+
+}
+
+
+.sub-product-item .content{
+
+padding:22px 25px 25px 25px;
+
+}
+
+
+.sub-product-item .content h3{
+
+font-size:20px;
+
+color:var(--navy);
+
+margin-bottom:6px;
+
+}
+
+
+.sub-product-item .content .code{
+
+display:block;
+
+font-size:13px;
+
+color:var(--blue);
+
+font-weight:700;
+
+margin-bottom:8px;
+
+}
+
+
+.sub-product-item .content p{
+
+color:var(--grey);
+
+font-size:14px;
+
+line-height:1.6;
+
+margin-bottom:12px;
+
+}
+
+
+/* ===== CTA BANNER ===== */
+
+
+.cta-banner{
+
+margin-top:50px;
+
+padding:40px;
+
+background:linear-gradient(135deg, var(--navy), var(--blue));
+
+border-radius:16px;
+
+color:white;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+box-shadow:0 10px 40px rgba(8,119,201,0.3);
+
+}
+
+
+.cta-banner h3{
+
+font-size:24px;
+
+}
+
+
+.cta-banner .btn{
+
+display:inline-block;
+
+padding:14px 35px;
+
+background:white;
+
+color:var(--navy);
+
+font-weight:800;
+
+border-radius:8px;
+
+transition:all 0.3s;
+
+}
+
+
+.cta-banner .btn:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+}
+
+
+/* ===== FOOTER ===== */
+
+
+footer{
+
+background:#031522;
+
+color:white;
+
+padding:50px 0;
+
+margin-top:40px;
+
+}
+
+
+.footer-content{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+}
+
+
+footer p{
+
+color:#8da7b9;
+
+max-width:500px;
+
+}
+
+
+.copyright{
+
+margin-top:30px;
+
+padding-top:20px;
+
+border-top:1px solid #244057;
+
+color:#7790a2;
+
+font-size:13px;
+
+}
+
+
+/* ===== ANIMATIONS ===== */
+
+
+@keyframes heroFadeIn{
+
+0%{
+
+opacity:0;
+
+transform:scale(1.02);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+@keyframes fadeInUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+
+@media(max-width:1000px){
+
+.main-content{
+
+grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+position:relative;
+
+top:0;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.sub-product-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.cta-banner{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.nav-links{
+
+display:none;
+
+}
+
+.page-hero{
+
+padding-top:100px;
+
+padding-bottom:40px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===== HEADER ===== -->
+
+
+<header>
+
+<div class="container">
+
+<nav>
+
+
+<a class="logo" href="index.html">
+
+FOR<span>PRO</span>
+
+</a>
+
+
+
+      <!-- ✅ CLEAN, SINGLE MENU BLOCK -->
+      <ul class="nav-links">
+        <li class="dropdown">
+            <a href="#">Products</a>
+            <ul class="dropdown-menu">
+                <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+                <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                <li><a href="slab-formwork.html">Slab Formwork</a></li>
+                <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
+                <li><a href="safety-system.html">Safety System</a></li>
+                <li><a href="accessories.html">Accessories</a></li>
+                <li><a href="innovative-products.html">Innovative Products</a></li>
+            </ul>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="index.html#contact" class="quote">Contact Us</a></li>
+    </ul>
+
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ===== HERO BANNER ===== -->
+
+
+<section class="page-hero">
+
+<div class="container">
+
+<p style="font-size:13px;color:#8fd0ff;letter-spacing:2px;font-weight:800;margin-bottom:8px;">FORPRO</p>
+
+<h1>Safety Systems</h1>
+
+<p>Comprehensive fall protection, edge barriers, and safety nets designed to ensure the highest standard of worker safety on high-rise and infrastructure projects.</p>
+
+</div>
+
+</section>
+
+
+<!-- ===== BREADCRUMB ===== -->
+
+
+<div class="breadcrumb">
+
+<div class="container">
+
+<a href="index.html">Home</a> <span> &gt; </span>
+
+<a href="#">Products</a> <span> &gt; </span>
+
+<span class="current">Safety System</span>
+
+</div>
+
+</div>
+
+
+<!-- ===== MAIN CONTENT ===== -->
+
+
+<section class="container main-content">
+
+
+<!-- ===== SIDEBAR ===== -->
+
+
+<aside class="sidebar">
+
+<h3>📁 PRODUCTS</h3>
+
+<ul>
+
+<li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+
+<li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+
+<li><a href="slab-formwork.html">Slab Formwork</a></li>
+
+<li><a href="single-sided-wall-formwork.html">Single-sided Wall formwork and Props</a></li>
+
+<li><a href="safety-system.html" class="active">Safety System</a></li>
+
+<li><a href="accessories.html">Accessories</a></li>
+
+<li><a href="innovative-products.html">Innovative Products</a></li>
+
+</ul>
+
+</aside>
+
+
+<!-- ===== MAIN PRODUCTS ===== -->
+
+
+<div class="products-section">
+
+
+<!-- ===== SECTION 1: BARRIERS & NETS ===== -->
+
+
+<div class="section-block" id="safety-barriers">
+
+<div class="label">Fall Protection</div>
+
+<h2>Edge Barriers &amp; Safety Nets</h2>
+
+<p class="intro-text">
+
+Our modular safety barriers and mesh netting systems provide the ultimate fall protection for formwork decks, bridge edges, and building perimeters. Easy to install and fully compliant with global safety standards.
+
+</p>
+
+
+<!-- ✅ UPDATED GRID WITH ALL 4 IMAGES AND CAPTIONS -->
+<div class="sub-product-grid">
+
+<!-- SN250 -->
+<div class="sub-product-item">
+    <div class="image" style="background-image:url('images/s1.png');">
+        <div class="caption">Safety Protection System</div>
+    </div>
+    <div class="content">
+        <span class="code">SN250</span>
+        <h3>Safety Netting System</h3>
+        <p>High-tensile safety nets designed to catch falling tools and debris, protecting both workers and the public below.</p>
+    </div>
+</div>
+
+<!-- EP400 -->
+<div class="sub-product-item">
+    <div class="image" style="background-image:url('images/s4.png');">
+        <div class="caption">Safety Protection System</div>
+    </div>
+    <div class="content">
+        <span class="code">EP400</span>
+        <h3>Edge Protection Barrier</h3>
+        <p>Lightweight, sturdy edge protection barriers that clamp directly onto formwork panels or concrete edges for immediate safety.</p>
+    </div>
+</div>
+
+<!-- AP100 -->
+<div class="sub-product-item">
+    <div class="image" style="background-image:url('images/s3.png');">
+        <div class="caption">Safety Protection System</div>
+    </div>
+    <div class="content">
+        <span class="code">AP100</span>
+        <h3>High-Load Anchor Points</h3>
+        <p>Precast and bolt-on anchorage systems designed to support full fall arrest loads while maintaining structural integrity.</p>
+    </div>
+</div>
+
+<!-- ➕ NEW 4TH CARD FOR s2.png -->
+<div class="sub-product-item">
+    <div class="image" style="background-image:url('images/s2.png');">
+        <div class="caption">Safety Protection System</div>
+    </div>
+    <div class="content">
+        <span class="code">SP-400</span>
+        <h3>System Protection Platform</h3>
+        <p>Durable, elevated safety platforms designed to provide secure access and fall protection for maintenance and construction personnel.</p>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ===== CTA BANNER ===== -->
+
+
+<div class="cta-banner">
+
+<div>
+
+<h3>Need site-specific safety planning?</h3>
+
+<p style="color:#c2d6e4;margin-top:4px;">We provide full safety system design and compliance documentation for your project needs.</p>
+
+</div>
+
+<a href="#" class="btn">Contact Engineering</a>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-content">
+
+<div>
+
+<h3 style="font-size:24px;">FOR<span style="color:var(--blue-light);">PRO</span></h3>
+
+<p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
+
+</div>
+
+<div>
+
+<h4>Quick Links</h4>
+
+<p style="color:#8da7b9;line-height:2;">
+
+Products<br>
+
+Industries<br>
+
+Engineering<br>
+
+Contact
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 FORPRO Engineering. All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ===== SOUND EFFECTS ===== -->
+<script>
+
+// ============================================================
+// 1. CREATE THE SOUND ENGINE (no external files needed)
+// ============================================================
+
+function playSound(type) {
+    try {
+        // Create audio context (required for Web Audio API)
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Resume context if it was suspended (fixes Chrome autoplay policy)
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+
+        // Create oscillator (generates the beep)
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        // Different sounds for different actions
+        if (type === 'click') {
+            // Sharp click sound
+            oscillator.frequency.value = 900;
+            gainNode.gain.value = 0.25;
+            oscillator.type = 'sine';
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.08);
+        } 
+        else if (type === 'hover') {
+            // Soft tick sound
+            oscillator.frequency.value = 600;
+            gainNode.gain.value = 0.12;
+            oscillator.type = 'sine';
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.04);
+        } 
+        else if (type === 'swoosh') {
+            // Smooth rising swoosh
+            oscillator.frequency.value = 300;
+            oscillator.frequency.exponentialRampToValueAtTime(700, audioCtx.currentTime + 0.12);
+            gainNode.gain.value = 0.1;
+            oscillator.type = 'sine';
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.12);
+        }
+    } catch (e) {
+        // Silent fail if browser doesn't support Web Audio
+        console.log('Sound not supported');
+    }
+}
+
+
+// ============================================================
+// 2. ATTACH SOUNDS TO YOUR ELEMENTS
+// ============================================================
+
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- CLICK SOUND: All buttons ---
+    const buttons = document.querySelectorAll('.btn, .quote, .learn-more');
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            playSound('click');
+        });
+    });
+
+    // --- HOVER SOUND: All navigation links (top menu) ---
+    const navLinks = document.querySelectorAll('.links > li > a, .nav-links > li > a');
+    navLinks.forEach(function(link) {
+        link.addEventListener('mouseenter', function() {
+            playSound('hover');
+        });
+    });
+
+    // --- HOVER SOUND: All dropdown items ---
+    const dropdownItems = document.querySelectorAll('.dropdown-menu li a, .sidebar ul li a');
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+            playSound('hover');
+        });
+    });
+
+    // --- HOVER SOUND: All product cards (the main page cards) ---
+    const productCards = document.querySelectorAll('.product-card, .product-item, .sub-product-item');
+    productCards.forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+            playSound('swoosh');
+        });
+    });
+
+});
+</script>
+
+
+</body>
+
+
+</html>
