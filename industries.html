@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Our Industries | ForPro</title>
+<title>Innovative Products | ForPro</title>
 
 <style>
 
@@ -308,19 +308,15 @@ color:white !important;
 
 .page-hero{
 
-padding-top:140px;
+padding-top:120px;
 
-padding-bottom:80px;
-
-position:relative;
-
-overflow:hidden;
+padding-bottom:60px;
 
 background:
 
 linear-gradient(135deg, rgba(6,27,46,0.92), rgba(8,119,201,0.8)),
 
-url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=90');
+url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=90');
 
 background-size:cover;
 
@@ -330,53 +326,10 @@ background-attachment:fixed;
 
 color:white;
 
-text-align:center;
+animation:heroFadeIn 1.2s ease forwards;
 
 }
 
-/* Parallax Glow Orb */
-
-.hero-glow {
-
-position:absolute;
-
-width:800px;
-
-height:800px;
-
-background:radial-gradient(circle, rgba(42,168,255,0.25), transparent 70%);
-
-border-radius:50%;
-
-top:50%;
-
-left:50%;
-
-transform:translate(-50%, -50%) scale(0.8);
-
-animation:pulseGlow 6s infinite alternate ease-in-out;
-
-pointer-events:none;
-
-z-index:1;
-
-}
-
-@keyframes pulseGlow {
-
-0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-
-100% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.9; }
-
-}
-
-.page-hero .container {
-
-position:relative;
-
-z-index:2;
-
-}
 
 .page-hero h1{
 
@@ -388,13 +341,8 @@ letter-spacing:-2px;
 
 margin-bottom:10px;
 
-opacity:0;
-
-transform:translateY(30px);
-
-animation:slideUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-
 }
+
 
 .page-hero p{
 
@@ -402,219 +350,242 @@ font-size:18px;
 
 color:#c2d6e4;
 
-max-width:700px;
-
-margin:0 auto;
-
-opacity:0;
-
-transform:translateY(30px);
-
-animation:slideUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+max-width:600px;
 
 }
 
 
-/* ===== INDUSTRIES SHOWCASE ===== */
+/* ===== BREADCRUMB ===== */
 
 
-.industries-showcase{
+.breadcrumb{
 
-padding:80px 0;
+padding:20px 0 30px 0;
+
+background:var(--light);
+
+border-bottom:1px solid var(--line);
+
+animation:fadeInUp 0.8s ease forwards;
 
 }
 
-.industries-showcase h2{
 
-font-size:clamp(32px,4vw,48px);
+.breadcrumb a{
+
+color:var(--blue);
+
+font-weight:600;
+
+font-size:14px;
+
+transition:color 0.3s;
+
+}
+
+
+.breadcrumb a:hover{
 
 color:var(--navy);
 
-text-align:center;
-
-margin-bottom:50px;
-
-letter-spacing:-1px;
-
 }
 
-.industries-showcase .subtitle{
 
-text-align:center;
+.breadcrumb span{
 
 color:var(--grey);
 
-font-size:18px;
-
-margin-bottom:60px;
+font-size:14px;
 
 }
 
 
-/* ===== INDUSTRY CARDS (CINEMATIC REVEAL) ===== */
-
-
-.industry-card{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:40px;
-
-align-items:center;
-
-background:white;
-
-border-radius:16px;
-
-overflow:hidden;
-
-box-shadow:0 5px 25px rgba(0,0,0,0.04);
-
-border:1px solid var(--line);
-
-margin-bottom:60px;
-
-/* ✅ FIXED: Made visible by default so you can see it immediately */
-
-opacity:1;
-
-transform:translateY(40px) scale(0.95);
-
-transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-
-position:relative;
-
-transform-style: preserve-3d;
-
-perspective: 1000px;
-
-}
-
-/* Flip layout for alternating cards */
-
-.industry-card:nth-child(even) .industry-image{
-
-order:2;
-
-}
-
-.industry-card:nth-child(even) .industry-content{
-
-order:1;
-
-}
-
-/* 🚀 THE STRONG POP-IN ANIMATION WHEN SCROLLING */
-
-.industry-card.visible{
-
-transform: translateY(0) scale(1);
-
-animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-
-}
-
-@keyframes popIn {
-
-0% { transform: translateY(40px) scale(0.95); opacity: 0.8; clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
-
-100% { transform: translateY(0) scale(1); opacity: 1; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-
-}
-
-/* Card hover effects (3D shifts handled by JS) */
-
-.industry-card:hover{
-
-box-shadow:0 30px 60px rgba(0,104,183,0.15);
-
-border-color:var(--blue-light);
-
-}
-
-.industry-card .industry-image{
-
-height:400px;
-
-overflow:hidden;
-
-position:relative;
-
-background:#f0f4f8;
-
-}
-
-.industry-card .industry-image img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-transition:transform 0.7s ease;
-
-}
-
-.industry-card:hover .industry-image img{
-
-transform:scale(1.08);
-
-}
-
-.industry-card .industry-content{
-
-padding:40px 50px;
-
-position:relative;
-
-z-index:2;
-
-}
-
-.industry-card .industry-content h3{
-
-font-size:28px;
+.breadcrumb .current{
 
 color:var(--navy);
 
+font-weight:700;
+
+}
+
+
+/* ===== MAIN CONTENT ===== */
+
+
+.main-content{
+
+display:grid;
+
+grid-template-columns:280px 1fr;
+
+gap:50px;
+
+padding:50px 0 80px 0;
+
+animation:fadeInUp 1s ease forwards;
+
+}
+
+
+/* ===== SIDEBAR ===== */
+
+
+.sidebar{
+
+background:white;
+
+border-radius:12px;
+
+padding:25px 0;
+
+box-shadow:0 5px 25px rgba(0,0,0,0.06);
+
+border:1px solid var(--line);
+
+height:fit-content;
+
+position:sticky;
+
+top:110px;
+
+}
+
+
+.sidebar h3{
+
+padding:0 25px 15px 25px;
+
+font-size:16px;
+
+color:var(--navy);
+
+border-bottom:2px solid var(--blue);
+
 margin-bottom:10px;
+
+letter-spacing:1px;
+
+}
+
+
+.sidebar ul{
+
+list-style:none;
+
+padding:0;
+
+margin:0;
+
+}
+
+
+.sidebar ul li{
+
+border-bottom:1px solid #f0f4f8;
+
+}
+
+
+.sidebar ul li a{
+
+display:block;
+
+padding:14px 25px;
+
+color:var(--grey);
+
+font-weight:600;
+
+font-size:14px;
+
+transition:all 0.3s ease;
 
 position:relative;
 
-display:inline-block;
+border-left:3px solid transparent;
 
 }
 
-.industry-card .industry-content h3::after{
 
-content:"";
+.sidebar ul li a:hover{
 
-position:absolute;
+background:var(--light);
 
-bottom:-5px;
+color:var(--blue);
 
-left:0;
+border-left:3px solid var(--blue);
 
-width:0;
-
-height:3px;
-
-background:var(--blue);
-
-transition:width 0.4s ease;
+padding-left:32px;
 
 }
 
-.industry-card:hover .industry-content h3::after{
 
-width:100%;
+.sidebar ul li a.active{
+
+background:var(--light);
+
+color:var(--blue);
+
+border-left:3px solid var(--blue);
+
+font-weight:700;
 
 }
 
-.industry-card .industry-content p{
+
+/* ===== PRODUCT SECTIONS ===== */
+
+
+.products-section{
+
+padding:0;
+
+}
+
+
+.section-block{
+
+margin-bottom:60px;
+
+}
+
+
+.section-block:last-child{
+
+margin-bottom:0;
+
+}
+
+
+.section-block .label{
+
+color:var(--blue);
+
+font-size:12px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+margin-bottom:5px;
+
+}
+
+
+.section-block h2{
+
+font-size:clamp(28px,3vw,38px);
+
+color:var(--navy);
+
+margin-bottom:15px;
+
+}
+
+
+.section-block .intro-text{
 
 color:var(--grey);
 
@@ -622,154 +593,122 @@ font-size:16px;
 
 line-height:1.8;
 
-margin-bottom:20px;
+max-width:800px;
+
+margin-bottom:30px;
 
 }
 
-.industry-card .industry-content .btn-small{
 
-display:inline-block;
+/* Product sub-cards */
+
+.sub-product-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+
+gap:30px;
+
+margin-top:10px;
+
+}
+
+
+.sub-product-item{
+
+background:white;
+
+border-radius:16px;
+
+overflow:hidden;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+
+border:1px solid var(--line);
+
+transition:all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+cursor:pointer;
+
+}
+
+
+.sub-product-item:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 25px 50px rgba(0,104,183,0.15);
+
+border-color:var(--blue-light);
+
+}
+
+
+.sub-product-item .image{
+
+height:200px;
+
+background-size:cover;
+
+background-position:center;
+
+transition:transform 0.6s ease;
+
+overflow:hidden;
+
+}
+
+
+.sub-product-item:hover .image{
+
+transform:scale(1.04);
+
+}
+
+
+.sub-product-item .content{
+
+padding:22px 25px 25px 25px;
+
+}
+
+
+.sub-product-item .content h3{
+
+font-size:20px;
+
+color:var(--navy);
+
+margin-bottom:6px;
+
+}
+
+
+.sub-product-item .content .code{
+
+display:block;
+
+font-size:13px;
 
 color:var(--blue);
 
 font-weight:700;
 
+margin-bottom:8px;
+
+}
+
+
+.sub-product-item .content p{
+
+color:var(--grey);
+
 font-size:14px;
 
-letter-spacing:1px;
+line-height:1.6;
 
-border-bottom:2px solid transparent;
-
-transition:all 0.3s ease;
-
-}
-
-.industry-card:hover .industry-content .btn-small{
-
-border-bottom:2px solid var(--blue);
-
-padding-bottom:3px;
-
-}
-
-
-/* ===== ANIMATIONS ===== */
-
-
-@keyframes slideUp{
-
-0%{
-
-opacity:0;
-
-transform:translateY(30px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-/* ===== FOOTER ===== */
-
-
-footer{
-
-background:#031522;
-
-color:white;
-
-padding:50px 0;
-
-margin-top:40px;
-
-}
-
-
-.footer-content{
-
-display:flex;
-
-justify-content:space-between;
-
-gap:40px;
-
-flex-wrap:wrap;
-
-}
-
-
-footer p{
-
-color:#8da7b9;
-
-max-width:500px;
-
-}
-
-
-.copyright{
-
-margin-top:30px;
-
-padding-top:20px;
-
-border-top:1px solid #244057;
-
-color:#7790a2;
-
-font-size:13px;
-
-}
-
-
-/* ===== RESPONSIVE ===== */
-
-
-@media(max-width:1000px){
-
-.industry-card{
-
-grid-template-columns:1fr;
-
-}
-
-.industry-card:nth-child(even) .industry-image{
-
-order:1;
-
-}
-
-.industry-card:nth-child(even) .industry-content{
-
-order:2;
-
-}
-
-.industry-card .industry-image{
-
-height:280px;
-
-}
-
-.industry-card .industry-content{
-
-padding:30px;
-
-}
-
-.nav-links{
-
-display:none;
-
-}
+margin-bottom:12px;
 
 }
 
@@ -800,33 +739,24 @@ For<span>Pro</span>
 
 
 
-<ul class="nav-links">
-    <li class="dropdown">
-        <a href="#">Products</a>
-        <ul class="dropdown-menu">
-            <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-            <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-            <li><a href="slab-formwork.html">Slab Formwork</a></li>
-            <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
-            <li><a href="safety-system.html">Safety System</a></li>
-            <li><a href="accessories.html">Accessories</a></li>
-            <li><a href="innovative-products.html">Innovative Products</a></li>
-        </ul>
-    </li>
-    <li><a href="projects.html">Projects</a></li>
-   <li><a href="industries.html" class="active">Industries</a></li>
-    <li><a href="index.html#contact" class="quote">Contact Us</a></li>
-</ul>
-
-</li>
-
-<li><a href="industries.html" class="active">Industries</a></li>
-
-<li><a href="#">Engineering</a></li>
-
-<li><a href="#" class="quote">REQUEST QUOTE</a></li>
-
-</ul>
+      <!-- ✅ FIXED: Clean, single menu block -->
+      <ul class="nav-links">
+        <li class="dropdown">
+            <a href="#">Products</a>
+            <ul class="dropdown-menu">
+                <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+                <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                <li><a href="slab-formwork.html">Slab Formwork</a></li>
+                <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
+                <li><a href="safety-system.html">Safety System</a></li>
+                <li><a href="accessories.html">Accessories</a></li>
+                <li><a href="innovative-products.html">Innovative Products</a></li>
+            </ul>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="index.html#contact" class="quote">Contact Us</a></li>
+    </ul>
 
 
 </nav>
@@ -841,15 +771,13 @@ For<span>Pro</span>
 
 <section class="page-hero">
 
-<div class="hero-glow"></div>
-
 <div class="container">
 
 <p style="font-size:13px;color:#8fd0ff;letter-spacing:2px;font-weight:800;margin-bottom:8px;">ForPro</p>
 
-<h1>Engineered for Every Industry</h1>
+<h1>Innovative Products</h1>
 
-<p>Delivering advanced formwork and scaffolding solutions across the globe's most demanding engineering sectors.</p>
+<p>Pioneering the future of concrete construction with next-generation digital monitoring, advanced self-climbing systems, and ultra-lightweight material solutions.</p>
 
 </div>
 
@@ -865,157 +793,180 @@ For<span>Pro</span>
 
 <a href="index.html">Home</a> <span> &gt; </span>
 
-<span class="current">Industries</span>
+<a href="#">Products</a> <span> &gt; </span>
+
+<span class="current">Innovative Products</span>
 
 </div>
 
 </div>
 
 
-<!-- ===== INDUSTRIES MAIN SECTION ===== -->
+<!-- ===== MAIN CONTENT ===== -->
 
 
-<section class="container industries-showcase">
-
-<h2>Industries We Serve</h2>
-
-<p class="subtitle">From nuclear containments to massive bridge pylons, FORPRO provides the backbone for critical infrastructure.</p>
+<section class="container main-content">
 
 
-<!-- CARD 1: Nuclear Plants (UPDATED to .png) -->
-
-<div class="industry-card">
-
-<div class="industry-image">
-
-<img src="images/2003.png" alt="Nuclear Plant">
-
-</div>
-
-<div class="industry-content">
-
-<h3>⚛️ Nuclear Plants</h3>
-
-<p>Safety-critical containment formwork designed to withstand extreme structural requirements. Our systems are engineered for precision, ensuring the highest standards for the most sensitive energy infrastructures.</p>
-
-<a href="#" class="btn-small">Explore Solutions →</a>
-
-</div>
-
-</div>
+<!-- ===== SIDEBAR ===== -->
 
 
-<!-- CARD 2: LNG Terminals (UPDATED to 2002.png) -->
+<aside class="sidebar">
 
-<div class="industry-card">
+<h3>📁 PRODUCTS</h3>
 
-<div class="industry-image">
+<ul>
 
-<img src="images/2002.png" alt="LNG Terminal">
+<li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
 
-</div>
+<li><a href="climbing-formwork.html">Climbing Formwork</a></li>
 
-<div class="industry-content">
+<li><a href="slab-formwork.html">Slab Formwork</a></li>
 
-<h3>🏗️ LNG Terminals</h3>
+<li><a href="single-sided-wall-formwork.html">Single-sided Wall formwork and Props</a></li>
 
-<p>Large-diameter concrete tank construction systems engineered for extreme cryogenic storage environments. Our modular designs ensure rapid deployment and ultimate durability.</p>
+<li><a href="safety-system.html">Safety System</a></li>
 
-<a href="#" class="btn-small">Explore Solutions →</a>
+<li><a href="accessories.html">Accessories</a></li>
 
-</div>
+<!-- ✅ ACTIVE LINK IN SIDEBAR -->
+<li><a href="innovative-products.html" class="active">Innovative Products</a></li>
 
-</div>
+</ul>
 
-
-<!-- CARD 3: Bridges (UPDATED to 2001.png) -->
-
-<div class="industry-card">
-
-<div class="industry-image">
-
-<img src="images/2001.png" alt="Bridge Project">
-
-</div>
-
-<div class="industry-content">
-
-<h3>🌉 Bridges</h3>
-
-<p>Precision climbing and shoring systems for massive piers, towering pylons, and long-span arches. We help bridge the gap between design and reality with unmatched stability.</p>
-
-<a href="#" class="btn-small">Explore Solutions →</a>
-
-</div>
-
-</div>
+</aside>
 
 
-<!-- CARD 4: Tunnels (UPDATED to 2004.png) -->
+<!-- ===== MAIN PRODUCTS ===== -->
 
-<div class="industry-card">
 
-<div class="industry-image">
+<div class="products-section">
 
-<img src="images/2004.png" alt="Tunnel Construction">
+
+<!-- ===== SECTION 1: DIGITAL & SMART SOLUTIONS ===== -->
+
+
+<div class="section-block" id="digital-monitoring">
+
+<div class="label">Smart Construction</div>
+
+<h2>Digital Monitoring &amp; Smart Formwork</h2>
+
+<p class="intro-text">
+
+Advanced IoT sensors integrated into our formwork systems. Monitor real-time concrete pressure, temperature, and structural alignment directly from your site office.
+
+</p>
+
+
+<div class="sub-product-grid">
+
+<!-- DFM-100 -->
+
+<div class="sub-product-item">
+
+<div class="image" style="background-image:url('images/16.png');"></div>
+
+<div class="content">
+
+<span class="code">DFM-100</span>
+
+<h3>Digital Formwork Monitor</h3>
+
+<p>Integrated sensor system that provides live data feedback to ensure safe pouring pressures and precise surface alignment.</p>
+
+<!-- 🗑️ View Details link removed -->
 
 </div>
 
-<div class="industry-content">
-
-<h3>🚇 Tunnels</h3>
-
-<p>Advanced single-sided wall forming solutions designed for safe and rapid underground excavation. Provides robust concrete finishes in the most confined and challenging environments.</p>
-
-<a href="#" class="btn-small">Explore Solutions →</a>
+</div>
 
 </div>
 
 </div>
 
 
-<!-- CARD 5: Hydropower Stations -->
+<!-- ===== SECTION 2: ADVANCED SYSTEMS ===== -->
 
-<div class="industry-card">
 
-<div class="industry-image">
+<div class="section-block" id="advanced-solutions">
 
-<img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=90" alt="Hydropower Station">
+<div class="label">Next-Gen Systems</div>
+
+<h2>Self-Climbing &amp; Aluminum Lightweight</h2>
+
+<p class="intro-text">
+
+Cutting-edge solutions designed to increase on-site speed, eliminate crane usage, and reduce the physical strain on construction workers.
+
+</p>
+
+
+<div class="sub-product-grid">
+
+<!-- SCS-400 -->
+
+<div class="sub-product-item">
+
+<div class="image" style="background-image:url('images/17.jpg');"></div>
+
+<div class="content">
+
+<span class="code">SCS-400</span>
+
+<h3>Advanced Self-Climbing Protection</h3>
+
+<p>Next-gen protection screen that automatically climbs with the structure, completely eliminating the need for a crane to move safety platforms.</p>
+
+<!-- 🗑️ View Details link removed -->
+
+</div>
 
 </div>
 
-<div class="industry-content">
 
-<h3>💧 Hydropower Stations</h3>
+<!-- ALF-60 -->
 
-<p>Heavy-duty concrete infrastructure systems built to withstand the intense demands of power generation. High-load capacities and precise alignment are at the core of our solutions.</p>
+<div class="sub-product-item">
 
-<a href="#" class="btn-small">Explore Solutions →</a>
+<div class="image" style="background-image:url('images/18.jpg');"></div>
+
+<div class="content">
+
+<span class="code">ALF-60</span>
+
+<h3>Aluminum Lightweight Formwork</h3>
+
+<p>Ultra-lightweight high-strength aluminum panels that reduce crane lifts and make manual handling safer and faster for workers.</p>
+
+<!-- 🗑️ View Details link removed -->
+
+</div>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- CARD 6: Dams -->
 
-<div class="industry-card">
+<!-- ===== CTA BANNER ===== -->
 
-<div class="industry-image">
 
-<img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=90" alt="Dam Construction">
+<div class="cta-banner">
+
+<div>
+
+<h3>Interested in pioneering technology?</h3>
+
+<p style="color:#c2d6e4;margin-top:4px;">Reach out to our R&D team to discuss custom digital and automated solutions for your next project.</p>
 
 </div>
 
-<div class="industry-content">
-
-<h3>🌊 Dams</h3>
-
-<p>Large-scale climbing formwork and heavy support systems designed for monumental concrete faces. Engineered for longevity and performance on massive hydraulic structures.</p>
-
-<a href="#" class="btn-small">Explore Solutions →</a>
+<a href="#" class="btn">Contact R&D</a>
 
 </div>
+
 
 </div>
 
@@ -1075,42 +1026,30 @@ Contact
 <script>
 
 // ============================================================
-// 1. PREMIUM SOUND ENGINE (Unlocked on first click)
+// 1. CREATE THE SOUND ENGINE (no external files needed)
 // ============================================================
-
-let audioUnlocked = false;
-
-// This unlocks the browser's audio engine on the first click anywhere on the page
-document.addEventListener('click', function unlockAudio() {
-    if (!audioUnlocked) {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume().then(() => {
-                audioUnlocked = true;
-                document.removeEventListener('click', unlockAudio);
-            });
-        } else {
-            audioUnlocked = true;
-            document.removeEventListener('click', unlockAudio);
-        }
-    }
-});
 
 function playSound(type) {
     try {
+        // Create audio context (required for Web Audio API)
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        // Resume if still suspended just in case
+        
+        // Resume context if it was suspended (fixes Chrome autoplay policy)
         if (audioCtx.state === 'suspended') {
             audioCtx.resume();
         }
+
+        // Create oscillator (generates the beep)
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
+        
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        // Smooth and Premium Sound Effects
+        // Different sounds for different actions
         if (type === 'click') {
-            oscillator.frequency.value = 1200;
+            // Sharp click sound
+            oscillator.frequency.value = 900;
             gainNode.gain.value = 0.25;
             oscillator.type = 'sine';
             gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
@@ -1118,23 +1057,26 @@ function playSound(type) {
             oscillator.stop(audioCtx.currentTime + 0.08);
         } 
         else if (type === 'hover') {
-            oscillator.frequency.value = 700;
-            gainNode.gain.value = 0.15;
+            // Soft tick sound
+            oscillator.frequency.value = 600;
+            gainNode.gain.value = 0.12;
             oscillator.type = 'sine';
             gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
             oscillator.start(audioCtx.currentTime);
             oscillator.stop(audioCtx.currentTime + 0.04);
         } 
         else if (type === 'swoosh') {
+            // Smooth rising swoosh
             oscillator.frequency.value = 300;
             oscillator.frequency.exponentialRampToValueAtTime(700, audioCtx.currentTime + 0.12);
-            gainNode.gain.value = 0.12;
+            gainNode.gain.value = 0.1;
             oscillator.type = 'sine';
             gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
             oscillator.start(audioCtx.currentTime);
             oscillator.stop(audioCtx.currentTime + 0.12);
         }
     } catch (e) {
+        // Silent fail if browser doesn't support Web Audio
         console.log('Sound not supported');
     }
 }
@@ -1144,91 +1086,46 @@ function playSound(type) {
 // 2. ATTACH SOUNDS TO YOUR ELEMENTS
 // ============================================================
 
+// Wait for the page to load
 document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.btn, .quote, .learn-more, .btn-small');
+
+    // --- CLICK SOUND: All buttons ---
+    const buttons = document.querySelectorAll('.btn, .quote, .learn-more');
     buttons.forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             playSound('click');
         });
     });
+
+    // --- HOVER SOUND: All navigation links (top menu) ---
     const navLinks = document.querySelectorAll('.links > li > a, .nav-links > li > a');
     navLinks.forEach(function(link) {
         link.addEventListener('mouseenter', function() {
             playSound('hover');
         });
     });
+
+    // --- HOVER SOUND: All dropdown items ---
     const dropdownItems = document.querySelectorAll('.dropdown-menu li a, .sidebar ul li a');
     dropdownItems.forEach(function(item) {
         item.addEventListener('mouseenter', function() {
             playSound('hover');
         });
     });
-    const productCards = document.querySelectorAll('.product-card, .product-item, .sub-product-item, .industry-card');
+
+    // --- HOVER SOUND: All product cards (the main page cards) ---
+    const productCards = document.querySelectorAll('.product-card, .product-item, .sub-product-item');
     productCards.forEach(function(card) {
         card.addEventListener('mouseenter', function() {
             playSound('swoosh');
         });
     });
-});
 
-
-// ============================================================
-// 3. PREMIUM SCROLL REVEAL & 3D MOUSE TILT ENGINE
-// ============================================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    const cards = document.querySelectorAll('.industry-card');
-    
-    // IntersectionObserver for the pop-in effect on scroll
-    if ('IntersectionObserver' in window) {
-        const cardObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.05, // Trigger almost as soon as you scroll down
-        });
-
-        cards.forEach(card => {
-            cardObserver.observe(card);
-        });
-    } else {
-        // Fallback for older browsers
-        cards.forEach(card => {
-            card.classList.add('visible');
-        });
-    }
-
-    // +++++ 3D Mouse Tracking Tilt Effect +++++
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            // Calculate rotation (max 5 degrees to keep it premium but not dizzying)
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
-            
-            // Apply the tilt
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        // Reset when mouse leaves
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-        });
-    });
 });
 </script>
 
+
 </body>
+
+
 </html>
