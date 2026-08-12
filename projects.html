@@ -268,7 +268,7 @@ nav {
   margin: 0 auto;
 }
 
-/* ===== PROJECT CARDS - VERTICAL IMAGE STACK ===== */
+/* ===== PROJECT CARDS - IMAGES NOW HORIZONTAL ===== */
 .project-card {
   background: white;
   border-radius: 24px;
@@ -291,30 +291,35 @@ nav {
 .project-card:nth-child(7) { animation-delay: 0.7s; }
 .project-card:nth-child(8) { animation-delay: 0.8s; }
 .project-card:nth-child(9) { animation-delay: 0.9s; }
+/* 新增的第10个项目 */
+.project-card:nth-child(10) { animation-delay: 1.0s; }
 
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 30px 60px rgba(0, 104, 183, 0.12);
 }
 
-/* ---- IMAGE STACK (vertical, respects aspect ratios) ---- */
+/* ---- IMAGE STACK (horizontal row, images side by side) ---- */
 .image-stack {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 6px;
   background: #f0f4f8;
   position: relative;
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 .image-stack img {
-  width: 100%;
+  flex: 1;
+  width: 0;
   height: auto;
   display: block;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-card:hover .image-stack img {
-  transform: scale(1.01);
+  transform: scale(1.02);
 }
 
 /* ---- HOVER OVERLAY (slides up from bottom) ---- */
@@ -561,7 +566,17 @@ footer p {
   font-size: 13px;
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 800px) {
+  .image-stack {
+    max-width: 92%;
+    flex-wrap: nowrap;
+  }
+  .image-stack img {
+    flex: 1;
+    width: 0;
+    height: auto;
+  }
   .card-overlay {
     padding: 25px 25px 20px 25px;
   }
@@ -617,7 +632,7 @@ footer p {
             <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
             <li><a href="safety-system.html">Safety System</a></li>
             <li><a href="accessories.html">Accessories</a></li>
-            <li><a href="innovative-products.html">Innovative Products</a></li>
+            <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
           </ul>
         </li>
 
@@ -635,6 +650,7 @@ footer p {
         </li>
 
         <li><a href="industries.html">Industries</a></li>
+    <li><a href="about us.html">About Us</a></li>
         <li><a href="index.html#contact" class="quote">Contact Us</a></li>
       </ul>
     </nav>
@@ -675,10 +691,10 @@ footer p {
     <!-- PROJECT GRID -->
     <div class="project-grid">
 
-      <!-- 1. ZHANGZHOU LNG (3 images stacked vertically) -->
+      <!-- 1. ZHANGZHOU LNG (3 images) -->
       <div class="project-card" data-category="lng" onclick="openModal(this)">
         <div class="image-stack">
-          <img src="images/455.png" alt="ZHANGZHOU LNG 1">
+          <img src="images/htehr54.png" alt="ZHANGZHOU LNG 1">
           <img src="images/fg.png" alt="ZHANGZHOU LNG 2">
           <img src="images/hrth76.png" alt="ZHANGZHOU LNG 3">
           <div class="card-overlay">
@@ -720,7 +736,7 @@ footer p {
       <div class="project-card" data-category="nuclear" onclick="openModal(this)">
         <div class="image-stack">
           <img src="images/fthrfghcghf.png" alt="SAN'AO NUCLEAR 1">
-          <img src="images/b9.png" alt="SAN'AO NUCLEAR 2">
+          <img src="images/h78.png" alt="SAN'AO NUCLEAR 2">
           <div class="card-overlay">
             <h3>SAN'AO NUCLEAR</h3>
             <span class="category-tag">Nuclear Power</span>
@@ -739,8 +755,8 @@ footer p {
       <!-- 4. JIANGSU BINHAI LNG (2 images) -->
       <div class="project-card" data-category="lng" onclick="openModal(this)">
         <div class="image-stack">
-          <img src="images/cvsrt.png" alt="Jiangsu Binhai LNG 1">
-          <img src="images/hm.png" alt="Jiangsu Binhai LNG 2">
+          <img src="images/b9.png" alt="Jiangsu Binhai LNG 1">
+          <img src="images/微信图片_20240814154754.jpg" alt="Jiangsu Binhai LNG 2">
           <div class="card-overlay">
             <h3>Jiangsu Binhai LNG</h3>
             <span class="category-tag">LNG Storage</span>
@@ -759,8 +775,8 @@ footer p {
       <!-- 5. XU DABAO NUCLEAR (2 images) -->
       <div class="project-card" data-category="nuclear" onclick="openModal(this)">
         <div class="image-stack">
-          <img src="images/j6.png" alt="Xu Dabao Nuclear 1">
-          <img src="images/s2.png" alt="Xu Dabao Nuclear 2">
+          <img src="images/h5.png" alt="Xu Dabao Nuclear 1">
+          <img src="images/f3.png" alt="Xu Dabao Nuclear 2">
           <div class="card-overlay">
             <h3>Xu Dabao Nuclear</h3>
             <span class="category-tag">Nuclear Containment</span>
@@ -779,8 +795,8 @@ footer p {
       <!-- 6. FUJIAN NINGDE (2 images) -->
       <div class="project-card" data-category="nuclear" onclick="openModal(this)">
         <div class="image-stack">
-          <img src="images/bn md.png" alt="Fujian Ningde 1">
-          <img src="images/dfhd56.png" alt="Fujian Ningde 2">
+          <img src="images/2003.png" alt="Fujian Ningde 1">
+          <img src="images/cvsrt.png" alt="Fujian Ningde 2">
           <div class="card-overlay">
             <h3>Fujian Ningde</h3>
             <span class="category-tag">Nuclear Power</span>
@@ -800,7 +816,7 @@ footer p {
       <div class="project-card" data-category="nuclear" onclick="openModal(this)">
         <div class="image-stack">
           <img src="images/cntyh.png" alt="Taipingling Nuclear 1">
-          <img src="images/f3.png" alt="Taipingling Nuclear 2">
+          <img src="images/pl1.jpg" alt="Taipingling Nuclear 2">
           <div class="card-overlay">
             <h3>Taipingling Nuclear</h3>
             <span class="category-tag">Nuclear Construction</span>
@@ -819,8 +835,8 @@ footer p {
       <!-- 8. ZHEJIANG SAN'AO (2 images) -->
       <div class="project-card" data-category="nuclear" onclick="openModal(this)">
         <div class="image-stack">
-          <img src="images/h5.png" alt="Zhejiang San'ao 1">
-          <img src="images/h78.png" alt="Zhejiang San'ao 2">
+          <img src="images/pl2.png" alt="Zhejiang San'ao 1">
+          <img src="images/456.png" alt="Zhejiang San'ao 2">
           <div class="card-overlay">
             <h3>Zhejiang San'ao</h3>
             <span class="category-tag">Nuclear / Hydropower</span>
@@ -852,6 +868,27 @@ footer p {
             <span class="tag">Hydraulic Climbing</span>
             <span class="tag">Bridge Piers</span>
             <span class="tag">High-Rise Core</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 10. NEW: NENGGIRI HYDROPOWER STATION (2 images) ===== -->
+      <div class="project-card" data-category="hydropower" onclick="openModal(this)">
+        <div class="image-stack">
+          <img src="images/hy1.png" alt="Nenggiri Hydropower 1">
+          <img src="images/hy2.png" alt="Nenggiri Hydropower 2">
+          <div class="card-overlay">
+            <h3>Nenggiri Hydropower Station</h3>
+            <span class="category-tag">Hydropower</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <p class="excerpt">The DF22 dam formwork system – a climbing formwork system specifically designed for large-volume concrete projects or single-sided wall structures where it is impossible to set up formwork tie rods. Applicable to cofferdams, nuclear ring walls, and suspension anchor blocks.</p>
+          <div class="tag-list">
+            <span class="tag">Hydropower</span>
+            <span class="tag">DF22 System</span>
+            <span class="tag">Dam Formwork</span>
+            <span class="tag">Single-Sided Wall</span>
           </div>
         </div>
       </div>
@@ -998,17 +1035,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== MODAL LOGIC =====
-// Store all images per project for the gallery
+// Store all images per project for the gallery (更新了图片映射)
 const projectImages = {
-  'ZHANGZHOU LNG': ['images/455.png', 'images/fg.png', 'images/hrth76.png'],
+  'ZHANGZHOU LNG': ['images/hrth76.png','images/htehr54.png', 'images/fg.png'],
   'XINING EXPRESSWAY': ['images/ndr.png', 'images/dthrht65.png'],
-  "SAN'AO NUCLEAR": ['images/fthrfghcghf.png', 'images/b9.png'],
-  'Jiangsu Binhai LNG': ['images/cvsrt.png', 'images/hm.png'],
-  'Xu Dabao Nuclear': ['images/j6.png', 'images/s2.png'],
-  'Fujian Ningde': ['images/bn md.png', 'images/dfhd56.png'],
+  "SAN'AO NUCLEAR": ['images/h78.png','images/fthrfghcghf.png'],
+  'Jiangsu Binhai LNG': ['images/微信图片_20240814154754.jpg', 'images/b9.png'],
+  'Xu Dabao Nuclear': ['images/h5.png', 'images/f3.png'],
+  'Fujian Ningde': ['images/37.png', 'images/cvsrt.png'],
   'Taipingling Nuclear': ['images/cntyh.png', 'images/f3.png'],
   "Zhejiang San'ao": ['images/h5.png', 'images/h78.png'],
-  'Xining ZCB2': ['images/84.png', 'images/684.png']
+  'Xining ZCB2': ['images/84.png', 'images/684.png'],
+  // 新增项目图片
+  'Nenggiri Hydropower Station': ['images/hy1.png', 'images/hy2.png']
 };
 
 function openModal(cardElement) {
