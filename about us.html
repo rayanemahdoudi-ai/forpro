@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | ForPro</title>
+
+<style>
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --navy: #061b2e;
+  --navy2: #0b2945;
+  --blue: #0877c9;
+  --blue-light: #2aa8ff;
+  --white: #ffffff;
+  --light: #f3f8fc;
+  --grey: #66798a;
+  --line: #dce8f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #102235;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(92%, 1320px);
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  background: rgba(6, 27, 46, .95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.logo span {
+  color: var(--blue-light);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--blue-light);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 260px;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--blue);
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li a {
+  color: var(--navy);
+  padding: 12px 22px;
+  font-weight: 600;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+  transition: all 0.25s ease;
+  background: white;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background: var(--light);
+  color: var(--blue);
+  border-left: 3px solid var(--blue);
+  padding-left: 30px;
+}
+
+.nav-links .quote {
+  background: var(--blue);
+  padding: 14px 25px;
+  border-radius: 4px;
+  font-weight: 800;
+  transition: background 0.3s;
+}
+
+.nav-links .quote:hover {
+  background: var(--blue-light) !important;
+  color: white !important;
+}
+
+/* ===== LINKS (for index.html style) ===== */
+.links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links a {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: var(--blue-light);
+}
+
+.links .quote {
+  background: var(--blue);
+  padding: 14px 25px;
+  border-radius: 4px;
+  font-weight: 800;
+  transition: background 0.3s;
+}
+
+.links .quote:hover {
+  background: var(--blue-light) !important;
+  color: white !important;
+}
+
+/* ===== FULL-SCREEN SLIDES ===== */
+.full-slide {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.full-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Video styling - fills the slide like an image */
+.full-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* Label overlay at the bottom-left of each slide */
+.slide-label {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: white;
+  background: rgba(6, 27, 46, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 32px;
+  border-radius: 10px;
+  border-left: 5px solid var(--blue-light);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.slide-label .sub-category {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.8;
+  display: block;
+  margin-top: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.slide-number {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .links {
+    display: none;
+  }
+  .nav-links {
+    display: none;
+  }
+  .slide-label {
+    bottom: 30px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  .slide-number {
+    bottom: 30px;
+    right: 20px;
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide-label {
+    bottom: 20px;
+    left: 15px;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-left-width: 3px;
+  }
+  .slide-label .sub-category {
+    font-size: 11px;
+  }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #031522;
+  color: white;
+  padding: 50px 0;
+  scroll-snap-align: end;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+footer p {
+  color: #8da7b9;
+  max-width: 500px;
+}
+
+.copyright {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #244057;
+  color: #7790a2;
+  font-size: 13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="index.html">For<span>Pro</span></a>
+
+      <ul class="links">
+        <!-- PRODUCTS DROPDOWN -->
+        <li class="dropdown">
+          <a href="#">Products</a>
+          <ul class="dropdown-menu">
+            <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+            <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+            <li><a href="slab-formwork.html">Slab Formwork</a></li>
+            <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
+            <li><a href="safety-system.html">Safety System</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="innovative-products.html">Innovative Products</a></li>
+          </ul>
+        </li>
+
+        <!-- PROJECTS DROPDOWN -->
+        <li class="dropdown">
+          <a href="#">Projects</a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html">All Projects</a></li>
+            <li><a href="projects.html#bridges">Bridges</a></li>
+            <li><a href="projects.html#lng">LNG</a></li>
+            <li><a href="projects.html#nuclear">Nuclear</a></li>
+            <li><a href="projects.html#tunnels">Tunnels</a></li>
+            <li><a href="projects.html#hydropower">Hydropower</a></li>
+          </ul>
+        </li>
+
+        <li><a href="industries.html">Industries</a></li>
+
+        <li><a href="about-us.html">About Us</a></li>
+
+        <li><a href="index.html#contact" class="quote">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== SLIDE 1: Our Factory ===== -->
+<section class="full-slide">
+  <img src="images/f15.png" alt="Our Factory">
+  <div class="slide-label">
+    🏛️ Our Factory
+    <span class="sub-category">The ForPro legacy</span>
+  </div>
+  <div class="slide-number">01 / 03</div>
+</section>
+
+<!-- ===== SLIDE 2: Our Industry ===== -->
+<section class="full-slide" id="industry">
+  <img src="images/f1.png" alt="Our Industry">
+  <div class="slide-label">
+    🏭 Our Industry
+    <span class="sub-category">Building the future</span>
+  </div>
+  <div class="slide-number">02 / 03</div>
+</section>
+
+<!-- ===== SLIDE 3: VIDEO - Find Us (plays on scroll, once) ===== -->
+<section class="full-slide" id="video-slide">
+  <!-- ✅ VIDEO ELEMENT – Replace the src with your own video file -->
+  <video id="about-video" muted playsinline preload="metadata">
+    <source src="videos/1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="slide-label">
+    🌏 Find Us
+    <span class="sub-category">Discover our global presence</span>
+  </div>
+  <div class="slide-number">03 / 03</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <h3 style="font-size:24px;">For<span style="color:var(--blue-light);">Pro</span></h3>
+        <p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p style="color:#8da7b9;line-height:2;">
+          Products<br>
+          Industries<br>
+          Engineering<br>
+          Contact
+        </p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 ForPro Engineering. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ===== SOUND EFFECTS + VIDEO PLAYBACK ===== -->
+<script>
+// ============================================================
+// 1. SOUND ENGINE
+// ============================================================
+
+function playSound(type) {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        if (type === 'click') {
+            oscillator.frequency.value = 900;
+            gainNode.gain.value = 0.25;
+            oscillator.type = 'sine';
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.08);
+        } 
+        else if (type === 'hover') {
+            oscillator.frequency.value = 600;
+            gainNode.gain.value = 0.12;
+            oscillator.type = 'sine';
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.04);
+        } 
+        else if (type === 'swoosh') {
+            oscillator.frequency.value = 300;
+            oscillator.frequency.exponentialRampToValueAtTime(700, audioCtx.currentTime + 0.12);
+            gainNode.gain.value = 0.1;
+            oscillator.type = 'sine';
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.12);
+        }
+    } catch (e) {
+        console.log('Sound not supported');
+    }
+}
+
+// ============================================================
+// 2. ATTACH SOUNDS
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.btn, .quote, .learn-more');
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            playSound('click');
+        });
+    });
+
+    const navLinks = document.querySelectorAll('.links > li > a, .nav-links > li > a');
+    navLinks.forEach(function(link) {
+        link.addEventListener('mouseenter', function() {
+            playSound('hover');
+        });
+    });
+
+    const dropdownItems = document.querySelectorAll('.dropdown-menu li a, .sidebar ul li a');
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+            playSound('hover');
+        });
+    });
+
+    const images = document.querySelectorAll('.full-slide img');
+    images.forEach(function(img) {
+        img.addEventListener('mouseenter', function() {
+            playSound('swoosh');
+        });
+    });
+});
+
+// ============================================================
+// 3. VIDEO AUTO-PLAY ON SCROLL (plays once)
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('about-video');
+    const videoSlide = document.getElementById('video-slide');
+
+    if (!video) return;
+
+    let hasPlayed = false;
+
+    // Use Intersection Observer to detect when the video slide comes into view
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            // If the video slide is visible and video hasn't played yet
+            if (entry.isIntersecting && !hasPlayed) {
+                // Play the video
+                video.play().then(function() {
+                    hasPlayed = true;
+                    console.log('Video started playing');
+                }).catch(function(error) {
+                    console.log('Video autoplay prevented:', error);
+                    // If autoplay is blocked, we can try again on user interaction
+                });
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the slide is visible
+    });
+
+    observer.observe(videoSlide);
+
+    // Fallback: if the video ends, prevent replay
+    video.addEventListener('ended', function() {
+        hasPlayed = true;
+        console.log('Video finished playing');
+    });
+
+    // Fallback: if user clicks anywhere on the video slide, try to play
+    videoSlide.addEventListener('click', function() {
+        if (!hasPlayed && video.paused) {
+            video.play().then(function() {
+                hasPlayed = true;
+            }).catch(function(e) {
+                console.log('Click play failed:', e);
+            });
+        }
+    });
+});
+</script>
+
+</body>
+
+</html>
