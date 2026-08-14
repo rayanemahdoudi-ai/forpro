@@ -2,1176 +2,511 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Accessories | ForPro</title>
-
-<style>
-
-/* ===== ROOT VARIABLES ===== */
-
-:root{
-
---navy:#061b2e;
---navy2:#0b2945;
-
---blue:#0877c9;
---blue-light:#2aa8ff;
-
---white:#ffffff;
---light:#f3f8fc;
-
---grey:#66798a;
---line:#dce8f1;
-
-}
-
-
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-}
-
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-
-body{
-
-font-family:
-Arial,Helvetica,sans-serif;
-
-color:#102235;
-
-line-height:1.6;
-
-overflow-x:hidden;
-
-background:var(--light);
-
-}
-
-
-a{
-
-text-decoration:none;
-color:inherit;
-
-}
-
-
-.container{
-
-width:min(92%,1320px);
-
-margin:auto;
-
-}
-
-
-/* ===== HEADER ===== */
-
-
-header{
-
-position:fixed;
-
-top:0;
-
-width:100%;
-
-z-index:99;
-
-background:
-
-rgba(6,27,46,.95);
-
-backdrop-filter:
-
-blur(15px);
-
-border-bottom:
-
-1px solid rgba(255,255,255,.1);
-
-}
-
-
-
-nav{
-
-height:80px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-}
-
-
-
-.logo{
-
-font-size:30px;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-color:white;
-
-}
-
-
-
-.logo span{
-
-color:var(--blue-light);
-
-}
-
-
-/* ===== NAVIGATION ===== */
-
-
-.nav-links{
-
-display:flex;
-
-gap:28px;
-
-align-items:center;
-
-color:white;
-
-font-size:14px;
-
-font-weight:700;
-
-list-style:none;
-
-margin:0;
-
-padding:0;
-
-}
-
-
-.nav-links a{
-
-display:block;
-
-padding:10px 0;
-
-color:white;
-
-transition:color 0.3s;
-
-}
-
-
-.nav-links a:hover{
-
-color:var(--blue-light);
-
-}
-
-
-/* Dropdown */
-
-.dropdown{
-
-position:relative;
-
-}
-
-
-.dropdown-menu{
-
-position:absolute;
-
-top:100%;
-
-left:0;
-
-background:white;
-
-min-width:280px;
-
-border-radius:8px;
-
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
-
-list-style:none;
-
-padding:10px 0;
-
-margin:0;
-
-opacity:0;
-
-visibility:hidden;
-
-transform:translateY(15px);
-
-transition:all 0.3s ease;
-
-border-top:4px solid var(--blue);
-
-z-index:100;
-
-}
-
-
-.dropdown:hover .dropdown-menu{
-
-opacity:1;
-
-visibility:visible;
-
-transform:translateY(0);
-
-}
-
-
-.dropdown-menu li a{
-
-color:var(--navy);
-
-padding:12px 22px;
-
-font-weight:600;
-
-font-size:14px;
-
-border-left:3px solid transparent;
-
-transition:all 0.25s ease;
-
-background:white;
-
-display:block;
-
-}
-
-
-.dropdown-menu li a:hover{
-
-background:var(--light);
-
-color:var(--blue);
-
-border-left:3px solid var(--blue);
-
-padding-left:30px;
-
-}
-
-
-.nav-links .quote{
-
-background:var(--blue);
-
-padding:14px 25px;
-
-border-radius:4px;
-
-font-weight:800;
-
-transition:background 0.3s;
-
-}
-
-
-.nav-links .quote:hover{
-
-background:var(--blue-light) !important;
-
-color:white !important;
-
-}
-
-
-/* ===== PAGE HERO ===== */
-
-
-.page-hero{
-
-padding-top:120px;
-
-padding-bottom:60px;
-
-background:
-
-linear-gradient(135deg, rgba(6,27,46,0.92), rgba(8,119,201,0.8)),
-
-url("images/12.png");
-background-size:cover;
-
-background-position:center;
-
-background-attachment:fixed;
-
-color:white;
-
-animation:heroFadeIn 1.2s ease forwards;
-
-}
-
-
-.page-hero h1{
-
-font-size:clamp(44px,6vw,70px);
-
-font-weight:900;
-
-letter-spacing:-2px;
-
-margin-bottom:10px;
-
-}
-
-
-.page-hero p{
-
-font-size:18px;
-
-color:#c2d6e4;
-
-max-width:600px;
-
-}
-
-
-/* ===== BREADCRUMB ===== */
-
-
-.breadcrumb{
-
-padding:20px 0 30px 0;
-
-background:var(--light);
-
-border-bottom:1px solid var(--line);
-
-animation:fadeInUp 0.8s ease forwards;
-
-}
-
-
-.breadcrumb a{
-
-color:var(--blue);
-
-font-weight:600;
-
-font-size:14px;
-
-transition:color 0.3s;
-
-}
-
-
-.breadcrumb a:hover{
-
-color:var(--navy);
-
-}
-
-
-.breadcrumb span{
-
-color:var(--grey);
-
-font-size:14px;
-
-}
-
-
-.breadcrumb .current{
-
-color:var(--navy);
-
-font-weight:700;
-
-}
-
-
-/* ===== MAIN CONTENT ===== */
-
-
-.main-content{
-
-display:grid;
-
-grid-template-columns:280px 1fr;
-
-gap:50px;
-
-padding:50px 0 80px 0;
-
-animation:fadeInUp 1s ease forwards;
-
-}
-
-
-/* ===== SIDEBAR ===== */
-
-
-.sidebar{
-
-background:white;
-
-border-radius:12px;
-
-padding:25px 0;
-
-box-shadow:0 5px 25px rgba(0,0,0,0.06);
-
-border:1px solid var(--line);
-
-height:fit-content;
-
-position:sticky;
-
-top:110px;
-
-}
-
-
-.sidebar h3{
-
-padding:0 25px 15px 25px;
-
-font-size:16px;
-
-color:var(--navy);
-
-border-bottom:2px solid var(--blue);
-
-margin-bottom:10px;
-
-letter-spacing:1px;
-
-}
-
-
-.sidebar ul{
-
-list-style:none;
-
-padding:0;
-
-margin:0;
-
-}
-
-
-.sidebar ul li{
-
-border-bottom:1px solid #f0f4f8;
-
-}
-
-
-.sidebar ul li a{
-
-display:block;
-
-padding:14px 25px;
-
-color:var(--grey);
-
-font-weight:600;
-
-font-size:14px;
-
-transition:all 0.3s ease;
-
-position:relative;
-
-border-left:3px solid transparent;
-
-}
-
-
-.sidebar ul li a:hover{
-
-background:var(--light);
-
-color:var(--blue);
-
-border-left:3px solid var(--blue);
-
-padding-left:32px;
-
-}
-
-
-.sidebar ul li a.active{
-
-background:var(--light);
-
-color:var(--blue);
-
-border-left:3px solid var(--blue);
-
-font-weight:700;
-
-}
-
-
-/* ===== PRODUCT SECTIONS ===== */
-
-
-.products-section{
-
-padding:0;
-
-}
-
-
-.section-block{
-
-margin-bottom:60px;
-
-}
-
-
-.section-block:last-child{
-
-margin-bottom:0;
-
-}
-
-
-.section-block .label{
-
-color:var(--blue);
-
-font-size:12px;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-margin-bottom:5px;
-
-}
-
-
-.section-block h2{
-
-font-size:clamp(28px,3vw,38px);
-
-color:var(--navy);
-
-margin-bottom:15px;
-
-}
-
-
-.section-block .intro-text{
-
-color:var(--grey);
-
-font-size:16px;
-
-line-height:1.8;
-
-max-width:800px;
-
-margin-bottom:30px;
-
-}
-
-
-/* Product sub-cards */
-
-.sub-product-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
-
-gap:30px;
-
-margin-top:10px;
-
-}
-
-
-.sub-product-item{
-
-background:white;
-
-border-radius:16px;
-
-overflow:hidden;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-
-border:1px solid var(--line);
-
-transition:all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-cursor:pointer;
-
-}
-
-
-.sub-product-item:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 25px 50px rgba(0,104,183,0.15);
-
-border-color:var(--blue-light);
-
-}
-
-
-.sub-product-item .image{
-
-height:200px;
-
-background-size:cover;
-
-background-position:center;
-
-transition:transform 0.6s ease;
-
-overflow:hidden;
-
-}
-
-
-.sub-product-item:hover .image{
-
-transform:scale(1.04);
-
-}
-
-
-.sub-product-item .content{
-
-padding:22px 25px 25px 25px;
-
-}
-
-
-.sub-product-item .content h3{
-
-font-size:20px;
-
-color:var(--navy);
-
-margin-bottom:6px;
-
-}
-
-
-.sub-product-item .content .code{
-
-display:block;
-
-font-size:13px;
-
-color:var(--blue);
-
-font-weight:700;
-
-margin-bottom:8px;
-
-}
-
-
-.sub-product-item .content p{
-
-color:var(--grey);
-
-font-size:14px;
-
-line-height:1.6;
-
-margin-bottom:12px;
-
-}
-/* ===== FOOTER ===== */
-
-
-footer{
-
-background:#031522;
-
-color:white;
-
-padding:50px 0;
-
-margin-top:40px;
-
-}
-
-
-.footer-content{
-
-display:flex;
-
-justify-content:space-between;
-
-gap:40px;
-
-flex-wrap:wrap;
-
-}
-
-
-footer p{
-
-color:#8da7b9;
-
-max-width:500px;
-
-}
-
-
-.copyright{
-
-margin-top:30px;
-
-padding-top:20px;
-
-border-top:1px solid #244057;
-
-color:#7790a2;
-
-font-size:13px;
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories | ForPro</title>
+
+  <!-- ===== SHARED STYLES (all common CSS) ===== -->
+  <link rel="stylesheet" href="shared.css">
+
+  <!-- ===== PAGE-SPECIFIC STYLES ===== -->
+  <style>
+    /* --- Only styles unique to this page --- */
+    /* Everything else (header, footer, responsive, variables) is in shared.css */
+
+    /* Hero */
+    .page-hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      background: linear-gradient(135deg, rgba(6, 27, 46, 0.92), rgba(8, 119, 201, 0.8)), url("images/12.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+    .page-hero h1 {
+      font-size: clamp(44px, 6vw, 70px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+    .page-hero p {
+      font-size: 18px;
+      color: #c2d6e4;
+      max-width: 600px;
+    }
+
+    /* Main layout (desktop: sidebar + content) */
+    .main-content {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 50px;
+      padding: 50px 0 80px 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: white;
+      border-radius: 12px;
+      padding: 25px 0;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--line);
+      height: fit-content;
+      position: sticky;
+      top: 110px;
+    }
+    .sidebar h3 {
+      padding: 0 25px 15px 25px;
+      font-size: 16px;
+      color: var(--navy);
+      border-bottom: 2px solid var(--blue);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .sidebar ul li a {
+      display: block;
+      padding: 14px 25px;
+      color: var(--grey);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    .sidebar ul li a:hover {
+      background: var(--light);
+      color: var(--blue);
+      border-left: 3px solid var(--blue);
+      padding-left: 32px;
+    }
+    .sidebar ul li a.active {
+      background: var(--light);
+      color: var(--blue);
+      border-left: 3px solid var(--blue);
+      font-weight: 700;
+    }
+
+    /* Products section */
+    .products-section {
+      padding: 0;
+    }
+    .section-block {
+      margin-bottom: 60px;
+    }
+    .section-block:last-child {
+      margin-bottom: 0;
+    }
+    .section-block .label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .section-block h2 {
+      font-size: clamp(28px, 3vw, 38px);
+      color: var(--navy);
+      margin-bottom: 15px;
+    }
+    .section-block .intro-text {
+      color: var(--grey);
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    /* Product cards grid */
+    .sub-product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 10px;
+    }
+    .sub-product-item {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--line);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: default;
+    }
+    .sub-product-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 104, 183, 0.15);
+      border-color: var(--blue-light);
+    }
+    .sub-product-item .image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .sub-product-item:hover .image {
+      transform: scale(1.04);
+    }
+    .sub-product-item .content {
+      padding: 22px 25px 25px 25px;
+    }
+    .sub-product-item .content h3 {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .sub-product-item .content p {
+      color: var(--grey);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* CTA banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      padding: 35px 40px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+      color: white;
+    }
+    .cta-banner h3 {
+      font-size: 24px;
+    }
+    .cta-banner .btn {
+      background: var(--blue);
+      color: white;
+      padding: 14px 35px;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .cta-banner .btn:hover {
+      background: var(--blue-light);
+    }
+
+    /* Sidebar toggle button (hidden on desktop, shown on mobile) */
+    .sidebar-toggle {
+      display: none;
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+    }
+    .sidebar-toggle::after {
+      content: " ▾";
+    }
+    .sidebar-toggle.open::after {
+      content: " ▴";
+    }
+
+    /* ===== RESPONSIVE OVERRIDES ===== */
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+      .sidebar {
+        position: relative !important;
+        top: 0 !important;
+        display: none; /* hidden by default on mobile */
+      }
+      .sidebar.mobile-visible {
+        display: block;
+      }
+      .sidebar-toggle {
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sub-product-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .section-block h2 {
+        font-size: 26px;
+      }
+      .section-block .intro-text {
+        font-size: 15px;
+      }
+      .page-hero h1 {
+        font-size: 32px;
+      }
+      .page-hero p {
+        font-size: 15px;
+      }
+      .page-hero {
+        background-attachment: scroll;
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+      .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      .cta-banner h3 {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-block h2 {
+        font-size: 22px;
+      }
+      .sub-product-item .content {
+        padding: 16px 18px 20px;
+      }
+      .sub-product-item .content h3 {
+        font-size: 18px;
+      }
+      .cta-banner .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+      .page-hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- ============================================================ -->
+  <!-- HEADER + MOBILE MENU (now from shared.css and shared.js)      -->
+  <!-- ============================================================ -->
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="index.html">For<span>Pro</span></a>
 
-<!-- ===== HEADER ===== -->
-<header>
-  <div class="container">
-    <nav>
-      <a class="logo" href="index.html">For<span>Pro</span></a>
-      <ul class="nav-links">
-        <!-- PRODUCTS DROPDOWN -->
-        <li class="dropdown">
-          <a href="#">Products</a>
-          <ul class="dropdown-menu">
-            <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-            <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-            <li><a href="slab-formwork.html">Slab Formwork</a></li>
-            <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
-            <li><a href="safety-system.html">Safety System</a></li>
-            <li><a href="accessories.html">Accessories</a></li>
-            <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
-          </ul>
-        </li>
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
+          <li class="dropdown">
+            <a href="#">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+              <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+              <li><a href="slab-formwork.html">Slab Formwork</a></li>
+              <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
+              <li><a href="ringlock-scaffolding.html">Ringlock Scaffolding</a></li>
+              <li><a href="safety-system.html">Safety System</a></li>
+              <li><a href="accessories.html">Accessories</a></li>
+              <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">Projects</a>
+            <ul class="dropdown-menu">
+              <li><a href="projects.html">All Projects</a></li>
+              <li><a href="projects.html#bridges">Bridges</a></li>
+              <li><a href="projects.html#lng">LNG</a></li>
+              <li><a href="projects.html#nuclear">Nuclear</a></li>
+              <li><a href="projects.html#tunnels">Tunnels</a></li>
+              <li><a href="projects.html#hydropower">Hydropower</a></li>
+            </ul>
+          </li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="about us.html">About Us</a></li>
+          <li><a href="index.html#contact" class="quote">Contact Us</a></li>
+        </ul>
 
-        <!-- PROJECTS DROPDOWN -->
-        <li class="dropdown">
-          <a href="#">Projects</a>
-          <ul class="dropdown-menu">
-            <li><a href="projects.html">All Projects</a></li>
-            <li><a href="projects.html#bridges">Bridges</a></li>
-            <li><a href="projects.html#lng">LNG</a></li>
-            <li><a href="projects.html#nuclear">Nuclear</a></li>
-            <li><a href="projects.html#tunnels">Tunnels</a></li>
-            <li><a href="projects.html#hydropower">Hydropower</a></li>
-          </ul>
-        </li>
+        <!-- Hamburger button (appears on mobile) -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-        <li><a href="industries.html">Industries</a></li>
-    <li><a href="about us.html">About Us</a></li>
-        <li><a href="index.html#contact" class="quote">Contact Us</a></li>
-      </ul>
-    </nav>
+  <!-- Mobile Navigation (slide-out) -->
+  <div class="overlay" id="overlay"></div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li>
+        <div class="mobile-dropdown-toggle" data-target="mobile-products">
+          Products <span>▸</span>
+        </div>
+        <ul class="mobile-sub-menu" id="mobile-products">
+          <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+          <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+          <li><a href="slab-formwork.html">Slab Formwork</a></li>
+          <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork</a></li>
+          <li><a href="ringlock-scaffolding.html">Ringlock Scaffolding</a></li>
+          <li><a href="safety-system.html">Safety System</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+          <li><a href="innovative-products.html">Innovative Products</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="mobile-dropdown-toggle" data-target="mobile-projects">
+          Projects <span>▸</span>
+        </div>
+        <ul class="mobile-sub-menu" id="mobile-projects">
+          <li><a href="projects.html">All Projects</a></li>
+          <li><a href="projects.html#bridges">Bridges</a></li>
+          <li><a href="projects.html#lng">LNG</a></li>
+          <li><a href="projects.html#nuclear">Nuclear</a></li>
+          <li><a href="projects.html#tunnels">Tunnels</a></li>
+          <li><a href="projects.html#hydropower">Hydropower</a></li>
+        </ul>
+      </li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="index.html#contact" class="mobile-quote">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- PAGE CONTENT                                                 -->
+  <!-- ============================================================ -->
+
+  <!-- HERO BANNER -->
+  <section class="page-hero">
+    <div class="container">
+      <p style="font-size:13px;color:#8fd0ff;letter-spacing:2px;font-weight:800;margin-bottom:8px;">ForPro</p>
+      <h1>Accessories &amp; Components</h1>
+      <p>High-quality precision engineered tie rods, anchors, wing nuts, pins, and couplers designed to connect and secure your formwork systems safely and efficiently.</p>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> <span> &gt; </span>
+      <a href="#">Products</a> <span> &gt; </span>
+      <span class="current">Accessories</span>
+    </div>
   </div>
-</header>
 
-
-<!-- ===== HERO BANNER ===== -->
-
-
-<section class="page-hero">
-
-<div class="container">
-
-<p style="font-size:13px;color:#8fd0ff;letter-spacing:2px;font-weight:800;margin-bottom:8px;">ForPro</p>
-
-<h1>Accessories &amp; Components</h1>
-
-<p>High-quality precision engineered tie rods, anchors, wing nuts, pins, and couplers designed to connect and secure your formwork systems safely and efficiently.</p>
-
-</div>
-
-</section>
-
-
-<!-- ===== BREADCRUMB ===== -->
-
-
-<div class="breadcrumb">
-
-<div class="container">
-
-<a href="index.html">Home</a> <span> &gt; </span>
-
-<a href="#">Products</a> <span> &gt; </span>
-
-<span class="current">Accessories</span>
-
-</div>
-
-</div>
-
-
-<!-- ===== MAIN CONTENT ===== -->
-
-
-<section class="container main-content">
-
-
-<!-- ===== SIDEBAR ===== -->
-
-
-<aside class="sidebar">
-
-<h3>📁 PRODUCTS</h3>
-
-<ul>
-
-<li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-
-<li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-
-<li><a href="slab-formwork.html">Slab Formwork</a></li>
-
-<li><a href="single-sided-wall-formwork.html">Single-sided Wall formwork and Props</a></li>
-
-<li><a href="safety-system.html">Safety System</a></li>
-
-<!-- ✅ ACTIVE LINK IN SIDEBAR -->
-<li><a href="accessories.html" class="active">Accessories</a></li>
-
-<li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
-
-</ul>
-
-</aside>
-
-
-<!-- ===== MAIN PRODUCTS ===== -->
-
-
-<div class="products-section">
-
-
-<!-- ===== SECTION 1: ANCHORS & RODS ===== -->
-
-
-<div class="section-block" id="anchor-rods">
-
-<div class="label">Connecting Components</div>
-
-<h2>Tie Rods &amp; Anchoring Systems</h2>
-
-<p class="intro-text">
-
-The backbone of any reliable formwork system. Our heavy-duty tie rods and anchors withstand extreme loads and ensure perfect alignment during concrete pouring.
-
-</p>
-
-
-<div class="sub-product-grid">
-
-<!-- TR-20 -->
-
-<div class="sub-product-item">
-
-<div class="image" style="background-image:url('images/15.png');"></div>
-
-<div class="content">
-
-<span class="code"></span>
-
-<h3>Tie Rods &amp; Anchors</h3>
-
-<p>High-strength steel tie rods and anchor plates designed to transfer loads safely from the formwork to the concrete structure.</p>
-
-<!-- 🗑️ View Details link removed -->
-
-</div>
-
-</div>
-
-
-<!-- WN-16 -->
-
-<div class="sub-product-item">
-
-<div class="image" style="background-image:url('images/11.png');"></div>
-
-<div class="content">
-
-<span class="code"></span>
-
-<h3>Wing Nuts &amp; Washers</h3>
-
-<p>Precision-threaded wing nuts and pressure washers designed for rapid tightening and loosening during the assembly and dismantling process.</p>
-
-<!-- 🗑️ View Details link removed -->
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ===== SECTION 2: PINS & COUPLERS ===== -->
-
-
-<div class="section-block" id="pins-couplers">
-
-<div class="label">Assembly Hardware</div>
-
-<h2>Pins, Couplers &amp; Connectors</h2>
-
-<p class="intro-text">
-
-Versatile connecting hardware designed to quickly lock panels, beams, and scaffolding components together without sacrificing load-bearing strength.
-
-</p>
-
-
-<div class="sub-product-grid">
-
-<!-- PC-19 -->
-
-<div class="sub-product-item">
-
-<div class="image" style="background-image:url('images/13.png');"></div>
-
-<div class="content">
-
-<span class="code"></span>
-
-<h3>Pins &amp; Couplers</h3>
-
-<p>Industrial-grade spring pins, connecting couplers, and locking clips for seamless panel-to-panel and panel-to-beam joining.</p>
-
-<!-- 🗑️ View Details link removed -->
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ===== CTA BANNER ===== -->
-
-
-<div class="cta-banner">
-
-<div>
-
-<h3>Need specialized connecting parts?</h3>
-
-<p style="color:#c2d6e4;margin-top:4px;">Let our engineering team help you select the exact accessories to complete your system safely.</p>
-
-</div>
-
-<a href="#" class="btn">Contact Engineering</a>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-<!-- ===== FOOTER ===== -->
-
-
-<footer>
-
-<div class="container">
-
-<div class="footer-content">
-
-<div>
-
-<h3 style="font-size:24px;">For<span style="color:var(--blue-light);">Pro</span></h3>
-
-<p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
-
-</div>
-
-<div>
-
-<h4>Quick Links</h4>
-
-<p style="color:#8da7b9;line-height:2;">
-
-Products<br>
-
-Industries<br>
-
-Engineering<br>
-
-Contact
-
-</p>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 ForPro Engineering. All rights reserved.
-
-</div>
-
-</div>
-
-</footer>
-
-
-<!-- ===== SOUND EFFECTS ===== -->
-<script>
-
-// ============================================================
-// 1. CREATE THE SOUND ENGINE (no external files needed)
-// ============================================================
-
-function playSound(type) {
-    try {
-        // Create audio context (required for Web Audio API)
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
-        // Resume context if it was suspended (fixes Chrome autoplay policy)
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-
-        // Create oscillator (generates the beep)
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-
-        // Different sounds for different actions
-        if (type === 'click') {
-            // Sharp click sound
-            oscillator.frequency.value = 900;
-            gainNode.gain.value = 0.25;
-            oscillator.type = 'sine';
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-            oscillator.start(audioCtx.currentTime);
-            oscillator.stop(audioCtx.currentTime + 0.08);
-        } 
-        else if (type === 'hover') {
-            // Soft tick sound
-            oscillator.frequency.value = 600;
-            gainNode.gain.value = 0.12;
-            oscillator.type = 'sine';
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
-            oscillator.start(audioCtx.currentTime);
-            oscillator.stop(audioCtx.currentTime + 0.04);
-        } 
-        else if (type === 'swoosh') {
-            // Smooth rising swoosh
-            oscillator.frequency.value = 300;
-            oscillator.frequency.exponentialRampToValueAtTime(700, audioCtx.currentTime + 0.12);
-            gainNode.gain.value = 0.1;
-            oscillator.type = 'sine';
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
-            oscillator.start(audioCtx.currentTime);
-            oscillator.stop(audioCtx.currentTime + 0.12);
-        }
-    } catch (e) {
-        // Silent fail if browser doesn't support Web Audio
-        console.log('Sound not supported');
-    }
-}
-
-
-// ============================================================
-// 2. ATTACH SOUNDS TO YOUR ELEMENTS
-// ============================================================
-
-// Wait for the page to load
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- CLICK SOUND: All buttons ---
-    const buttons = document.querySelectorAll('.btn, .quote, .learn-more');
-    buttons.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            playSound('click');
-        });
-    });
-
-    // --- HOVER SOUND: All navigation links (top menu) ---
-    const navLinks = document.querySelectorAll('.links > li > a, .nav-links > li > a');
-    navLinks.forEach(function(link) {
-        link.addEventListener('mouseenter', function() {
-            playSound('hover');
-        });
-    });
-
-    // --- HOVER SOUND: All dropdown items ---
-    const dropdownItems = document.querySelectorAll('.dropdown-menu li a, .sidebar ul li a');
-    dropdownItems.forEach(function(item) {
-        item.addEventListener('mouseenter', function() {
-            playSound('hover');
-        });
-    });
-
-    // --- HOVER SOUND: All product cards (the main page cards) ---
-    const productCards = document.querySelectorAll('.product-card, .product-item, .sub-product-item');
-    productCards.forEach(function(card) {
-        card.addEventListener('mouseenter', function() {
-            playSound('swoosh');
-        });
-    });
-
-});
-</script>
-
+  <!-- MAIN CONTENT -->
+  <section class="container main-content">
+
+    <!-- SIDEBAR TOGGLE BUTTON (mobile only) -->
+    <button class="sidebar-toggle" id="sidebarToggle">📁 Products</button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <h3>📁 PRODUCTS</h3>
+      <ul>
+        <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+        <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+        <li><a href="slab-formwork.html">Slab Formwork</a></li>
+        <li><a href="single-sided-wall-formwork.html">Single-sided Wall formwork and Props</a></li>
+        <li><a href="safety-system.html">Safety System</a></li>
+        <li><a href="accessories.html" class="active">Accessories</a></li>
+        <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
+      </ul>
+    </aside>
+
+    <!-- PRODUCTS SECTION -->
+    <div class="products-section">
+
+      <!-- SECTION 1 -->
+      <div class="section-block" id="anchor-rods">
+        <div class="label">Connecting Components</div>
+        <h2>Tie Rods &amp; Anchoring Systems</h2>
+        <p class="intro-text">The backbone of any reliable formwork system. Our heavy-duty tie rods and anchors withstand extreme loads and ensure perfect alignment during concrete pouring.</p>
+
+        <div class="sub-product-grid">
+          <div class="sub-product-item">
+            <div class="image" style="background-image:url('images/15.png');"></div>
+            <div class="content">
+              <h3>Tie Rods &amp; Anchors</h3>
+              <p>High-strength steel tie rods and anchor plates designed to transfer loads safely from the formwork to the concrete structure.</p>
+            </div>
+          </div>
+          <div class="sub-product-item">
+            <div class="image" style="background-image:url('images/11.png');"></div>
+            <div class="content">
+              <h3>Wing Nuts &amp; Washers</h3>
+              <p>Precision-threaded wing nuts and pressure washers designed for rapid tightening and loosening during the assembly and dismantling process.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="section-block" id="pins-couplers">
+        <div class="label">Assembly Hardware</div>
+        <h2>Pins, Couplers &amp; Connectors</h2>
+        <p class="intro-text">Versatile connecting hardware designed to quickly lock panels, beams, and scaffolding components together without sacrificing load-bearing strength.</p>
+
+        <div class="sub-product-grid">
+          <div class="sub-product-item">
+            <div class="image" style="background-image:url('images/13.png');"></div>
+            <div class="content">
+              <h3>Pins &amp; Couplers</h3>
+              <p>Industrial-grade spring pins, connecting couplers, and locking clips for seamless panel-to-panel and panel-to-beam joining.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA BANNER -->
+      <div class="cta-banner">
+        <div>
+          <h3>Need specialized connecting parts?</h3>
+          <p style="color:#c2d6e4;margin-top:4px;">Let our engineering team help you select the exact accessories to complete your system safely.</p>
+        </div>
+        <a href="#" class="btn">Contact Engineering</a>
+      </div>
+
+    </div> <!-- /products-section -->
+  </section> <!-- /main-content -->
+
+  <!-- ============================================================ -->
+  <!-- FOOTER (now from shared.css)                                 -->
+  <!-- ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3 style="font-size:24px;">For<span style="color:var(--blue-light);">Pro</span></h3>
+          <p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <p style="color:#8da7b9;line-height:2;">
+            Products<br>
+            Industries<br>
+            Engineering<br>
+            Contact
+          </p>
+        </div>
+      </div>
+      <div class="copyright">© 2026 ForPro Engineering. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- SHARED JAVASCRIPT (hamburger, mobile dropdown, sounds, sidebar)-->
+  <!-- ============================================================ -->
+  <script src="shared.js"></script>
 
 </body>
-
 
 </html>
