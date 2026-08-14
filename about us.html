@@ -68,8 +68,11 @@
                 sans-serif;
 
             color: #102235;
+
             line-height: 1.6;
+
             overflow-x: hidden;
+
             background: #000;
 
             -webkit-font-smoothing: antialiased;
@@ -102,6 +105,7 @@
 
         .container {
             width: min(92%, 1320px);
+
             margin: auto;
 
             padding-left: max(4px, var(--safe-left));
@@ -125,13 +129,18 @@
 
             z-index: 999;
 
-            background: rgba(6, 27, 46, 0.96);
+            background:
+                rgba(6, 27, 46, 0.96);
 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
 
             border-bottom:
-                1px solid rgba(255,255,255,0.08);
+                1px solid
+                rgba(255, 255, 255, 0.08);
 
             min-height:
                 calc(
@@ -139,16 +148,21 @@
                     var(--safe-top)
                 );
 
-            padding-top: var(--safe-top);
+            padding-top:
+                var(--safe-top);
         }
 
 
         nav {
-            height: var(--header-height);
+            height:
+                var(--header-height);
 
             display: flex;
+
             align-items: center;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
 
             gap: 12px;
         }
@@ -176,7 +190,8 @@
 
 
         .logo span {
-            color: var(--blue-light);
+            color:
+                var(--blue-light);
         }
 
 
@@ -225,7 +240,8 @@
 
 
         .nav-links > li > a:hover {
-            color: var(--blue-light);
+            color:
+                var(--blue-light);
         }
 
 
@@ -242,7 +258,8 @@
         .dropdown-menu {
             position: absolute;
 
-            top: calc(100% + 8px);
+            top:
+                calc(100% + 8px);
 
             left: 0;
 
@@ -275,13 +292,15 @@
                 transform 0.25s ease;
 
             border-top:
-                4px solid var(--blue);
+                4px solid
+                var(--blue);
 
             z-index: 100;
         }
 
 
-        .dropdown:hover .dropdown-menu,
+        .dropdown:hover
+        .dropdown-menu,
         .dropdown-menu.show {
             opacity: 1;
 
@@ -293,9 +312,11 @@
 
 
         .dropdown-menu li a {
-            color: var(--navy);
+            color:
+                var(--navy);
 
-            padding: 10px 20px;
+            padding:
+                10px 20px;
 
             font-weight: 600;
 
@@ -316,9 +337,11 @@
 
 
         .dropdown-menu li a:hover {
-            background: var(--light);
+            background:
+                var(--light);
 
-            color: var(--blue);
+            color:
+                var(--blue);
 
             border-left-color:
                 var(--blue);
@@ -333,9 +356,11 @@
         ============================================================ */
 
         .nav-links .quote {
-            background: var(--blue);
+            background:
+                var(--blue);
 
-            padding: 10px 22px;
+            padding:
+                10px 22px;
 
             border-radius: 4px;
 
@@ -386,7 +411,8 @@
 
             z-index: 1001;
 
-            touch-action: manipulation;
+            touch-action:
+                manipulation;
         }
 
 
@@ -447,7 +473,9 @@
             background:
                 rgba(6, 27, 46, 0.985);
 
-            backdrop-filter: blur(20px);
+            backdrop-filter:
+                blur(20px);
+
             -webkit-backdrop-filter:
                 blur(20px);
 
@@ -536,7 +564,8 @@
 
             font-weight: 700;
 
-            padding: 14px 20px;
+            padding:
+                14px 20px;
 
             border-radius: 8px;
 
@@ -550,10 +579,11 @@
         }
 
 
-        .mobile-menu-inner ul li a:active,
+        .mobile-menu-inner
+        ul li a:active,
         .mobile-dropdown-toggle:active {
             background:
-                rgba(255,255,255,0.08);
+                rgba(255, 255, 255, 0.08);
         }
 
 
@@ -587,7 +617,8 @@
 
             user-select: none;
 
-            touch-action: manipulation;
+            touch-action:
+                manipulation;
         }
 
 
@@ -680,7 +711,7 @@
 
 
         /* ============================================================
-           FULL SCREEN SLIDES
+           FULL SCREEN SLIDES — DESKTOP
         ============================================================ */
 
         .full-slide {
@@ -707,7 +738,7 @@
 
 
         /* ============================================================
-           NORMAL DESKTOP IMAGE
+           DESKTOP IMAGE
         ============================================================ */
 
         .image-slide > img {
@@ -744,9 +775,15 @@
         }
 
 
-        /* Background copy is only needed on phone */
+
+        /*
+         * IMPORTANT
+         *
+         * Blurred mobile backgrounds are no longer used.
+         */
         .mobile-image-bg {
-            display: none;
+            display:
+                none !important;
         }
 
 
@@ -817,7 +854,7 @@
 
 
         /* ============================================================
-           GENERAL DARK OVERLAY
+           GENERAL DARK OVERLAY — DESKTOP
         ============================================================ */
 
         .full-slide::after {
@@ -830,17 +867,10 @@
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.06)
-                    0%,
-
-                    rgba(0,0,0,0.01)
-                    45%,
-
-                    rgba(0,0,0,0.10)
-                    65%,
-
-                    rgba(0,0,0,0.50)
-                    100%
+                    rgba(0,0,0,0.06) 0%,
+                    rgba(0,0,0,0.01) 45%,
+                    rgba(0,0,0,0.10) 65%,
+                    rgba(0,0,0,0.50) 100%
                 );
 
             z-index: 2;
@@ -913,6 +943,8 @@
                 );
 
             font-weight: 800;
+
+            line-height: 1.35;
 
             letter-spacing: 0.5px;
 
@@ -1277,7 +1309,15 @@
 
         /* ============================================================
            PHONE PORTRAIT
-           IMPORTANT IMAGE FIX
+           NEW CONTINUOUS IMAGE LAYOUT
+
+           IMAGE
+           IMAGE
+           VIDEO
+
+           NO BLURRED BACKGROUND
+           NO EMPTY SPACE
+           NO 100VH SECTIONS
         ============================================================ */
 
         @media
@@ -1285,206 +1325,344 @@
         and
         (orientation: portrait) {
 
-            .full-slide {
-                height: 100svh;
-                height: 100dvh;
 
-                min-height: 540px;
+            /* --------------------------------------------------------
+               REMOVE SNAP SCROLLING ON PHONE
+            -------------------------------------------------------- */
+
+            html {
+                scroll-snap-type:
+                    none !important;
+            }
+
+
+            body {
+                background: #000;
+
+                margin: 0;
+
+                padding: 0;
+
+                overflow-x: hidden;
+            }
+
+
+
+            /* --------------------------------------------------------
+               IMAGE SECTIONS
+
+               SECTION HEIGHT NOW COMES FROM IMAGE HEIGHT.
+            -------------------------------------------------------- */
+
+            .full-slide.image-slide {
+                position: relative;
+
+                width: 100%;
+
+                height: auto !important;
+
+                min-height: 0 !important;
+
+                max-height: none !important;
+
+                margin: 0 !important;
+
+                padding: 0 !important;
+
+                overflow: hidden;
+
+                background:
+                    transparent !important;
+
+                scroll-snap-align:
+                    none !important;
+
+                scroll-snap-stop:
+                    normal !important;
+
+                isolation: auto;
+
+                /*
+                 * Prevent tiny inline/image baseline gap
+                 */
+                line-height: 0;
+            }
+
+
+
+            /* --------------------------------------------------------
+               ABSOLUTELY NO BLURRED BACKGROUND
+            -------------------------------------------------------- */
+
+            .mobile-image-bg {
+                display:
+                    none !important;
             }
 
 
 
             /*
-             * PHONE IMAGE SOLUTION
-             *
-             * Instead of cropping the original
-             * landscape image with object-fit: cover,
-             * we create:
-             *
-             * 1. blurred full-screen background
-             * 2. complete uncropped main image
-             *
-             * Result:
-             * important factory / building / text
-             * remains visible.
+             * Remove old extra mobile shading layer.
              */
 
-            .image-slide {
-                background:
-                    #061b2e;
+            .image-slide::before {
+                display:
+                    none !important;
+
+                content:
+                    none !important;
             }
 
 
-            .mobile-image-bg {
-                display: block;
 
-                position: absolute;
+            /*
+             * Remove desktop dark gradient from
+             * image sections on phone.
+             */
 
-                inset: -35px;
+            .image-slide::after {
+                display:
+                    none !important;
 
-                background-size:
-                    cover;
+                content:
+                    none !important;
+            }
 
-                background-position:
-                    center center;
 
-                background-repeat:
-                    no-repeat;
 
-                filter:
-                    blur(26px);
+            /* --------------------------------------------------------
+               PHONE IMAGES
 
-                -webkit-filter:
-                    blur(26px);
+               These now participate in normal document flow.
+
+               Therefore:
+               image 2 begins immediately after image 1.
+            -------------------------------------------------------- */
+
+            .image-slide > img,
+            #factory-slide > img,
+            #industry > img {
+                position:
+                    relative !important;
+
+                top:
+                    auto !important;
+
+                right:
+                    auto !important;
+
+                bottom:
+                    auto !important;
+
+                left:
+                    auto !important;
+
+                inset:
+                    auto !important;
+
+                display:
+                    block !important;
+
+                width:
+                    100% !important;
+
+                max-width:
+                    100% !important;
+
+                height:
+                    auto !important;
+
+                min-height:
+                    0 !important;
+
+                max-height:
+                    none !important;
+
+                margin:
+                    0 !important;
+
+                /*
+                 * Slight overlap protects against
+                 * 1px mobile-browser rendering seams.
+                 */
+                margin-bottom:
+                    -1px !important;
+
+                padding:
+                    0 !important;
+
+                object-fit:
+                    contain !important;
+
+                object-position:
+                    center center !important;
 
                 transform:
-                    scale(1.14);
+                    none !important;
 
-                opacity: 0.88;
+                filter:
+                    none !important;
+
+                -webkit-filter:
+                    none !important;
+
+                vertical-align:
+                    bottom !important;
+
+                backface-visibility:
+                    visible;
+
+                -webkit-backface-visibility:
+                    visible;
+
+                transition:
+                    none !important;
 
                 z-index: 0;
             }
 
 
 
+            /* --------------------------------------------------------
+               VIDEO SECTION
+
+               VIDEO ALSO SITS DIRECTLY BELOW IMAGE 2.
+            -------------------------------------------------------- */
+
+            #video-slide {
+                position: relative;
+
+                width: 100%;
+
+                height: auto !important;
+
+                min-height: 0 !important;
+
+                max-height: none !important;
+
+                margin: 0 !important;
+
+                padding: 0 !important;
+
+                overflow: hidden;
+
+                background:
+                    #000 !important;
+
+                scroll-snap-align:
+                    none !important;
+
+                scroll-snap-stop:
+                    normal !important;
+
+                line-height: 0;
+            }
+
+
+
+            #video-slide::before {
+                display:
+                    none !important;
+
+                content:
+                    none !important;
+            }
+
+
+
             /*
-             * Additional background shading
+             * Keep a very subtle overlay only over
+             * the actual video, not between media.
              */
 
-            .image-slide::before {
-                content: "";
-
-                position: absolute;
-
-                inset: 0;
-
+            #video-slide::after {
                 background:
                     linear-gradient(
                         to bottom,
-                        rgba(
-                            3,
-                            15,
-                            25,
-                            0.18
-                        )
-                        0%,
-
-                        rgba(
-                            3,
-                            15,
-                            25,
-                            0.10
-                        )
-                        45%,
-
-                        rgba(
-                            3,
-                            15,
-                            25,
-                            0.35
-                        )
-                        100%
+                        rgba(0,0,0,0.02),
+                        rgba(0,0,0,0.18)
                     );
-
-                z-index: 1;
-
-                pointer-events: none;
             }
 
 
 
-            /*
-             * COMPLETE ORIGINAL IMAGE
-             *
-             * No aggressive crop.
-             */
+            .full-slide video,
+            #video-slide video {
+                position:
+                    relative !important;
 
-            .image-slide > img {
-                position: absolute;
+                top:
+                    auto !important;
 
-                top: 50%;
+                right:
+                    auto !important;
 
-                left: 50%;
+                bottom:
+                    auto !important;
 
-                width: 100%;
+                left:
+                    auto !important;
 
-                height: auto;
+                inset:
+                    auto !important;
 
-                max-height: 100%;
+                display:
+                    block !important;
 
-                object-fit: contain;
+                width:
+                    100% !important;
 
-                object-position:
-                    center center;
+                height:
+                    auto !important;
 
-                transform:
-                    translate(
-                        -50%,
-                        -50%
-                    );
+                min-height:
+                    0 !important;
 
-                z-index: 2;
-            }
+                max-height:
+                    none !important;
 
+                margin:
+                    0 !important;
 
-
-            /*
-             * On tall narrow phones
-             * this allows the image to use as
-             * much width as possible.
-             */
-
-            #factory-slide > img,
-            #industry > img {
-                width: 100%;
-
-                height: auto;
-
-                max-height: 82%;
-            }
-
-
-
-            /*
-             * VIDEO:
-             * show complete landscape video
-             * on portrait screen.
-             */
-
-            .full-slide video {
-                width: 100%;
-
-                height: 100%;
+                padding:
+                    0 !important;
 
                 object-fit:
-                    contain;
+                    contain !important;
 
                 object-position:
-                    center center;
+                    center center !important;
 
-                background: #000;
+                transform:
+                    none !important;
+
+                vertical-align:
+                    bottom !important;
+
+                background:
+                    #000;
+
+                z-index: 0;
             }
 
 
+
+            /* --------------------------------------------------------
+               LABELS
+            -------------------------------------------------------- */
 
             .slide-label {
                 left:
                     max(
-                        16px,
+                        14px,
                         var(--safe-left)
                     );
 
                 right:
-                    max(
-                        16px,
-                        var(--safe-right)
-                    );
+                    auto;
 
                 bottom:
-                    calc(
-                        24px +
-                        var(--safe-bottom)
-                    );
+                    16px;
 
                 width: auto;
 
@@ -1492,36 +1670,38 @@
                     calc(
                         100%
                         -
-                        max(
-                            16px,
-                            var(--safe-left)
-                        )
-                        -
-                        max(
-                            16px,
-                            var(--safe-right)
-                        )
+                        28px
                     );
 
                 padding:
-                    12px 16px;
+                    10px 14px;
 
-                border-radius: 10px;
+                border-radius: 8px;
+
+                border-left-width: 3px;
 
                 font-size:
                     clamp(
-                        17px,
-                        5vw,
-                        23px
+                        15px,
+                        4vw,
+                        20px
                     );
+
+                line-height: 1.25;
 
                 background:
                     rgba(
                         6,
                         27,
                         46,
-                        0.76
+                        0.78
                     );
+
+                backdrop-filter:
+                    blur(8px);
+
+                -webkit-backdrop-filter:
+                    blur(8px);
 
                 z-index: 7;
             }
@@ -1529,18 +1709,30 @@
 
             .slide-label
             .sub-category {
-                font-size: 10px;
+                font-size:
+                    9px;
 
-                line-height: 1.4;
+                line-height:
+                    1.4;
 
-                margin-top: 3px;
+                margin-top:
+                    3px;
 
-                letter-spacing: 1.2px;
+                letter-spacing:
+                    1px;
             }
+
 
 
             .slide-number {
                 display: none;
+            }
+
+
+
+            footer {
+                scroll-snap-align:
+                    none !important;
             }
 
         }
@@ -1612,53 +1804,62 @@
             }
 
 
+
+            /*
+             * DO NOT re-add max-height here.
+             *
+             * Images must remain natural height
+             * so there is no filler between them.
+             */
+
             #factory-slide > img,
             #industry > img {
-                max-height: 78%;
+                width:
+                    100% !important;
+
+                height:
+                    auto !important;
+
+                max-height:
+                    none !important;
             }
+
 
 
             .slide-label {
                 left:
                     max(
-                        14px,
+                        12px,
                         var(--safe-left)
                     );
 
-                right:
-                    max(
-                        14px,
-                        var(--safe-right)
-                    );
-
                 bottom:
-                    calc(
-                        18px +
-                        var(--safe-bottom)
-                    );
+                    12px;
 
                 padding:
-                    10px 14px;
+                    8px 12px;
 
-                font-size: 16px;
+                font-size: 15px;
 
                 border-left-width:
                     3px;
 
-                border-radius: 8px;
+                border-radius: 7px;
             }
 
 
             .slide-label
             .sub-category {
-                font-size: 9px;
+                font-size: 8px;
 
-                letter-spacing: 1px;
+                letter-spacing:
+                    0.8px;
             }
 
 
             footer {
-                padding-top: 28px;
+                padding-top:
+                    28px;
 
                 padding-bottom:
                     calc(
@@ -1678,12 +1879,19 @@
 
         /* ============================================================
            LANDSCAPE PHONE
+           KEEP ORIGINAL FULL-SCREEN STYLE
         ============================================================ */
 
         @media
         (orientation: landscape)
         and
         (max-height: 600px) {
+
+            html {
+                scroll-snap-type:
+                    y mandatory;
+            }
+
 
             .full-slide {
                 height: 100vh;
@@ -1693,18 +1901,15 @@
             }
 
 
-            /*
-             * Landscape phone has a similar ratio
-             * to desktop image/video,
-             * so use normal full-screen cover.
-             */
-
             .mobile-image-bg {
-                display: none;
+                display:
+                    none !important;
             }
 
 
             .image-slide > img {
+                position: absolute;
+
                 top: 0;
 
                 left: 0;
@@ -1725,6 +1930,8 @@
 
 
             .full-slide video {
+                position: absolute;
+
                 width: 100%;
 
                 height: 100%;
@@ -2268,27 +2475,16 @@
 
 
     <!-- ============================================================
-         SLIDE 1
+         IMAGE 1
          FACTORY
+
+         NO BLURRED MOBILE BACKGROUND
     ============================================================ -->
 
     <section
         class="full-slide image-slide"
         id="factory-slide">
 
-
-        <!-- blurred mobile background -->
-
-        <div
-            class="mobile-image-bg"
-            style="
-                background-image:
-                url('images/f15.png');
-            ">
-        </div>
-
-
-        <!-- real picture -->
 
         <img
             src="images/f15.png"
@@ -2330,27 +2526,16 @@
 
 
     <!-- ============================================================
-         SLIDE 2
+         IMAGE 2
          INDUSTRY
+
+         DIRECTLY BELOW IMAGE 1 ON PHONE
     ============================================================ -->
 
     <section
         class="full-slide image-slide"
         id="industry">
 
-
-        <!-- blurred mobile background -->
-
-        <div
-            class="mobile-image-bg"
-            style="
-                background-image:
-                url('images/f1.png');
-            ">
-        </div>
-
-
-        <!-- real picture -->
 
         <img
             src="images/f1.png"
@@ -2380,8 +2565,8 @@
 
 
     <!-- ============================================================
-         SLIDE 3
          VIDEO
+         DIRECTLY BELOW IMAGE 2 ON PHONE
     ============================================================ -->
 
     <section
@@ -3715,9 +3900,7 @@
                     function () {
 
                         if (
-                            window
-                                .innerWidth
-                            > 900
+                            window.innerWidth > 900
                             &&
                             menuOpen
                         ) {
