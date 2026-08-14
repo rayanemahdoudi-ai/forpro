@@ -3,1401 +3,1352 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Slab Formwork | ForPro</title>
-
-<style>
-
-/* ===== ROOT VARIABLES ===== */
-
-:root{
-
---navy:#061b2e;
---navy2:#0b2945;
-
---blue:#0877c9;
---blue-light:#2aa8ff;
-
---white:#ffffff;
---light:#f3f8fc;
-
---grey:#66798a;
---line:#dce8f1;
-
-}
-
-
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-}
-
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-
-body{
-
-font-family:
-Arial,Helvetica,sans-serif;
-
-color:#102235;
-
-line-height:1.6;
-
-overflow-x:hidden;
-
-background:var(--light);
-
-}
-
-
-a{
-
-text-decoration:none;
-color:inherit;
-
-}
-
-
-.container{
-
-width:min(92%,1320px);
-
-margin:auto;
-
-}
-
-
-/* ===== HEADER ===== */
-
-
-header{
-
-position:fixed;
-
-top:0;
-
-width:100%;
-
-z-index:99;
-
-background:
-
-rgba(6,27,46,.95);
-
-backdrop-filter:
-
-blur(15px);
-
-border-bottom:
-
-1px solid rgba(255,255,255,.1);
-
-}
-
-
-
-nav{
-
-height:80px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-}
-
-
-
-.logo{
-
-font-size:30px;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-color:white;
-
-}
-
-
-
-.logo span{
-
-color:var(--blue-light);
-
-}
-
-
-/* ===== NAVIGATION ===== */
-
-
-.nav-links{
-
-display:flex;
-
-gap:28px;
-
-align-items:center;
-
-color:white;
-
-font-size:14px;
-
-font-weight:700;
-
-list-style:none;
-
-margin:0;
-
-padding:0;
-
-}
-
-
-.nav-links a{
-
-display:block;
-
-padding:10px 0;
-
-color:white;
-
-transition:color 0.3s;
-
-}
-
-
-.nav-links a:hover{
-
-color:var(--blue-light);
-
-}
-
-
-/* Dropdown */
-
-.dropdown{
-
-position:relative;
-
-}
-
-
-.dropdown-menu{
-
-position:absolute;
-
-top:100%;
-
-left:0;
-
-background:white;
-
-min-width:280px;
-
-border-radius:8px;
-
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
-
-list-style:none;
-
-padding:10px 0;
-
-margin:0;
-
-opacity:0;
-
-visibility:hidden;
-
-transform:translateY(15px);
-
-transition:all 0.3s ease;
-
-border-top:4px solid var(--blue);
-
-z-index:100;
-
-}
-
-
-.dropdown:hover .dropdown-menu{
-
-opacity:1;
-
-visibility:visible;
-
-transform:translateY(0);
-
-}
-
-
-.dropdown-menu li a{
-
-color:var(--navy);
-
-padding:12px 22px;
-
-font-weight:600;
-
-font-size:14px;
-
-border-left:3px solid transparent;
-
-transition:all 0.25s ease;
-
-background:white;
-
-display:block;
-
-}
-
-
-.dropdown-menu li a:hover{
-
-background:var(--light);
-
-color:var(--blue);
-
-border-left:3px solid var(--blue);
-
-padding-left:30px;
-
-}
-
-
-.nav-links .quote{
-
-background:var(--blue);
-
-padding:14px 25px;
-
-border-radius:4px;
-
-font-weight:800;
-
-transition:background 0.3s;
-
-}
-
-
-.nav-links .quote:hover{
-
-background:var(--blue-light) !important;
-
-color:white !important;
-
-}
-
-
-/* ===== PAGE HERO ===== */
-
-
-.page-hero{
-
-padding-top:120px;
-
-padding-bottom:60px;
-
-background:
-
-linear-gradient(135deg, rgba(6,27,46,0.92), rgba(8,119,201,0.8)),
-
-url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=90');
-
-background-size:cover;
-
-background-position:center;
-
-background-attachment:fixed;
-
-color:white;
-
-animation:heroFadeIn 1.2s ease forwards;
-
-}
-
-
-.page-hero h1{
-
-font-size:clamp(44px,6vw,70px);
-
-font-weight:900;
-
-letter-spacing:-2px;
-
-margin-bottom:10px;
-
-}
-
-
-.page-hero p{
-
-font-size:18px;
-
-color:#c2d6e4;
-
-max-width:600px;
-
-}
-
-
-/* ===== BREADCRUMB ===== */
-
-
-.breadcrumb{
-
-padding:20px 0 30px 0;
-
-background:var(--light);
-
-border-bottom:1px solid var(--line);
-
-animation:fadeInUp 0.8s ease forwards;
-
-}
-
-
-.breadcrumb a{
-
-color:var(--blue);
-
-font-weight:600;
-
-font-size:14px;
-
-transition:color 0.3s;
-
-}
-
-
-.breadcrumb a:hover{
-
-color:var(--navy);
-
-}
-
-
-.breadcrumb span{
-
-color:var(--grey);
-
-font-size:14px;
-
-}
-
-
-.breadcrumb .current{
-
-color:var(--navy);
-
-font-weight:700;
-
-}
-
-
-/* ===== MAIN CONTENT ===== */
-
-
-.main-content{
-
-display:grid;
-
-grid-template-columns:280px 1fr;
-
-gap:50px;
-
-padding:50px 0 80px 0;
-
-animation:fadeInUp 1s ease forwards;
-
-}
-
-
-/* ===== SIDEBAR ===== */
-
-
-.sidebar{
-
-background:white;
-
-border-radius:12px;
-
-padding:25px 0;
-
-box-shadow:0 5px 25px rgba(0,0,0,0.06);
-
-border:1px solid var(--line);
-
-height:fit-content;
-
-position:sticky;
-
-top:110px;
-
-}
-
-
-.sidebar h3{
-
-padding:0 25px 15px 25px;
-
-font-size:16px;
-
-color:var(--navy);
-
-border-bottom:2px solid var(--blue);
-
-margin-bottom:10px;
-
-letter-spacing:1px;
-
-}
-
-
-.sidebar ul{
-
-list-style:none;
-
-padding:0;
-
-margin:0;
-
-}
-
-
-.sidebar ul li{
-
-border-bottom:1px solid #f0f4f8;
-
-}
-
-
-.sidebar ul li a{
-
-display:block;
-
-padding:14px 25px;
-
-color:var(--grey);
-
-font-weight:600;
-
-font-size:14px;
-
-transition:all 0.3s ease;
-
-position:relative;
-
-border-left:3px solid transparent;
-
-}
-
-
-.sidebar ul li a:hover{
-
-background:var(--light);
-
-color:var(--blue);
-
-border-left:3px solid var(--blue);
-
-padding-left:32px;
-
-}
-
-
-.sidebar ul li a.active{
-
-background:var(--light);
-
-color:var(--blue);
-
-border-left:3px solid var(--blue);
-
-font-weight:700;
-
-}
-
-
-/* ===== PRODUCT SECTIONS ===== */
-
-
-.products-section{
-
-padding:0;
-
-}
-
-
-.section-block{
-
-margin-bottom:60px;
-
-}
-
-
-.section-block:last-child{
-
-margin-bottom:0;
-
-}
-
-
-.section-block .label{
-
-color:var(--blue);
-
-font-size:12px;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-margin-bottom:5px;
-
-}
-
-
-.section-block h2{
-
-font-size:clamp(28px,3vw,38px);
-
-color:var(--navy);
-
-margin-bottom:15px;
-
-}
-
-
-.section-block .intro-text{
-
-color:var(--grey);
-
-font-size:16px;
-
-line-height:1.8;
-
-max-width:800px;
-
-margin-bottom:30px;
-
-}
-
-
-/* Product sub-cards (Also used for advantage boxes) */
-
-.sub-product-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
-
-gap:30px;
-
-margin-top:10px;
-
-}
-
-
-.sub-product-item{
-
-background:white;
-
-border-radius:16px;
-
-overflow:hidden;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-
-border:1px solid var(--line);
-
-transition:all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-cursor:default;
-
-}
-
-
-.sub-product-item:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 25px 50px rgba(0,104,183,0.15);
-
-border-color:var(--blue-light);
-
-}
-
-.sub-product-item .image{
-
-height:200px;
-
-background-size:cover;
-
-background-position:center;
-
-transition:transform 0.6s ease;
-
-overflow:hidden;
-
-}
-
-.sub-product-item:hover .image{
-
-transform:scale(1.04);
-
-}
-
-
-.sub-product-item .content{
-
-padding:22px 25px 25px 25px;
-
-}
-
-
-.sub-product-item .content h3{
-
-font-size:20px;
-
-color:var(--navy);
-
-margin-bottom:6px;
-
-}
-
-
-.sub-product-item .content p{
-
-color:var(--grey);
-
-font-size:14px;
-
-line-height:1.6;
-
-margin-bottom:0;
-
-}
-
-
-/* Custom list styling */
-
-.feature-list{
-
-margin: 20px 0;
-
-padding-left: 20px;
-
-color: var(--grey);
-
-font-size: 15px;
-
-line-height: 2;
-
-}
-
-.feature-list li{
-
-margin-bottom: 6px;
-
-}
-
-
-/* ===== CTA BANNER ===== */
-
-
-.cta-banner{
-
-margin-top:50px;
-
-padding:40px;
-
-background:linear-gradient(135deg, var(--navy), var(--blue));
-
-border-radius:16px;
-
-color:white;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-gap:20px;
-
-box-shadow:0 10px 40px rgba(8,119,201,0.3);
-
-}
-
-
-.cta-banner h3{
-
-font-size:24px;
-
-}
-
-
-.cta-banner .btn{
-
-display:inline-block;
-
-padding:14px 35px;
-
-background:white;
-
-color:var(--navy);
-
-font-weight:800;
-
-border-radius:8px;
-
-transition:all 0.3s;
-
-}
-
-
-.cta-banner .btn:hover{
-
-transform:scale(1.05);
-
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-
-}
-
-
-/* ===== FOOTER ===== */
-
-
-footer{
-
-background:#031522;
-
-color:white;
-
-padding:50px 0;
-
-margin-top:40px;
-
-}
-
-
-.footer-content{
-
-display:flex;
-
-justify-content:space-between;
-
-gap:40px;
-
-flex-wrap:wrap;
-
-}
-
-
-footer p{
-
-color:#8da7b9;
-
-max-width:500px;
-
-}
-
-
-.copyright{
-
-margin-top:30px;
-
-padding-top:20px;
-
-border-top:1px solid #244057;
-
-color:#7790a2;
-
-font-size:13px;
-
-}
-
-
-/* ===== ANIMATIONS ===== */
-
-
-@keyframes heroFadeIn{
-
-0%{
-
-opacity:0;
-
-transform:scale(1.02);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-
-@keyframes fadeInUp{
-
-0%{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-/* ===== RESPONSIVE ===== */
-
-
-@media(max-width:1000px){
-
-.main-content{
-
-grid-template-columns:1fr;
-
-}
-
-.sidebar{
-
-position:relative;
-
-top:0;
-
-}
-
-}
-
-
-@media(max-width:768px){
-
-.sub-product-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.cta-banner{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.nav-links{
-
-display:none;
-
-}
-
-.page-hero{
-
-padding-top:100px;
-
-padding-bottom:40px;
-
-}
-
-}
-
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+    <title>Slab Formwork | ForPro</title>
+
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --navy: #061b2e;
+            --navy2: #0b2945;
+            --blue: #0877c9;
+            --blue-light: #2aa8ff;
+            --white: #ffffff;
+            --light: #f3f8fc;
+            --grey: #66798a;
+            --line: #dce8f1;
+            --header-height: 70px;
+            --safe-top: env(safe-area-inset-top, 0px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #102235;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(92%, 1320px);
+            margin: auto;
+            padding: 0 4px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(6, 27, 46, .96);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            height: var(--header-height);
+            padding-top: var(--safe-top);
+        }
+
+        nav {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: clamp(22px, 5vw, 30px);
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: white;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--blue-light);
+        }
+
+        /* ===== DESKTOP NAV ===== */
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 8px 0;
+            color: white;
+            transition: color 0.3s;
+            white-space: nowrap;
+            font-size: clamp(12px, 1.1vw, 14px);
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 240px;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            list-style: none;
+            padding: 8px 0;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            border-top: 4px solid var(--blue);
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            color: var(--navy);
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 13px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            background: white;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: var(--light);
+            color: var(--blue);
+            border-left: 3px solid var(--blue);
+            padding-left: 26px;
+        }
+
+        .nav-links .quote {
+            background: var(--blue);
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 800;
+            transition: background 0.3s;
+            font-size: clamp(11px, 1vw, 14px);
+        }
+
+        .nav-links .quote:hover {
+            background: var(--blue-light) !important;
+            color: white !important;
+        }
+
+        /* ===== HAMBURGER (mobile) ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px 4px;
+            background: none;
+            border: none;
+            z-index: 1001;
+            touch-action: manipulation;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -7px);
+        }
+
+        /* ===== MOBILE MENU OVERLAY ===== */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 27, 46, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s ease;
+            padding: 80px 30px 40px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-inner {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .mobile-menu-inner ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-inner ul li {
+            margin-bottom: 6px;
+        }
+
+        .mobile-menu-inner ul li a {
+            display: block;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu-inner ul li a:active {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .mobile-menu-inner ul li a.quote-mobile {
+            background: var(--blue);
+            margin-top: 8px;
+            border-radius: 8px;
+            font-weight: 800;
+        }
+
+        .mobile-menu-inner ul li a.quote-mobile:active {
+            background: var(--blue-light);
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 8px;
+        }
+
+        .mobile-dropdown-toggle:active {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .mobile-dropdown-toggle .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .mobile-dropdown-toggle .arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .mobile-sub-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 6px 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .mobile-sub-menu.open {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        .mobile-sub-menu li a {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            padding: 10px 20px !important;
+            color: rgba(255, 255, 255, 0.75) !important;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-sub-menu li a:active {
+            color: white !important;
+            border-left-color: var(--blue-light);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            padding-top: calc(var(--header-height) + 30px);
+            padding-bottom: 60px;
+            background: linear-gradient(135deg, rgba(6, 27, 46, 0.92), rgba(8, 119, 201, 0.8)),
+                url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=90');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            animation: heroFadeIn 1.2s ease forwards;
+        }
+
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .page-hero h1 {
+            font-size: clamp(32px, 6vw, 70px);
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            font-size: clamp(15px, 1.5vw, 18px);
+            color: #c2d6e4;
+            max-width: 600px;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: 16px 0 20px 0;
+            background: var(--light);
+            border-bottom: 1px solid var(--line);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .breadcrumb a {
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--navy);
+        }
+
+        .breadcrumb span {
+            color: var(--grey);
+            font-size: 14px;
+        }
+
+        .breadcrumb .current {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            padding: 40px 0 60px 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 0;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--line);
+            height: fit-content;
+            position: sticky;
+            top: calc(var(--header-height) + 20px);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar h3 {
+            padding: 0 25px 15px 25px;
+            font-size: 16px;
+            color: var(--navy);
+            border-bottom: 2px solid var(--blue);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            border-bottom: 1px solid #f0f4f8;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 14px 25px;
+            color: var(--grey);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar ul li a:hover {
+            background: var(--light);
+            color: var(--blue);
+            border-left: 3px solid var(--blue);
+            padding-left: 32px;
+        }
+
+        .sidebar ul li a.active {
+            background: var(--light);
+            color: var(--blue);
+            border-left: 3px solid var(--blue);
+            font-weight: 700;
+        }
+
+        /* ===== PRODUCT SECTIONS ===== */
+        .products-section {
+            padding: 0;
+        }
+
+        .section-block {
+            margin-bottom: 60px;
+        }
+
+        .section-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-block .label {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .section-block h2 {
+            font-size: clamp(24px, 3vw, 38px);
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .section-block .intro-text {
+            color: var(--grey);
+            font-size: clamp(15px, 1.2vw, 16px);
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .sub-product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .sub-product-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--line);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+        }
+
+        .sub-product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 104, 183, 0.15);
+            border-color: var(--blue-light);
+        }
+
+        .sub-product-item .image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+            overflow: hidden;
+        }
+
+        .sub-product-item:hover .image {
+            transform: scale(1.04);
+        }
+
+        .sub-product-item .content {
+            padding: 22px 25px 25px 25px;
+        }
+
+        .sub-product-item .content h3 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .sub-product-item .content p {
+            color: var(--grey);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+            padding-left: 20px;
+            color: var(--grey);
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .feature-list li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            border-radius: 16px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 10px 40px rgba(8, 119, 201, 0.3);
+        }
+
+        .cta-banner h3 {
+            font-size: clamp(20px, 2.5vw, 28px);
+        }
+
+        .cta-banner .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: white;
+            color: var(--navy);
+            font-weight: 800;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cta-banner .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #031522;
+            color: white;
+            padding: 50px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            color: #8da7b9;
+            max-width: 500px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #244057;
+            color: #7790a2;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* ============================================================ */
+        /* ===== RESPONSIVE BREAKPOINTS ===== */
+        /* ============================================================ */
+
+        /* ---- Tablet & below ---- */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 230px 1fr;
+                gap: 30px;
+            }
+            .sidebar {
+                top: calc(var(--header-height) + 10px);
+            }
+        }
+
+        /* ---- Mobile (hamburger appears) ---- */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding-top: 20px;
+            }
+
+            .sidebar {
+                position: static;
+                padding: 15px 0;
+                border-radius: 12px;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .sidebar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .sidebar h3 {
+                display: none;
+            }
+
+            .sidebar ul {
+                display: flex;
+                gap: 6px;
+                padding: 0 16px;
+            }
+
+            .sidebar ul li {
+                border-bottom: none;
+                flex-shrink: 0;
+            }
+
+            .sidebar ul li a {
+                padding: 10px 18px;
+                border-left: none;
+                border-radius: 30px;
+                background: var(--light);
+                color: var(--grey);
+                font-size: 13px;
+                font-weight: 600;
+                transition: all 0.2s;
+                border: 1px solid transparent;
+            }
+
+            .sidebar ul li a:hover,
+            .sidebar ul li a.active {
+                background: var(--blue);
+                color: white;
+                border-left: none;
+                padding-left: 18px;
+                border-color: var(--blue);
+            }
+
+            .sidebar ul li a.active {
+                background: var(--blue);
+                color: white;
+            }
+
+            .sub-product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .cta-banner .btn {
+                white-space: normal;
+                width: 100%;
+                text-align: center;
+            }
+
+            .page-hero {
+                background-attachment: scroll;
+                padding-top: calc(var(--header-height) + 20px);
+                padding-bottom: 40px;
+            }
+        }
+
+        /* ---- Small phones ---- */
+        @media (max-width: 600px) {
+            :root {
+                --header-height: 60px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .hamburger span {
+                width: 24px;
+                height: 2.5px;
+            }
+
+            .sub-product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar ul {
+                gap: 4px;
+                padding: 0 10px;
+            }
+            .sidebar ul li a {
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+
+            .page-hero h1 {
+                font-size: 28px;
+            }
+
+            .breadcrumb {
+                padding: 12px 0 16px 0;
+            }
+            .breadcrumb a,
+            .breadcrumb span,
+            .breadcrumb .current {
+                font-size: 12px;
+            }
+
+            .cta-banner {
+                padding: 24px 16px;
+            }
+            .cta-banner h3 {
+                font-size: 18px;
+            }
+
+            .sub-product-item .image {
+                height: 160px;
+            }
+            .sub-product-item .content {
+                padding: 16px 18px 20px 18px;
+            }
+            .sub-product-item .content h3 {
+                font-size: 18px;
+            }
+
+            .mobile-menu-inner ul li a {
+                font-size: 18px;
+                padding: 12px 16px;
+            }
+            .mobile-dropdown-toggle {
+                font-size: 18px;
+                padding: 12px 16px;
+            }
+            .mobile-sub-menu li a {
+                font-size: 14px !important;
+                padding: 8px 14px !important;
+            }
+        }
+
+        /* ---- Safe area for notched phones ---- */
+        @supports (padding: max(0px)) {
+            .page-hero {
+                padding-top: max(calc(var(--header-height) + 20px), env(safe-area-inset-top));
+            }
+        }
+
+        /* ---- Reduced motion ---- */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ---- Touch device dropdown fix (no hover) ---- */
+        @media (hover: none) {
+            .dropdown-menu {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(12px);
+                transition: all 0.25s ease;
+            }
+            .dropdown-menu.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
 </head>
 
-
 <body>
 
-
-<!-- ===== HEADER ===== -->
-<header>
-  <div class="container">
-    <nav>
-      <a class="logo" href="index.html">For<span>Pro</span></a>
-      <ul class="nav-links">
-        <!-- PRODUCTS DROPDOWN -->
-        <li class="dropdown">
-          <a href="#">Products</a>
-          <ul class="dropdown-menu">
-            <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-            <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-            <li><a href="slab-formwork.html">Slab Formwork</a></li>
-            <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
-            <li><a href="safety-system.html">Safety System</a></li>
-            <li><a href="accessories.html">Accessories</a></li>
-            <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
-          </ul>
-        </li>
-
-        <!-- PROJECTS DROPDOWN -->
-        <li class="dropdown">
-          <a href="#">Projects</a>
-          <ul class="dropdown-menu">
-            <li><a href="projects.html">All Projects</a></li>
-            <li><a href="projects.html#bridges">Bridges</a></li>
-            <li><a href="projects.html#lng">LNG</a></li>
-            <li><a href="projects.html#nuclear">Nuclear</a></li>
-            <li><a href="projects.html#tunnels">Tunnels</a></li>
-            <li><a href="projects.html#hydropower">Hydropower</a></li>
-          </ul>
-        </li>
-
-        <li><a href="industries.html">Industries</a></li>
-    <li><a href="about us.html">About Us</a></li>
-        <li><a href="index.html#contact" class="quote">Contact Us</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<!-- ===== HERO BANNER ===== -->
-
-
-<section class="page-hero">
-
-<div class="container">
-
-<p style="font-size:13px;color:#8fd0ff;letter-spacing:2px;font-weight:800;margin-bottom:8px;">ForPro</p>
-
-<h1>Slab Formwork Systems</h1>
-
-<p>Safe, efficient, and economical slab formwork solutions for residential, commercial, and industrial building construction.</p>
-
-</div>
-
-</section>
-
-
-<!-- ===== BREADCRUMB ===== -->
-
-
-<div class="breadcrumb">
-
-<div class="container">
-
-<a href="index.html">Home</a> <span> &gt; </span>
-
-<a href="#">Products</a> <span> &gt; </span>
-
-<span class="current">Slab Formwork</span>
-
-</div>
-
-</div>
-
-
-<!-- ===== MAIN CONTENT ===== -->
-
-
-<section class="container main-content">
-
-
-<!-- ===== SIDEBAR ===== -->
-
-
-<aside class="sidebar">
-
-<h3>📁 PRODUCTS</h3>
-
-<ul>
-
-<li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-
-<li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-
-<!-- ✅ ACTIVE LINK IN SIDEBAR -->
-<li><a href="slab-formwork.html" class="active">Slab Formwork</a></li>
-
-<li><a href="single-sided-wall-formwork.html">Single-sided Wall formwork and Props</a></li>
-
-<li><a href="safety-system.html">Safety System</a></li>
-
-<li><a href="accessories.html">Accessories</a></li>
-
-<li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
-
-</ul>
-
-</aside>
-
-
-<!-- ===== MAIN PRODUCTS ===== -->
-
-
-<div class="products-section">
-
-
-<!-- ===== SECTION 1: INTRODUCTION ===== -->
-
-
-<div class="section-block">
-
-<div class="label">Slab Formwork</div>
-
-<h2>Slab Formwork Introduction</h2>
-
-<p class="intro-text">
-
-FORPRO Slab Formwork System provides a safe, efficient and economical solution for concrete slab construction. The system is designed for fast installation, high load capacity, excellent concrete finishing, and is built for repeated use across multiple projects.
-
-</p>
-
-</div>
-
-
-<!-- ===== SECTION 2: SYSTEM VISUALS (NEW IMAGES ADDED HERE!) ===== -->
-
-
-<div class="section-block">
-
-<div class="label">System Visuals</div>
-
-<h2>Key Components &amp; Assembly</h2>
-
-<p class="intro-text">
-
-Explore the core physical structure of our slab system, designed for strength, speed, and easy installation on your job site.
-
-</p>
-
-<div class="sub-product-grid">
-
-    <!-- Image 1 -->
-    <div class="sub-product-item">
-        <div class="image" style="background-image:url('images/825 - Copie.png');"></div>
-        <div class="content">
-            <h3>Timber Beam &amp; Steel Waling</h3>
-            <p>Durable and flexible structural components that provide exceptional load capacity and precise alignment for flawless concrete slab construction.</p>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <nav>
+                <a class="logo" href="index.html">For<span>Pro</span></a>
+
+                <!-- DESKTOP NAV -->
+                <ul class="nav-links" id="desktopNav">
+                    <!-- PRODUCTS -->
+                    <li class="dropdown" data-dropdown>
+                        <a href="#">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+                            <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                            <li><a href="slab-formwork.html">Slab Formwork</a></li>
+                            <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
+                            <li><a href="safety-system.html">Safety System</a></li>
+                            <li><a href="accessories.html">Accessories</a></li>
+                            <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- PROJECTS -->
+                    <li class="dropdown" data-dropdown>
+                        <a href="#">Projects</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="projects.html">All Projects</a></li>
+                            <li><a href="projects.html#bridges">Bridges</a></li>
+                            <li><a href="projects.html#lng">LNG</a></li>
+                            <li><a href="projects.html#nuclear">Nuclear</a></li>
+                            <li><a href="projects.html#tunnels">Tunnels</a></li>
+                            <li><a href="projects.html#hydropower">Hydropower</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="index.html#contact" class="quote">Contact Us</a></li>
+                </ul>
+
+                <!-- HAMBURGER -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU OVERLAY ===== -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-menu-inner">
+            <ul>
+                <!-- Products -->
+                <li>
+                    <div class="mobile-dropdown-toggle" data-mobile-toggle>
+                        <span>Products</span>
+                        <span class="arrow">▾</span>
+                    </div>
+                    <ul class="mobile-sub-menu">
+                        <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+                        <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                        <li><a href="slab-formwork.html">Slab Formwork</a></li>
+                        <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
+                        <li><a href="safety-system.html">Safety System</a></li>
+                        <li><a href="accessories.html">Accessories</a></li>
+                        <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
+                    </ul>
+                </li>
+
+                <!-- Projects -->
+                <li>
+                    <div class="mobile-dropdown-toggle" data-mobile-toggle>
+                        <span>Projects</span>
+                        <span class="arrow">▾</span>
+                    </div>
+                    <ul class="mobile-sub-menu">
+                        <li><a href="projects.html">All Projects</a></li>
+                        <li><a href="projects.html#bridges">Bridges</a></li>
+                        <li><a href="projects.html#lng">LNG</a></li>
+                        <li><a href="projects.html#nuclear">Nuclear</a></li>
+                        <li><a href="projects.html#tunnels">Tunnels</a></li>
+                        <li><a href="projects.html#hydropower">Hydropower</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="index.html#contact" class="quote-mobile">Contact Us</a></li>
+            </ul>
         </div>
     </div>
 
-    <!-- Image 2 -->
-    <div class="sub-product-item">
-        <div class="image" style="background-image:url('images/714 - Copie.png');"></div>
-        <div class="content">
-            <h3>T-form</h3>
-            <p>Engineered for rapid deployment and stripping. This system saves significant time on large-scale projects by allowing large areas to be poured at once without repositioning individual props.</p>
+    <!-- ===== HERO BANNER ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <p style="font-size:13px;color:#8fd0ff;letter-spacing:2px;font-weight:800;margin-bottom:8px;">ForPro</p>
+            <h1>Slab Formwork Systems</h1>
+            <p>Safe, efficient, and economical slab formwork solutions for residential, commercial, and industrial building construction.</p>
+        </div>
+    </section>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> <span> &gt; </span>
+            <a href="#">Products</a> <span> &gt; </span>
+            <span class="current">Slab Formwork</span>
         </div>
     </div>
 
-</div>
-
-</div>
-
-
-<!-- ===== SECTION 3: ADVANTAGES ===== -->
-
-
-<div class="section-block">
-
-<div class="label">Key Advantages</div>
-
-<h2>Why Choose FORPRO Slab Formwork</h2>
-
-<p class="intro-text">
-
-Engineered for performance, durability, and flexibility on site.
-
-</p>
-
-<div class="sub-product-grid">
-
-<!-- Advantage 1 -->
-<div class="sub-product-item">
-<div class="content">
-<h3>High Safety</h3>
-<p>Strong structural design provides excellent stability and a safe working environment during concrete casting.</p>
-</div>
-</div>
-
-<!-- Advantage 2 -->
-<div class="sub-product-item">
-<div class="content">
-<h3>Fast Installation</h3>
-<p>Optimized components and quick-connect systems dramatically reduce assembly and dismantling time.</p>
-</div>
-</div>
-
-<!-- Advantage 3 -->
-<div class="sub-product-item">
-<div class="content">
-<h3>High Reusability</h3>
-<p>Manufactured with high-grade durable materials that allow for multiple uses, significantly lowering project costs.</p>
-</div>
-</div>
-
-<!-- Advantage 4 -->
-<div class="sub-product-item">
-<div class="content">
-<h3>Flexible Application</h3>
-<p>Highly adjustable to suit different slab heights and a wide variety of building and infrastructure types.</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ===== SECTION 4: APPLICATIONS & FEATURES ===== -->
-
-
-<div class="section-block">
-
-<div class="label">Applications</div>
-
-<h2>Perfect for a Wide Range of Projects</h2>
-
-<div class="intro-text">
-Our system adapts to diverse construction needs, ensuring excellent concrete surface quality and efficient project delivery.
-</div>
-
-<div class="sub-product-grid" style="grid-template-columns: 1fr 1fr;">
-
-<div class="sub-product-item">
-<div class="content">
-<h3>Applications</h3>
-<ul class="feature-list">
-<li>Residential buildings</li>
-<li>Commercial buildings</li>
-<li>High-rise construction</li>
-<li>Industrial projects</li>
-<li>Infrastructure projects</li>
-</ul>
-</div>
-</div>
-
-<div class="sub-product-item">
-<div class="content">
-<h3>System Features</h3>
-<ul class="feature-list">
-<li>Reliable load-bearing performance</li>
-<li>Simple structure and easy operation</li>
-<li>Improved construction efficiency</li>
-<li>Excellent concrete surface quality</li>
-<li>Suitable for large-scale projects</li>
-</ul>
-</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ===== CTA BANNER ===== -->
-
-
-<div class="cta-banner">
-
-<div>
-
-<h3>Need a specialized slab solution?</h3>
-
-<p style="color:#c2d6e4;margin-top:4px;">Our engineering team provides professional support and can customize formwork solutions according to your specific project requirements.</p>
-
-</div>
-
-<a href="#" class="btn">Contact Engineering</a>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-<!-- ===== FOOTER ===== -->
-
-
-<footer>
-
-<div class="container">
-
-<div class="footer-content">
-
-<div>
-
-<h3 style="font-size:24px;">For<span style="color:var(--blue-light);">Pro</span></h3>
-
-<p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
-
-</div>
-
-<div>
-
-<h4>Quick Links</h4>
-
-<p style="color:#8da7b9;line-height:2;">
-
-Products<br>
-
-Industries<br>
-
-Engineering<br>
-
-Contact
-
-</p>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 ForPro Engineering. All rights reserved.
-
-</div>
-
-</div>
-
-</footer>
-
-
-<!-- ===== SOUND EFFECTS ===== -->
-<script>
-
-// ============================================================
-// 1. CREATE THE SOUND ENGINE (no external files needed)
-// ============================================================
-
-function playSound(type) {
-    try {
-        // Create audio context (required for Web Audio API)
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
-        // Resume context if it was suspended (fixes Chrome autoplay policy)
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-
-        // Create oscillator (generates the beep)
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-
-        // Different sounds for different actions
-        if (type === 'click') {
-            // Sharp click sound
-            oscillator.frequency.value = 900;
-            gainNode.gain.value = 0.25;
-            oscillator.type = 'sine';
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-            oscillator.start(audioCtx.currentTime);
-            oscillator.stop(audioCtx.currentTime + 0.08);
-        } 
-        else if (type === 'hover') {
-            // Soft tick sound
-            oscillator.frequency.value = 600;
-            gainNode.gain.value = 0.12;
-            oscillator.type = 'sine';
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
-            oscillator.start(audioCtx.currentTime);
-            oscillator.stop(audioCtx.currentTime + 0.04);
-        } 
-        else if (type === 'swoosh') {
-            // Smooth rising swoosh
-            oscillator.frequency.value = 300;
-            oscillator.frequency.exponentialRampToValueAtTime(700, audioCtx.currentTime + 0.12);
-            gainNode.gain.value = 0.1;
-            oscillator.type = 'sine';
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
-            oscillator.start(audioCtx.currentTime);
-            oscillator.stop(audioCtx.currentTime + 0.12);
-        }
-    } catch (e) {
-        // Silent fail if browser doesn't support Web Audio
-        console.log('Sound not supported');
-    }
-}
-
-
-// ============================================================
-// 2. ATTACH SOUNDS TO YOUR ELEMENTS
-// ============================================================
-
-// Wait for the page to load
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- CLICK SOUND: All buttons ---
-    const buttons = document.querySelectorAll('.btn, .quote, .learn-more');
-    buttons.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            playSound('click');
-        });
-    });
-
-    // --- HOVER SOUND: All navigation links (top menu) ---
-    const navLinks = document.querySelectorAll('.links > li > a, .nav-links > li > a');
-    navLinks.forEach(function(link) {
-        link.addEventListener('mouseenter', function() {
-            playSound('hover');
-        });
-    });
-
-    // --- HOVER SOUND: All dropdown items ---
-    const dropdownItems = document.querySelectorAll('.dropdown-menu li a, .sidebar ul li a');
-    dropdownItems.forEach(function(item) {
-        item.addEventListener('mouseenter', function() {
-            playSound('hover');
-        });
-    });
-
-    // --- HOVER SOUND: All product cards (the main page cards) ---
-    const productCards = document.querySelectorAll('.product-card, .product-item, .sub-product-item');
-    productCards.forEach(function(card) {
-        card.addEventListener('mouseenter', function() {
-            playSound('swoosh');
-        });
-    });
-
-});
-</script>
-
+    <!-- ===== MAIN CONTENT ===== -->
+    <section class="container main-content">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <h3>📁 PRODUCTS</h3>
+            <ul>
+                <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
+                <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                <li><a href="slab-formwork.html" class="active">Slab Formwork</a></li>
+                <li><a href="single-sided-wall-formwork.html">Single-sided Wall formwork and Props</a></li>
+                <li><a href="safety-system.html">Safety System</a></li>
+                <li><a href="accessories.html">Accessories</a></li>
+                <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
+            </ul>
+        </aside>
+
+        <!-- ===== MAIN PRODUCTS ===== -->
+        <div class="products-section">
+
+            <!-- ===== SECTION 1: INTRODUCTION ===== -->
+            <div class="section-block">
+                <div class="label">Slab Formwork</div>
+                <h2>Slab Formwork Introduction</h2>
+                <p class="intro-text">
+                    FORPRO Slab Formwork System provides a safe, efficient and economical solution for concrete slab construction. The system is designed for fast installation, high load capacity, excellent concrete finishing, and is built for repeated use across multiple projects.
+                </p>
+            </div>
+
+            <!-- ===== SECTION 2: SYSTEM VISUALS ===== -->
+            <div class="section-block">
+                <div class="label">System Visuals</div>
+                <h2>Key Components &amp; Assembly</h2>
+                <p class="intro-text">
+                    Explore the core physical structure of our slab system, designed for strength, speed, and easy installation on your job site.
+                </p>
+
+                <div class="sub-product-grid">
+                    <div class="sub-product-item">
+                        <div class="image" style="background-image:url('images/825 - Copie.png');"></div>
+                        <div class="content">
+                            <h3>Timber Beam &amp; Steel Waling</h3>
+                            <p>Durable and flexible structural components that provide exceptional load capacity and precise alignment for flawless concrete slab construction.</p>
+                        </div>
+                    </div>
+                    <div class="sub-product-item">
+                        <div class="image" style="background-image:url('images/714 - Copie.png');"></div>
+                        <div class="content">
+                            <h3>T-form</h3>
+                            <p>Engineered for rapid deployment and stripping. This system saves significant time on large-scale projects by allowing large areas to be poured at once without repositioning individual props.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 3: ADVANTAGES ===== -->
+            <div class="section-block">
+                <div class="label">Key Advantages</div>
+                <h2>Why Choose FORPRO Slab Formwork</h2>
+                <p class="intro-text">Engineered for performance, durability, and flexibility on site.</p>
+
+                <div class="sub-product-grid">
+                    <div class="sub-product-item">
+                        <div class="content">
+                            <h3>High Safety</h3>
+                            <p>Strong structural design provides excellent stability and a safe working environment during concrete casting.</p>
+                        </div>
+                    </div>
+                    <div class="sub-product-item">
+                        <div class="content">
+                            <h3>Fast Installation</h3>
+                            <p>Optimized components and quick-connect systems dramatically reduce assembly and dismantling time.</p>
+                        </div>
+                    </div>
+                    <div class="sub-product-item">
+                        <div class="content">
+                            <h3>High Reusability</h3>
+                            <p>Manufactured with high-grade durable materials that allow for multiple uses, significantly lowering project costs.</p>
+                        </div>
+                    </div>
+                    <div class="sub-product-item">
+                        <div class="content">
+                            <h3>Flexible Application</h3>
+                            <p>Highly adjustable to suit different slab heights and a wide variety of building and infrastructure types.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 4: APPLICATIONS & FEATURES ===== -->
+            <div class="section-block">
+                <div class="label">Applications</div>
+                <h2>Perfect for a Wide Range of Projects</h2>
+                <div class="intro-text">
+                    Our system adapts to diverse construction needs, ensuring excellent concrete surface quality and efficient project delivery.
+                </div>
+
+                <div class="sub-product-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="sub-product-item">
+                        <div class="content">
+                            <h3>Applications</h3>
+                            <ul class="feature-list">
+                                <li>Residential buildings</li>
+                                <li>Commercial buildings</li>
+                                <li>High-rise construction</li>
+                                <li>Industrial projects</li>
+                                <li>Infrastructure projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub-product-item">
+                        <div class="content">
+                            <h3>System Features</h3>
+                            <ul class="feature-list">
+                                <li>Reliable load-bearing performance</li>
+                                <li>Simple structure and easy operation</li>
+                                <li>Improved construction efficiency</li>
+                                <li>Excellent concrete surface quality</li>
+                                <li>Suitable for large-scale projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CTA BANNER ===== -->
+            <div class="cta-banner">
+                <div>
+                    <h3>Need a specialized slab solution?</h3>
+                    <p style="color:#c2d6e4;margin-top:4px;">Our engineering team provides professional support and can customize formwork solutions according to your specific project requirements.</p>
+                </div>
+                <a href="#" class="btn">Contact Engineering</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="font-size:24px;">For<span style="color:var(--blue-light);">Pro</span></h3>
+                    <p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <p style="color:#8da7b9;line-height:2;">
+                        Products<br>
+                        Industries<br>
+                        Engineering<br>
+                        Contact
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 ForPro Engineering. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // 1. SOUND ENGINE (lightweight, mobile-friendly)
+            // ============================================================
+            let audioCtx = null;
+
+            function getAudioContext() {
+                if (!audioCtx) {
+                    try {
+                        audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+                    } catch (_) { return null; }
+                }
+                return audioCtx;
+            }
+
+            function playSound(type) {
+                try {
+                    const ctx = getAudioContext();
+                    if (!ctx) return;
+                    if (ctx.state === 'suspended') {
+                        ctx.resume().catch(function() {});
+                    }
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    const now = ctx.currentTime;
+
+                    if (type === 'click') {
+                        osc.frequency.value = 900;
+                        gain.gain.setValueAtTime(0.22, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+                        osc.type = 'sine';
+                        osc.start(now);
+                        osc.stop(now + 0.07);
+                    } else if (type === 'hover') {
+                        osc.frequency.value = 620;
+                        gain.gain.setValueAtTime(0.10, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+                        osc.type = 'sine';
+                        osc.start(now);
+                        osc.stop(now + 0.04);
+                    } else if (type === 'swoosh') {
+                        osc.frequency.setValueAtTime(280, now);
+                        osc.frequency.exponentialRampToValueAtTime(680, now + 0.10);
+                        gain.gain.setValueAtTime(0.08, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.10);
+                        osc.type = 'sine';
+                        osc.start(now);
+                        osc.stop(now + 0.10);
+                    }
+                } catch (_) { /* silently ignore */ }
+            }
+
+            // ============================================================
+            // 2. MOBILE MENU
+            // ============================================================
+            const hamburger = document.getElementById('hamburgerBtn');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            let menuOpen = false;
+
+            function toggleMenu(open) {
+                menuOpen = (open !== undefined) ? open : !menuOpen;
+                hamburger.classList.toggle('active', menuOpen);
+                overlay.classList.toggle('open', menuOpen);
+                hamburger.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
+                document.body.style.overflow = menuOpen ? 'hidden' : '';
+                if (menuOpen) playSound('click');
+            }
+
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) toggleMenu(false);
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuOpen) toggleMenu(false);
+            });
+
+            // ============================================================
+            // 3. MOBILE DROPDOWN TOGGLES (accordion)
+            // ============================================================
+            const toggleTriggers = document.querySelectorAll('[data-mobile-toggle]');
+            toggleTriggers.forEach(function(trigger) {
+                trigger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const parent = trigger.parentElement;
+                    const sub = parent.querySelector('.mobile-sub-menu');
+                    const arrow = trigger.querySelector('.arrow');
+                    if (!sub) return;
+
+                    const isOpen = sub.classList.contains('open');
+                    // Close others
+                    document.querySelectorAll('.mobile-sub-menu.open').forEach(function(s) {
+                        if (s !== sub) {
+                            s.classList.remove('open');
+                            const p = s.closest('li');
+                            if (p) {
+                                const a = p.querySelector('.arrow');
+                                if (a) a.classList.remove('open');
+                            }
+                        }
+                    });
+                    sub.classList.toggle('open', !isOpen);
+                    if (arrow) arrow.classList.toggle('open', !isOpen);
+                    playSound('hover');
+                });
+            });
+
+            // Close mobile menu when a link is clicked
+            overlay.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    toggleMenu(false);
+                    playSound('click');
+                });
+            });
+
+            // ============================================================
+            // 4. DESKTOP DROPDOWN: touch-friendly toggle
+            // ============================================================
+            const desktopDropdowns = document.querySelectorAll('[data-dropdown]');
+            desktopDropdowns.forEach(function(dd) {
+                const link = dd.querySelector('a');
+                const menu = dd.querySelector('.dropdown-menu');
+                if (!link || !menu) return;
+
+                link.addEventListener('click', function(e) {
+                    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                        e.preventDefault();
+                        const wasOpen = menu.classList.contains('show');
+                        document.querySelectorAll('.dropdown-menu.show').forEach(function(m) {
+                            if (m !== menu) m.classList.remove('show');
+                        });
+                        menu.classList.toggle('show', !wasOpen);
+                        playSound('click');
+                    }
+                });
+
+                dd.addEventListener('mouseenter', function() {
+                    if (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) {
+                        menu.classList.add('show');
+                    }
+                });
+                dd.addEventListener('mouseleave', function() {
+                    if (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) {
+                        menu.classList.remove('show');
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]')) {
+                    document.querySelectorAll('.dropdown-menu.show').forEach(function(m) {
+                        m.classList.remove('show');
+                    });
+                }
+            });
+
+            // ============================================================
+            // 5. ATTACH SOUNDS TO INTERACTIVE ELEMENTS
+            // ============================================================
+            document.addEventListener('DOMContentLoaded', function() {
+                // Buttons
+                document.querySelectorAll('.btn, .quote, .quote-mobile, .learn-more').forEach(function(el) {
+                    el.addEventListener('click', function() { playSound('click'); });
+                });
+
+                // Nav links (desktop)
+                document.querySelectorAll('.nav-links > li > a, .nav-links a.quote').forEach(function(el) {
+                    el.addEventListener('mouseenter', function() { playSound('hover'); });
+                });
+
+                // Dropdown items & sidebar
+                document.querySelectorAll('.dropdown-menu li a, .sidebar ul li a, .mobile-sub-menu li a')
+                    .forEach(function(el) {
+                        el.addEventListener('mouseenter', function() { playSound('hover'); });
+                    });
+
+                // Product cards (swoosh)
+                document.querySelectorAll('.sub-product-item').forEach(function(card) {
+                    card.addEventListener('mouseenter', function() { playSound('swoosh'); });
+                });
+            });
+
+            // ============================================================
+            // 6. KEYBOARD ACCESSIBILITY: close menu on Escape (already)
+            // ============================================================
+
+            console.log('ForPro · Slab Formwork — fully responsive & mobile-ready');
+        })();
+    </script>
 
 </body>
-
 
 </html>
