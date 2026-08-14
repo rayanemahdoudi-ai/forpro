@@ -17,7 +17,7 @@
     <style>
 
         /* ============================================================
-           ROOT VARIABLES
+           ROOT
         ============================================================ */
 
         :root {
@@ -53,13 +53,11 @@
         html {
             scroll-behavior: smooth;
             scroll-snap-type: y mandatory;
-
             -webkit-tap-highlight-color: transparent;
         }
 
 
         body {
-
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -70,11 +68,8 @@
                 sans-serif;
 
             color: #102235;
-
             line-height: 1.6;
-
             overflow-x: hidden;
-
             background: #000;
 
             -webkit-font-smoothing: antialiased;
@@ -106,9 +101,7 @@
 
 
         .container {
-
             width: min(92%, 1320px);
-
             margin: auto;
 
             padding-left: max(4px, var(--safe-left));
@@ -122,7 +115,6 @@
         ============================================================ */
 
         header {
-
             position: fixed;
 
             top: 0;
@@ -138,22 +130,24 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
 
-            min-height: calc(var(--header-height) + var(--safe-top));
+            min-height:
+                calc(
+                    var(--header-height) +
+                    var(--safe-top)
+                );
 
             padding-top: var(--safe-top);
         }
 
 
         nav {
-
             height: var(--header-height);
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             gap: 12px;
@@ -166,8 +160,8 @@
         ============================================================ */
 
         .logo {
-
-            font-size: clamp(22px, 5vw, 30px);
+            font-size:
+                clamp(22px, 5vw, 30px);
 
             font-weight: 900;
 
@@ -188,11 +182,10 @@
 
 
         /* ============================================================
-           DESKTOP NAVIGATION
+           DESKTOP NAV
         ============================================================ */
 
         .nav-links {
-
             display: flex;
 
             gap: 18px;
@@ -214,7 +207,6 @@
 
 
         .nav-links a {
-
             display: block;
 
             padding: 8px 0;
@@ -227,7 +219,8 @@
 
             white-space: nowrap;
 
-            font-size: clamp(12px, 1.1vw, 14px);
+            font-size:
+                clamp(12px, 1.1vw, 14px);
         }
 
 
@@ -238,7 +231,7 @@
 
 
         /* ============================================================
-           DESKTOP DROPDOWN
+           DROPDOWN
         ============================================================ */
 
         .dropdown {
@@ -247,7 +240,6 @@
 
 
         .dropdown-menu {
-
             position: absolute;
 
             top: calc(100% + 8px);
@@ -261,7 +253,8 @@
             border-radius: 8px;
 
             box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.30);
+                0 20px 50px
+                rgba(0, 0, 0, 0.30);
 
             list-style: none;
 
@@ -273,14 +266,16 @@
 
             visibility: hidden;
 
-            transform: translateY(12px);
+            transform:
+                translateY(12px);
 
             transition:
                 opacity 0.25s ease,
                 visibility 0.25s ease,
                 transform 0.25s ease;
 
-            border-top: 4px solid var(--blue);
+            border-top:
+                4px solid var(--blue);
 
             z-index: 100;
         }
@@ -288,17 +283,16 @@
 
         .dropdown:hover .dropdown-menu,
         .dropdown-menu.show {
-
             opacity: 1;
 
             visibility: visible;
 
-            transform: translateY(0);
+            transform:
+                translateY(0);
         }
 
 
         .dropdown-menu li a {
-
             color: var(--navy);
 
             padding: 10px 20px;
@@ -307,13 +301,11 @@
 
             font-size: 13px;
 
-            border-left: 3px solid transparent;
+            border-left:
+                3px solid transparent;
 
             transition:
-                color 0.2s ease,
-                background 0.2s ease,
-                padding-left 0.2s ease,
-                border-color 0.2s ease;
+                all 0.2s ease;
 
             background: white;
 
@@ -324,12 +316,12 @@
 
 
         .dropdown-menu li a:hover {
-
             background: var(--light);
 
             color: var(--blue);
 
-            border-left-color: var(--blue);
+            border-left-color:
+                var(--blue);
 
             padding-left: 26px;
         }
@@ -341,7 +333,6 @@
         ============================================================ */
 
         .nav-links .quote {
-
             background: var(--blue);
 
             padding: 10px 22px;
@@ -354,17 +345,20 @@
                 background 0.3s ease,
                 transform 0.3s ease;
 
-            font-size: clamp(11px, 1vw, 14px);
+            font-size:
+                clamp(11px, 1vw, 14px);
         }
 
 
         .nav-links .quote:hover {
+            background:
+                var(--blue-light) !important;
 
-            background: var(--blue-light) !important;
+            color:
+                white !important;
 
-            color: white !important;
-
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
         }
 
 
@@ -374,7 +368,6 @@
         ============================================================ */
 
         .hamburger {
-
             display: none;
 
             flex-direction: column;
@@ -398,7 +391,6 @@
 
 
         .hamburger span {
-
             display: block;
 
             width: 28px;
@@ -417,39 +409,47 @@
         }
 
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
+        .hamburger.active
+        span:nth-child(1) {
+            transform:
+                rotate(45deg)
+                translate(5px, 6px);
         }
 
 
-        .hamburger.active span:nth-child(2) {
-
+        .hamburger.active
+        span:nth-child(2) {
             opacity: 0;
 
-            transform: scaleX(0);
+            transform:
+                scaleX(0);
         }
 
 
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -7px);
+        .hamburger.active
+        span:nth-child(3) {
+            transform:
+                rotate(-45deg)
+                translate(6px, -7px);
         }
 
 
 
         /* ============================================================
-           MOBILE MENU
+           MOBILE MENU OVERLAY
         ============================================================ */
 
         .mobile-menu-overlay {
-
             position: fixed;
 
             inset: 0;
 
-            background: rgba(6, 27, 46, 0.985);
+            background:
+                rgba(6, 27, 46, 0.985);
 
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            -webkit-backdrop-filter:
+                blur(20px);
 
             z-index: 1000;
 
@@ -468,17 +468,28 @@
                 visibility 0.35s ease;
 
             padding:
-                calc(80px + var(--safe-top))
-                max(30px, var(--safe-right))
-                calc(40px + var(--safe-bottom))
-                max(30px, var(--safe-left));
+                calc(
+                    80px +
+                    var(--safe-top)
+                )
+                max(
+                    30px,
+                    var(--safe-right)
+                )
+                calc(
+                    40px +
+                    var(--safe-bottom)
+                )
+                max(
+                    30px,
+                    var(--safe-left)
+                );
 
             overflow-y: auto;
         }
 
 
         .mobile-menu-overlay.open {
-
             opacity: 1;
 
             visibility: visible;
@@ -486,7 +497,6 @@
 
 
         .mobile-menu-inner {
-
             width: 100%;
 
             max-width: 420px;
@@ -498,7 +508,6 @@
 
 
         .mobile-menu-inner ul {
-
             list-style: none;
 
             padding: 0;
@@ -507,14 +516,14 @@
         }
 
 
-        .mobile-menu-inner > ul > li {
+        .mobile-menu-inner
+        > ul > li {
             margin-bottom: 6px;
         }
 
 
         .mobile-menu-inner ul li a,
         .mobile-dropdown-toggle {
-
             display: flex;
 
             justify-content: center;
@@ -543,13 +552,15 @@
 
         .mobile-menu-inner ul li a:active,
         .mobile-dropdown-toggle:active {
-            background: rgba(255, 255, 255, 0.08);
+            background:
+                rgba(255,255,255,0.08);
         }
 
 
-        .mobile-menu-inner ul li a.quote-mobile {
-
-            background: var(--blue);
+        .mobile-menu-inner
+        ul li a.quote-mobile {
+            background:
+                var(--blue);
 
             margin-top: 10px;
 
@@ -559,18 +570,19 @@
         }
 
 
-        .mobile-menu-inner ul li a.quote-mobile:active {
-            background: var(--blue-light);
+        .mobile-menu-inner
+        ul li a.quote-mobile:active {
+            background:
+                var(--blue-light);
         }
 
 
 
         /* ============================================================
-           MOBILE DROPDOWN
+           MOBILE SUB MENU
         ============================================================ */
 
         .mobile-dropdown-toggle {
-
             gap: 10px;
 
             user-select: none;
@@ -579,11 +591,12 @@
         }
 
 
-        .mobile-dropdown-toggle .arrow {
-
+        .mobile-dropdown-toggle
+        .arrow {
             display: inline-block;
 
-            transition: transform 0.3s ease;
+            transition:
+                transform 0.3s ease;
 
             font-size: 14px;
 
@@ -591,18 +604,20 @@
         }
 
 
-        .mobile-dropdown-toggle .arrow.open {
-            transform: rotate(180deg);
+        .mobile-dropdown-toggle
+        .arrow.open {
+            transform:
+                rotate(180deg);
         }
 
 
         .mobile-sub-menu {
-
             list-style: none;
 
             padding: 0;
 
-            margin: 0 0 6px 0;
+            margin:
+                0 0 6px 0;
 
             max-height: 0;
 
@@ -617,7 +632,6 @@
 
 
         .mobile-sub-menu.open {
-
             max-height: 650px;
 
             opacity: 1;
@@ -625,26 +639,42 @@
 
 
         .mobile-sub-menu li a {
+            font-size:
+                15px !important;
 
-            font-size: 15px !important;
+            font-weight:
+                500 !important;
 
-            font-weight: 500 !important;
+            padding:
+                10px 20px !important;
 
-            padding: 10px 20px !important;
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                ) !important;
 
-            color: rgba(255, 255, 255, 0.75) !important;
-
-            border-left: 3px solid transparent;
+            border-left:
+                3px solid transparent;
         }
 
 
         .mobile-sub-menu li a:active {
+            color:
+                white !important;
 
-            color: white !important;
+            border-left-color:
+                var(--blue-light);
 
-            border-left-color: var(--blue-light);
-
-            background: rgba(255, 255, 255, 0.04);
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.04
+                );
         }
 
 
@@ -654,16 +684,10 @@
         ============================================================ */
 
         .full-slide {
-
             position: relative;
 
             width: 100%;
 
-            /*
-             * vh fallback
-             * svh = stable viewport height
-             * dvh = dynamic viewport height
-             */
             height: 100vh;
             height: 100svh;
 
@@ -683,39 +707,10 @@
 
 
         /* ============================================================
-           SLIDE DARK OVERLAY
+           NORMAL DESKTOP IMAGE
         ============================================================ */
 
-        .full-slide::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0.08) 0%,
-                    rgba(0, 0, 0, 0.01) 42%,
-                    rgba(0, 0, 0, 0.10) 62%,
-                    rgba(0, 0, 0, 0.48) 100%
-                );
-
-            pointer-events: none;
-
-            z-index: 1;
-        }
-
-
-
-        /* ============================================================
-           RESPONSIVE IMAGES
-        ============================================================ */
-
-        .full-slide img {
-
+        .image-slide > img {
             position: absolute;
 
             inset: 0;
@@ -724,35 +719,50 @@
 
             height: 100%;
 
-            display: block;
-
             object-fit: cover;
 
-            object-position: center center;
+            object-position:
+                center center;
+
+            display: block;
+
+            z-index: 0;
 
             max-width: none;
 
-            user-select: none;
+            transform:
+                translateZ(0);
 
-            pointer-events: auto;
+            backface-visibility:
+                hidden;
 
-            backface-visibility: hidden;
+            -webkit-backface-visibility:
+                hidden;
 
-            -webkit-backface-visibility: hidden;
-
-            transform: translateZ(0);
-
-            transition: transform 0.8s ease;
-
-            z-index: 0;
+            transition:
+                transform 0.8s ease;
         }
 
 
-        /* Slight visual movement on desktop */
-        @media (hover: hover) and (pointer: fine) {
+        /* Background copy is only needed on phone */
+        .mobile-image-bg {
+            display: none;
+        }
 
-            .full-slide:hover img {
-                transform: scale(1.012);
+
+
+        /* ============================================================
+           DESKTOP IMAGE HOVER
+        ============================================================ */
+
+        @media
+        (hover: hover)
+        and
+        (pointer: fine) {
+
+            .image-slide:hover > img {
+                transform:
+                    scale(1.012);
             }
 
         }
@@ -760,11 +770,10 @@
 
 
         /* ============================================================
-           RESPONSIVE VIDEO
+           VIDEO
         ============================================================ */
 
         .full-slide video {
-
             position: absolute;
 
             inset: 0;
@@ -777,27 +786,25 @@
 
             object-fit: cover;
 
-            object-position: center center;
+            object-position:
+                center center;
 
             background: #000;
 
-            transform: translateZ(0);
+            transform:
+                translateZ(0);
 
-            backface-visibility: hidden;
+            backface-visibility:
+                hidden;
 
-            -webkit-backface-visibility: hidden;
+            -webkit-backface-visibility:
+                hidden;
 
             z-index: 0;
         }
 
 
-
-        /* ============================================================
-           VIDEO SLIDE BACKGROUND
-        ============================================================ */
-
         #video-slide {
-
             background:
                 radial-gradient(
                     circle at center,
@@ -810,72 +817,133 @@
 
 
         /* ============================================================
-           INDIVIDUAL IMAGE POSITION CONTROL
+           GENERAL DARK OVERLAY
         ============================================================ */
 
-        #factory-slide img {
-            object-position: 50% center;
-        }
+        .full-slide::after {
+            content: "";
 
+            position: absolute;
 
-        #industry img {
-            object-position: 50% center;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.06)
+                    0%,
+
+                    rgba(0,0,0,0.01)
+                    45%,
+
+                    rgba(0,0,0,0.10)
+                    65%,
+
+                    rgba(0,0,0,0.50)
+                    100%
+                );
+
+            z-index: 2;
+
+            pointer-events: none;
         }
 
 
 
         /* ============================================================
-           SLIDE LABEL
+           LABEL
         ============================================================ */
 
         .slide-label {
-
             position: absolute;
 
-            left: clamp(18px, 4vw, 50px);
+            left:
+                clamp(
+                    18px,
+                    4vw,
+                    50px
+                );
 
-            bottom: clamp(32px, 7vh, 70px);
+            bottom:
+                clamp(
+                    32px,
+                    7vh,
+                    70px
+                );
 
             color: white;
 
-            background: rgba(6, 27, 46, 0.75);
+            background:
+                rgba(
+                    6,
+                    27,
+                    46,
+                    0.75
+                );
 
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter:
+                blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
 
             padding:
-                clamp(12px, 2vw, 18px)
-                clamp(18px, 3vw, 32px);
+                clamp(
+                    12px,
+                    2vw,
+                    18px
+                )
+                clamp(
+                    18px,
+                    3vw,
+                    32px
+                );
 
             border-radius: 12px;
 
-            border-left: 4px solid var(--blue-light);
+            border-left:
+                4px solid
+                var(--blue-light);
 
-            font-size: clamp(19px, 2.5vw, 32px);
+            font-size:
+                clamp(
+                    19px,
+                    2.5vw,
+                    32px
+                );
 
             font-weight: 800;
 
             letter-spacing: 0.5px;
 
             box-shadow:
-                0 10px 40px rgba(0, 0, 0, 0.45);
+                0 10px 40px
+                rgba(0,0,0,0.45);
 
             pointer-events: none;
 
             text-shadow:
-                0 2px 12px rgba(0, 0, 0, 0.4);
+                0 2px 12px
+                rgba(0,0,0,0.4);
 
-            z-index: 3;
+            z-index: 5;
 
-            max-width: min(72%, 720px);
+            max-width:
+                min(72%, 720px);
 
-            word-break: break-word;
+            word-break:
+                break-word;
         }
 
 
-        .slide-label .sub-category {
-
-            font-size: clamp(11px, 1.2vw, 14px);
+        .slide-label
+        .sub-category {
+            font-size:
+                clamp(
+                    11px,
+                    1.2vw,
+                    14px
+                );
 
             font-weight: 400;
 
@@ -887,7 +955,8 @@
 
             letter-spacing: 1.5px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
         }
 
 
@@ -897,36 +966,79 @@
         ============================================================ */
 
         .slide-number {
-
             position: absolute;
 
-            bottom: clamp(35px, 7vh, 70px);
+            bottom:
+                clamp(
+                    35px,
+                    7vh,
+                    70px
+                );
 
-            right: clamp(18px, 4vw, 50px);
+            right:
+                clamp(
+                    18px,
+                    4vw,
+                    50px
+                );
 
-            color: rgba(255, 255, 255, 0.60);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.60
+                );
 
-            font-size: clamp(11px, 1.2vw, 14px);
+            font-size:
+                clamp(
+                    11px,
+                    1.2vw,
+                    14px
+                );
 
             font-weight: 700;
 
             letter-spacing: 1.5px;
 
-            background: rgba(0, 0, 0, 0.35);
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.35
+                );
 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter:
+                blur(8px);
+
+            -webkit-backdrop-filter:
+                blur(8px);
 
             padding:
-                clamp(4px, 0.8vw, 8px)
-                clamp(12px, 1.5vw, 18px);
+                clamp(
+                    4px,
+                    0.8vw,
+                    8px
+                )
+                clamp(
+                    12px,
+                    1.5vw,
+                    18px
+                );
 
             border-radius: 30px;
 
             border:
-                1px solid rgba(255, 255, 255, 0.08);
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
 
-            z-index: 3;
+            z-index: 5;
 
             pointer-events: none;
         }
@@ -938,24 +1050,41 @@
         ============================================================ */
 
         .scroll-indicator {
-
             position: absolute;
 
-            bottom: clamp(12px, 2.5vh, 28px);
+            bottom:
+                clamp(
+                    12px,
+                    2.5vh,
+                    28px
+                );
 
             left: 50%;
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
 
-            z-index: 3;
+            z-index: 5;
 
-            color: rgba(255, 255, 255, 0.45);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.45
+                );
 
-            font-size: clamp(10px, 1.2vw, 13px);
+            font-size:
+                clamp(
+                    10px,
+                    1.2vw,
+                    13px
+                );
 
             letter-spacing: 2px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
             display: flex;
 
@@ -967,27 +1096,40 @@
 
             pointer-events: none;
 
-            animation: bob 2.4s ease-in-out infinite;
+            animation:
+                bob
+                2.4s
+                ease-in-out
+                infinite;
         }
 
 
-        .scroll-indicator .chevron {
-
-            display: inline-block;
-
+        .scroll-indicator
+        .chevron {
             width: 18px;
 
             height: 18px;
 
             border-right:
-                2px solid rgba(255, 255, 255, 0.35);
+                2px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.35
+                );
 
             border-bottom:
-                2px solid rgba(255, 255, 255, 0.35);
+                2px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.35
+                );
 
-            transform: rotate(45deg);
-
-            opacity: 0.6;
+            transform:
+                rotate(45deg);
         }
 
 
@@ -1005,6 +1147,7 @@
                     translateX(-50%)
                     translateY(6px);
             }
+
         }
 
 
@@ -1014,7 +1157,6 @@
         ============================================================ */
 
         footer {
-
             background: #031522;
 
             color: white;
@@ -1022,17 +1164,20 @@
             padding:
                 40px
                 0
-                calc(30px + var(--safe-bottom));
+                calc(
+                    30px +
+                    var(--safe-bottom)
+                );
 
             scroll-snap-align: end;
         }
 
 
         .footer-content {
-
             display: flex;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             gap: 30px;
 
@@ -1041,48 +1186,37 @@
 
 
         footer p {
-
             color: #8da7b9;
 
             max-width: 500px;
 
-            font-size: clamp(14px, 1.2vw, 16px);
+            font-size:
+                clamp(
+                    14px,
+                    1.2vw,
+                    16px
+                );
         }
 
 
         .copyright {
-
             margin-top: 25px;
 
             padding-top: 18px;
 
-            border-top: 1px solid #244057;
+            border-top:
+                1px solid #244057;
 
             color: #7790a2;
 
-            font-size: clamp(12px, 1vw, 14px);
+            font-size:
+                clamp(
+                    12px,
+                    1vw,
+                    14px
+                );
 
             text-align: center;
-        }
-
-
-
-        /* ============================================================
-           LARGE DESKTOP MONITORS
-        ============================================================ */
-
-        @media (min-width: 1600px) {
-
-            .full-slide img,
-            .full-slide video {
-
-                object-position: center center;
-            }
-
-
-            .slide-label {
-                max-width: 700px;
-            }
         }
 
 
@@ -1091,7 +1225,8 @@
            TABLET
         ============================================================ */
 
-        @media (max-width: 1024px) {
+        @media
+        (max-width: 1024px) {
 
             .nav-links {
                 gap: 12px;
@@ -1104,26 +1239,10 @@
 
 
             .nav-links .quote {
-
-                padding: 8px 16px;
+                padding:
+                    8px 16px;
 
                 font-size: 12px;
-            }
-
-
-            .full-slide {
-
-                height: 100vh;
-                height: 100svh;
-
-                min-height: 500px;
-            }
-
-
-            .full-slide img,
-            .full-slide video {
-
-                object-position: center center;
             }
 
         }
@@ -1131,13 +1250,15 @@
 
 
         /* ============================================================
-           MOBILE NAVIGATION
+           MOBILE NAV
         ============================================================ */
 
-        @media (max-width: 900px) {
+        @media
+        (max-width: 900px) {
 
             .nav-links {
-                display: none !important;
+                display:
+                    none !important;
             }
 
 
@@ -1155,18 +1276,16 @@
 
 
         /* ============================================================
-           MOBILE PORTRAIT
-           Main optimization
+           PHONE PORTRAIT
+           IMPORTANT IMAGE FIX
         ============================================================ */
 
-        @media (max-width: 768px) and (orientation: portrait) {
+        @media
+        (max-width: 768px)
+        and
+        (orientation: portrait) {
 
             .full-slide {
-
-                /*
-                 * dvh changes when Safari/Chrome bars disappear.
-                 * svh provides a stable fallback.
-                 */
                 height: 100svh;
                 height: 100dvh;
 
@@ -1174,56 +1293,192 @@
             }
 
 
-            /* Images fill the entire phone screen */
 
-            .full-slide img {
+            /*
+             * PHONE IMAGE SOLUTION
+             *
+             * Instead of cropping the original
+             * landscape image with object-fit: cover,
+             * we create:
+             *
+             * 1. blurred full-screen background
+             * 2. complete uncropped main image
+             *
+             * Result:
+             * important factory / building / text
+             * remains visible.
+             */
 
-                width: 100%;
-                height: 100%;
-
-                object-fit: cover;
-
-                object-position: center center;
+            .image-slide {
+                background:
+                    #061b2e;
             }
 
 
+            .mobile-image-bg {
+                display: block;
+
+                position: absolute;
+
+                inset: -35px;
+
+                background-size:
+                    cover;
+
+                background-position:
+                    center center;
+
+                background-repeat:
+                    no-repeat;
+
+                filter:
+                    blur(26px);
+
+                -webkit-filter:
+                    blur(26px);
+
+                transform:
+                    scale(1.14);
+
+                opacity: 0.88;
+
+                z-index: 0;
+            }
+
+
+
             /*
-             * Landscape videos on portrait phones:
-             * contain = whole video visible.
-             *
-             * This prevents cutting off the left/right sides.
+             * Additional background shading
              */
 
-            .full-slide video {
+            .image-slide::before {
+                content: "";
+
+                position: absolute;
+
+                inset: 0;
+
+                background:
+                    linear-gradient(
+                        to bottom,
+                        rgba(
+                            3,
+                            15,
+                            25,
+                            0.18
+                        )
+                        0%,
+
+                        rgba(
+                            3,
+                            15,
+                            25,
+                            0.10
+                        )
+                        45%,
+
+                        rgba(
+                            3,
+                            15,
+                            25,
+                            0.35
+                        )
+                        100%
+                    );
+
+                z-index: 1;
+
+                pointer-events: none;
+            }
+
+
+
+            /*
+             * COMPLETE ORIGINAL IMAGE
+             *
+             * No aggressive crop.
+             */
+
+            .image-slide > img {
+                position: absolute;
+
+                top: 50%;
+
+                left: 50%;
 
                 width: 100%;
-                height: 100%;
+
+                height: auto;
+
+                max-height: 100%;
 
                 object-fit: contain;
 
-                object-position: center center;
+                object-position:
+                    center center;
+
+                transform:
+                    translate(
+                        -50%,
+                        -50%
+                    );
+
+                z-index: 2;
+            }
+
+
+
+            /*
+             * On tall narrow phones
+             * this allows the image to use as
+             * much width as possible.
+             */
+
+            #factory-slide > img,
+            #industry > img {
+                width: 100%;
+
+                height: auto;
+
+                max-height: 82%;
+            }
+
+
+
+            /*
+             * VIDEO:
+             * show complete landscape video
+             * on portrait screen.
+             */
+
+            .full-slide video {
+                width: 100%;
+
+                height: 100%;
+
+                object-fit:
+                    contain;
+
+                object-position:
+                    center center;
 
                 background: #000;
             }
 
 
-            #factory-slide img {
-                object-position: 50% center;
-            }
-
-
-            #industry img {
-                object-position: 50% center;
-            }
-
 
             .slide-label {
-
                 left:
-                    max(16px, var(--safe-left));
+                    max(
+                        16px,
+                        var(--safe-left)
+                    );
 
                 right:
-                    max(16px, var(--safe-right));
+                    max(
+                        16px,
+                        var(--safe-right)
+                    );
 
                 bottom:
                     calc(
@@ -1235,26 +1490,45 @@
 
                 max-width:
                     calc(
-                        100% -
-                        max(16px, var(--safe-left)) -
-                        max(16px, var(--safe-right))
+                        100%
+                        -
+                        max(
+                            16px,
+                            var(--safe-left)
+                        )
+                        -
+                        max(
+                            16px,
+                            var(--safe-right)
+                        )
                     );
 
                 padding:
-                    12px
-                    16px;
+                    12px 16px;
 
                 border-radius: 10px;
 
-                font-size: clamp(17px, 5vw, 23px);
+                font-size:
+                    clamp(
+                        17px,
+                        5vw,
+                        23px
+                    );
 
                 background:
-                    rgba(6, 27, 46, 0.74);
+                    rgba(
+                        6,
+                        27,
+                        46,
+                        0.76
+                    );
+
+                z-index: 7;
             }
 
 
-            .slide-label .sub-category {
-
+            .slide-label
+            .sub-category {
                 font-size: 10px;
 
                 line-height: 1.4;
@@ -1265,7 +1539,6 @@
             }
 
 
-            /* Hide number on narrow phones */
             .slide-number {
                 display: none;
             }
@@ -1278,10 +1551,12 @@
            SMALL PHONES
         ============================================================ */
 
-        @media (max-width: 480px) {
+        @media
+        (max-width: 480px) {
 
             :root {
-                --header-height: 60px;
+                --header-height:
+                    60px;
             }
 
 
@@ -1291,7 +1566,6 @@
 
 
             .hamburger span {
-
                 width: 24px;
 
                 height: 2.5px;
@@ -1299,7 +1573,6 @@
 
 
             .mobile-menu-overlay {
-
                 padding-top:
                     calc(
                         70px +
@@ -1307,39 +1580,56 @@
                     );
 
                 padding-left:
-                    max(20px, var(--safe-left));
+                    max(
+                        20px,
+                        var(--safe-left)
+                    );
 
                 padding-right:
-                    max(20px, var(--safe-right));
+                    max(
+                        20px,
+                        var(--safe-right)
+                    );
             }
 
 
-            .mobile-menu-inner ul li a,
+            .mobile-menu-inner
+            ul li a,
             .mobile-dropdown-toggle {
-
                 font-size: 17px;
 
-                padding: 12px 16px;
+                padding:
+                    12px 16px;
             }
 
 
             .mobile-sub-menu li a {
-
-                font-size: 14px !important;
+                font-size:
+                    14px !important;
 
                 padding:
-                    8px
-                    16px !important;
+                    8px 16px !important;
+            }
+
+
+            #factory-slide > img,
+            #industry > img {
+                max-height: 78%;
             }
 
 
             .slide-label {
-
                 left:
-                    max(14px, var(--safe-left));
+                    max(
+                        14px,
+                        var(--safe-left)
+                    );
 
                 right:
-                    max(14px, var(--safe-right));
+                    max(
+                        14px,
+                        var(--safe-right)
+                    );
 
                 bottom:
                     calc(
@@ -1348,19 +1638,19 @@
                     );
 
                 padding:
-                    10px
-                    14px;
+                    10px 14px;
 
                 font-size: 16px;
 
-                border-left-width: 3px;
+                border-left-width:
+                    3px;
 
                 border-radius: 8px;
             }
 
 
-            .slide-label .sub-category {
-
+            .slide-label
+            .sub-category {
                 font-size: 9px;
 
                 letter-spacing: 1px;
@@ -1368,7 +1658,6 @@
 
 
             footer {
-
                 padding-top: 28px;
 
                 padding-bottom:
@@ -1388,13 +1677,15 @@
 
 
         /* ============================================================
-           MOBILE LANDSCAPE
+           LANDSCAPE PHONE
         ============================================================ */
 
-        @media (orientation: landscape) and (max-height: 600px) {
+        @media
+        (orientation: landscape)
+        and
+        (max-height: 600px) {
 
             .full-slide {
-
                 height: 100vh;
                 height: 100dvh;
 
@@ -1402,23 +1693,55 @@
             }
 
 
-            .full-slide img,
-            .full-slide video {
+            /*
+             * Landscape phone has a similar ratio
+             * to desktop image/video,
+             * so use normal full-screen cover.
+             */
 
+            .mobile-image-bg {
+                display: none;
+            }
+
+
+            .image-slide > img {
+                top: 0;
+
+                left: 0;
+
+                width: 100%;
+
+                height: 100%;
+
+                max-height: none;
+
+                object-fit: cover;
+
+                object-position:
+                    center center;
+
+                transform: none;
+            }
+
+
+            .full-slide video {
                 width: 100%;
 
                 height: 100%;
 
                 object-fit: cover;
 
-                object-position: center center;
+                object-position:
+                    center center;
             }
 
 
             .slide-label {
-
                 left:
-                    max(16px, var(--safe-left));
+                    max(
+                        16px,
+                        var(--safe-left)
+                    );
 
                 bottom:
                     calc(
@@ -1426,7 +1749,8 @@
                         var(--safe-bottom)
                     );
 
-                padding: 8px 14px;
+                padding:
+                    8px 14px;
 
                 font-size: 16px;
 
@@ -1434,12 +1758,14 @@
             }
 
 
-            .slide-label .sub-category {
+            .slide-label
+            .sub-category {
                 font-size: 9px;
             }
 
 
             .slide-number {
+                display: block;
 
                 bottom:
                     calc(
@@ -1448,7 +1774,10 @@
                     );
 
                 right:
-                    max(16px, var(--safe-right));
+                    max(
+                        16px,
+                        var(--safe-right)
+                    );
             }
 
 
@@ -1461,42 +1790,29 @@
 
 
         /* ============================================================
-           ULTRA-WIDE MOBILE / SHORT WINDOWS
+           TOUCH DROPDOWN
         ============================================================ */
 
-        @media (max-height: 450px) {
-
-            .slide-label {
-                max-width: 65%;
-            }
-
-        }
-
-
-
-        /* ============================================================
-           TOUCH DEVICE DROPDOWN
-        ============================================================ */
-
-        @media (hover: none) {
+        @media
+        (hover: none) {
 
             .dropdown-menu {
-
                 opacity: 0;
 
                 visibility: hidden;
 
-                transform: translateY(12px);
+                transform:
+                    translateY(12px);
             }
 
 
             .dropdown-menu.show {
-
                 opacity: 1;
 
                 visibility: visible;
 
-                transform: translateY(0);
+                transform:
+                    translateY(0);
             }
 
         }
@@ -1507,7 +1823,8 @@
            REDUCED MOTION
         ============================================================ */
 
-        @media (prefers-reduced-motion: reduce) {
+        @media
+        (prefers-reduced-motion: reduce) {
 
             html {
                 scroll-behavior: auto;
@@ -1517,12 +1834,14 @@
             *,
             *::before,
             *::after {
+                animation-duration:
+                    0.01ms !important;
 
-                animation-duration: 0.01ms !important;
+                animation-iteration-count:
+                    1 !important;
 
-                animation-iteration-count: 1 !important;
-
-                transition-duration: 0.01ms !important;
+                transition-duration:
+                    0.01ms !important;
             }
 
 
@@ -1539,6 +1858,7 @@
 
 
 <body>
+
 
 
     <!-- ============================================================
@@ -1559,6 +1879,7 @@
                     For<span>Pro</span>
 
                 </a>
+
 
 
                 <!-- DESKTOP NAV -->
@@ -1583,7 +1904,8 @@
                         </a>
 
 
-                        <ul class="dropdown-menu">
+                        <ul
+                            class="dropdown-menu">
 
                             <li>
                                 <a href="wall-and-column.html">
@@ -1648,7 +1970,8 @@
                         </a>
 
 
-                        <ul class="dropdown-menu">
+                        <ul
+                            class="dropdown-menu">
 
                             <li>
                                 <a href="projects.html">
@@ -1692,16 +2015,20 @@
 
 
                     <li>
+
                         <a href="industries.html">
                             Industries
                         </a>
+
                     </li>
 
 
                     <li>
+
                         <a href="about-us.html">
                             About Us
                         </a>
+
                     </li>
 
 
@@ -1721,7 +2048,7 @@
 
 
 
-                <!-- MOBILE HAMBURGER -->
+                <!-- HAMBURGER -->
 
                 <button
                     class="hamburger"
@@ -1773,7 +2100,9 @@
                         tabindex="0"
                         aria-expanded="false">
 
-                        <span>Products</span>
+                        <span>
+                            Products
+                        </span>
 
                         <span class="arrow">
                             ▾
@@ -1782,7 +2111,8 @@
                     </div>
 
 
-                    <ul class="mobile-sub-menu">
+                    <ul
+                        class="mobile-sub-menu">
 
                         <li>
                             <a href="wall-and-column.html">
@@ -1843,7 +2173,9 @@
                         tabindex="0"
                         aria-expanded="false">
 
-                        <span>Projects</span>
+                        <span>
+                            Projects
+                        </span>
 
                         <span class="arrow">
                             ▾
@@ -1852,7 +2184,8 @@
                     </div>
 
 
-                    <ul class="mobile-sub-menu">
+                    <ul
+                        class="mobile-sub-menu">
 
                         <li>
                             <a href="projects.html">
@@ -1940,9 +2273,22 @@
     ============================================================ -->
 
     <section
-        class="full-slide"
+        class="full-slide image-slide"
         id="factory-slide">
 
+
+        <!-- blurred mobile background -->
+
+        <div
+            class="mobile-image-bg"
+            style="
+                background-image:
+                url('images/f15.png');
+            ">
+        </div>
+
+
+        <!-- real picture -->
 
         <img
             src="images/f15.png"
@@ -1989,9 +2335,22 @@
     ============================================================ -->
 
     <section
-        class="full-slide"
+        class="full-slide image-slide"
         id="industry">
 
+
+        <!-- blurred mobile background -->
+
+        <div
+            class="mobile-image-bg"
+            style="
+                background-image:
+                url('images/f1.png');
+            ">
+        </div>
+
+
+        <!-- real picture -->
 
         <img
             src="images/f1.png"
@@ -2083,7 +2442,11 @@
                     <h3
                         style="
                             font-size:
-                            clamp(20px, 3vw, 24px);
+                            clamp(
+                                20px,
+                                3vw,
+                                24px
+                            );
                         ">
 
                         For<span
@@ -2091,9 +2454,7 @@
                                 color:
                                 var(--blue-light);
                             ">
-
                             Pro
-
                         </span>
 
                     </h3>
@@ -2101,7 +2462,8 @@
 
                     <p
                         style="
-                            margin-top: 12px;
+                            margin-top:
+                            12px;
                         ">
 
                         Advanced formwork and scaffolding systems
@@ -2119,7 +2481,11 @@
                     <h4
                         style="
                             font-size:
-                            clamp(15px, 1.2vw, 18px);
+                            clamp(
+                                15px,
+                                1.2vw,
+                                18px
+                            );
                         ">
 
                         Quick Links
@@ -2129,10 +2495,18 @@
 
                     <p
                         style="
-                            color: #8da7b9;
-                            line-height: 2;
+                            color:
+                            #8da7b9;
+
+                            line-height:
+                            2;
+
                             font-size:
-                            clamp(13px, 1vw, 15px);
+                            clamp(
+                                13px,
+                                1vw,
+                                15px
+                            );
                         ">
 
                         Products<br>
@@ -2175,7 +2549,7 @@
 
 
             /* ========================================================
-               1. SOUND ENGINE
+               SOUND ENGINE
             ======================================================== */
 
             let audioCtx = null;
@@ -2193,7 +2567,9 @@
                                 window.webkitAudioContext
                             )();
 
-                    } catch (_) {
+                    }
+
+                    catch (_) {
 
                         return null;
 
@@ -2211,16 +2587,24 @@
 
                 try {
 
-                    const ctx = getAudioContext();
+                    const ctx =
+                        getAudioContext();
+
 
                     if (!ctx) {
                         return;
                     }
 
 
-                    if (ctx.state === 'suspended') {
+                    if (
+                        ctx.state ===
+                        'suspended'
+                    ) {
 
-                        ctx.resume().catch(function () {});
+                        ctx.resume()
+                            .catch(
+                                function () {}
+                            );
 
                     }
 
@@ -2228,13 +2612,16 @@
                     const osc =
                         ctx.createOscillator();
 
+
                     const gain =
                         ctx.createGain();
 
 
                     osc.connect(gain);
 
-                    gain.connect(ctx.destination);
+                    gain.connect(
+                        ctx.destination
+                    );
 
 
                     const now =
@@ -2242,21 +2629,32 @@
 
 
 
-                    if (type === 'click') {
+                    if (
+                        type ===
+                        'click'
+                    ) {
 
-                        osc.frequency.value = 900;
+                        osc.frequency.value =
+                            900;
 
-                        gain.gain.setValueAtTime(
-                            0.16,
-                            now
-                        );
 
-                        gain.gain.exponentialRampToValueAtTime(
-                            0.001,
-                            now + 0.07
-                        );
+                        gain.gain
+                            .setValueAtTime(
+                                0.16,
+                                now
+                            );
 
-                        osc.type = 'sine';
+
+                        gain.gain
+                            .exponentialRampToValueAtTime(
+                                0.001,
+                                now + 0.07
+                            );
+
+
+                        osc.type =
+                            'sine';
+
 
                         osc.start(now);
 
@@ -2268,21 +2666,32 @@
 
 
 
-                    else if (type === 'hover') {
+                    else if (
+                        type ===
+                        'hover'
+                    ) {
 
-                        osc.frequency.value = 620;
+                        osc.frequency.value =
+                            620;
 
-                        gain.gain.setValueAtTime(
-                            0.07,
-                            now
-                        );
 
-                        gain.gain.exponentialRampToValueAtTime(
-                            0.001,
-                            now + 0.04
-                        );
+                        gain.gain
+                            .setValueAtTime(
+                                0.07,
+                                now
+                            );
 
-                        osc.type = 'sine';
+
+                        gain.gain
+                            .exponentialRampToValueAtTime(
+                                0.001,
+                                now + 0.04
+                            );
+
+
+                        osc.type =
+                            'sine';
+
 
                         osc.start(now);
 
@@ -2294,29 +2703,42 @@
 
 
 
-                    else if (type === 'swoosh') {
+                    else if (
+                        type ===
+                        'swoosh'
+                    ) {
 
-                        osc.frequency.setValueAtTime(
-                            280,
-                            now
-                        );
+                        osc.frequency
+                            .setValueAtTime(
+                                280,
+                                now
+                            );
 
-                        osc.frequency.exponentialRampToValueAtTime(
-                            680,
-                            now + 0.10
-                        );
 
-                        gain.gain.setValueAtTime(
-                            0.06,
-                            now
-                        );
+                        osc.frequency
+                            .exponentialRampToValueAtTime(
+                                680,
+                                now + 0.10
+                            );
 
-                        gain.gain.exponentialRampToValueAtTime(
-                            0.001,
-                            now + 0.10
-                        );
 
-                        osc.type = 'sine';
+                        gain.gain
+                            .setValueAtTime(
+                                0.06,
+                                now
+                            );
+
+
+                        gain.gain
+                            .exponentialRampToValueAtTime(
+                                0.001,
+                                now + 0.10
+                            );
+
+
+                        osc.type =
+                            'sine';
+
 
                         osc.start(now);
 
@@ -2328,18 +2750,14 @@
 
                 }
 
-                catch (_) {
-
-                    /* Ignore audio errors */
-
-                }
+                catch (_) {}
 
             }
 
 
 
             /* ========================================================
-               2. MOBILE MENU
+               MOBILE MENU
             ======================================================== */
 
             const hamburger =
@@ -2354,7 +2772,8 @@
                 );
 
 
-            let menuOpen = false;
+            let menuOpen =
+                false;
 
 
 
@@ -2366,35 +2785,44 @@
                         : !menuOpen;
 
 
-                hamburger.classList.toggle(
-                    'active',
-                    menuOpen
-                );
+                hamburger
+                    .classList
+                    .toggle(
+                        'active',
+                        menuOpen
+                    );
 
 
-                overlay.classList.toggle(
-                    'open',
-                    menuOpen
-                );
+                overlay
+                    .classList
+                    .toggle(
+                        'open',
+                        menuOpen
+                    );
 
 
-                hamburger.setAttribute(
-                    'aria-expanded',
-                    menuOpen
-                        ? 'true'
-                        : 'false'
-                );
+                hamburger
+                    .setAttribute(
+                        'aria-expanded',
+                        menuOpen
+                            ? 'true'
+                            : 'false'
+                    );
 
 
-                document.body.classList.toggle(
-                    'menu-open',
-                    menuOpen
-                );
+                document.body
+                    .classList
+                    .toggle(
+                        'menu-open',
+                        menuOpen
+                    );
 
 
                 if (menuOpen) {
 
-                    playSound('click');
+                    playSound(
+                        'click'
+                    );
 
                 }
 
@@ -2402,61 +2830,73 @@
 
 
 
-            hamburger.addEventListener(
-                'click',
-                function (e) {
+            hamburger
+                .addEventListener(
+                    'click',
+                    function (e) {
 
-                    e.stopPropagation();
+                        e.stopPropagation();
 
-                    toggleMenu();
-
-                }
-            );
-
-
-
-            overlay.addEventListener(
-                'click',
-                function (e) {
-
-                    if (e.target === overlay) {
-
-                        toggleMenu(false);
+                        toggleMenu();
 
                     }
-
-                }
-            );
-
-
-
-            /* ========================================================
-               3. MOBILE DROPDOWNS
-            ======================================================== */
-
-            const toggleTriggers =
-                document.querySelectorAll(
-                    '[data-mobile-toggle]'
                 );
 
 
 
-            function mobileDropdownToggle(trigger) {
+            overlay
+                .addEventListener(
+                    'click',
+                    function (e) {
+
+                        if (
+                            e.target ===
+                            overlay
+                        ) {
+
+                            toggleMenu(
+                                false
+                            );
+
+                        }
+
+                    }
+                );
+
+
+
+            /* ========================================================
+               MOBILE SUBMENUS
+            ======================================================== */
+
+            const toggleTriggers =
+                document
+                    .querySelectorAll(
+                        '[data-mobile-toggle]'
+                    );
+
+
+
+            function toggleMobileDropdown(
+                trigger
+            ) {
 
                 const parent =
                     trigger.parentElement;
 
 
                 const sub =
-                    parent.querySelector(
-                        '.mobile-sub-menu'
-                    );
+                    parent
+                        .querySelector(
+                            '.mobile-sub-menu'
+                        );
 
 
                 const arrow =
-                    trigger.querySelector(
-                        '.arrow'
-                    );
+                    trigger
+                        .querySelector(
+                            '.arrow'
+                        );
 
 
                 if (!sub) {
@@ -2465,9 +2905,11 @@
 
 
                 const isOpen =
-                    sub.classList.contains(
-                        'open'
-                    );
+                    sub
+                        .classList
+                        .contains(
+                            'open'
+                        );
 
 
 
@@ -2475,398 +2917,482 @@
                     .querySelectorAll(
                         '.mobile-sub-menu.open'
                     )
-                    .forEach(function (menu) {
+                    .forEach(
+                        function (menu) {
 
-                        if (menu !== sub) {
+                            if (
+                                menu !== sub
+                            ) {
 
-                            menu.classList.remove(
-                                'open'
-                            );
-
-
-                            const otherParent =
-                                menu.closest('li');
-
-
-                            if (otherParent) {
-
-                                const otherToggle =
-                                    otherParent.querySelector(
-                                        '[data-mobile-toggle]'
-                                    );
-
-
-                                const otherArrow =
-                                    otherParent.querySelector(
-                                        '.arrow'
-                                    );
-
-
-                                if (otherToggle) {
-
-                                    otherToggle.setAttribute(
-                                        'aria-expanded',
-                                        'false'
-                                    );
-
-                                }
-
-
-                                if (otherArrow) {
-
-                                    otherArrow.classList.remove(
+                                menu
+                                    .classList
+                                    .remove(
                                         'open'
                                     );
+
+
+                                const p =
+                                    menu.closest(
+                                        'li'
+                                    );
+
+
+                                if (p) {
+
+                                    const a =
+                                        p.querySelector(
+                                            '.arrow'
+                                        );
+
+
+                                    const t =
+                                        p.querySelector(
+                                            '[data-mobile-toggle]'
+                                        );
+
+
+                                    if (a) {
+
+                                        a.classList
+                                            .remove(
+                                                'open'
+                                            );
+
+                                    }
+
+
+                                    if (t) {
+
+                                        t.setAttribute(
+                                            'aria-expanded',
+                                            'false'
+                                        );
+
+                                    }
 
                                 }
 
                             }
 
                         }
-
-                    });
-
+                    );
 
 
-                sub.classList.toggle(
-                    'open',
-                    !isOpen
-                );
 
-
-                if (arrow) {
-
-                    arrow.classList.toggle(
+                sub
+                    .classList
+                    .toggle(
                         'open',
                         !isOpen
                     );
 
+
+                if (arrow) {
+
+                    arrow
+                        .classList
+                        .toggle(
+                            'open',
+                            !isOpen
+                        );
+
                 }
 
 
-                trigger.setAttribute(
-                    'aria-expanded',
-                    !isOpen
-                        ? 'true'
-                        : 'false'
+                trigger
+                    .setAttribute(
+                        'aria-expanded',
+                        !isOpen
+                            ? 'true'
+                            : 'false'
+                    );
+
+
+                playSound(
+                    'hover'
                 );
-
-
-                playSound('hover');
 
             }
 
 
 
-            toggleTriggers.forEach(
-                function (trigger) {
+            toggleTriggers
+                .forEach(
+                    function (trigger) {
 
 
-                    trigger.addEventListener(
-                        'click',
-                        function (e) {
+                        trigger
+                            .addEventListener(
+                                'click',
+                                function (e) {
 
-                            e.stopPropagation();
+                                    e.stopPropagation();
 
-                            mobileDropdownToggle(
-                                trigger
+                                    toggleMobileDropdown(
+                                        trigger
+                                    );
+
+                                }
                             );
 
-                        }
-                    );
 
 
+                        trigger
+                            .addEventListener(
+                                'keydown',
+                                function (e) {
 
-                    trigger.addEventListener(
-                        'keydown',
-                        function (e) {
+                                    if (
+                                        e.key ===
+                                            'Enter'
+                                        ||
+                                        e.key ===
+                                            ' '
+                                    ) {
 
-                            if (
-                                e.key === 'Enter' ||
-                                e.key === ' '
-                            ) {
-
-                                e.preventDefault();
-
-                                mobileDropdownToggle(
-                                    trigger
-                                );
-
-                            }
-
-                        }
-                    );
+                                        e.preventDefault();
 
 
-                }
-            );
+                                        toggleMobileDropdown(
+                                            trigger
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                    }
+                );
 
 
 
             overlay
-                .querySelectorAll('a')
-                .forEach(function (link) {
+                .querySelectorAll(
+                    'a'
+                )
+                .forEach(
+                    function (link) {
 
-                    link.addEventListener(
-                        'click',
-                        function () {
+                        link
+                            .addEventListener(
+                                'click',
+                                function () {
 
-                            toggleMenu(false);
-
-                            playSound('click');
-
-                        }
-                    );
-
-                });
-
-
-
-            /* ========================================================
-               4. ESCAPE KEY
-            ======================================================== */
-
-            document.addEventListener(
-                'keydown',
-                function (e) {
-
-                    if (
-                        e.key === 'Escape' &&
-                        menuOpen
-                    ) {
-
-                        toggleMenu(false);
-
-                    }
-
-                }
-            );
-
-
-
-            /* ========================================================
-               5. DESKTOP DROPDOWNS
-            ======================================================== */
-
-            const desktopDropdowns =
-                document.querySelectorAll(
-                    '[data-dropdown]'
-                );
-
-
-
-            function isTouchDevice() {
-
-                return (
-                    'ontouchstart' in window ||
-                    navigator.maxTouchPoints > 0
-                );
-
-            }
-
-
-
-            desktopDropdowns.forEach(
-                function (dd) {
-
-
-                    const link =
-                        dd.querySelector(
-                            ':scope > a'
-                        );
-
-
-                    const menu =
-                        dd.querySelector(
-                            '.dropdown-menu'
-                        );
-
-
-                    if (!link || !menu) {
-                        return;
-                    }
-
-
-
-                    link.addEventListener(
-                        'click',
-                        function (e) {
-
-
-                            if (isTouchDevice()) {
-
-                                e.preventDefault();
-
-
-                                const wasOpen =
-                                    menu.classList.contains(
-                                        'show'
+                                    toggleMenu(
+                                        false
                                     );
 
-
-                                document
-                                    .querySelectorAll(
-                                        '.dropdown-menu.show'
-                                    )
-                                    .forEach(
-                                        function (otherMenu) {
-
-                                            if (
-                                                otherMenu !==
-                                                menu
-                                            ) {
-
-                                                otherMenu.classList.remove(
-                                                    'show'
-                                                );
-
-                                            }
-
-                                        }
-                                    );
-
-
-                                menu.classList.toggle(
-                                    'show',
-                                    !wasOpen
-                                );
-
-
-                                playSound('click');
-
-                            }
-
-                        }
-                    );
-
-
-
-                    dd.addEventListener(
-                        'mouseenter',
-                        function () {
-
-                            if (!isTouchDevice()) {
-
-                                menu.classList.add(
-                                    'show'
-                                );
-
-                            }
-
-                        }
-                    );
-
-
-
-                    dd.addEventListener(
-                        'mouseleave',
-                        function () {
-
-                            if (!isTouchDevice()) {
-
-                                menu.classList.remove(
-                                    'show'
-                                );
-
-                            }
-
-                        }
-                    );
-
-
-                }
-            );
-
-
-
-            document.addEventListener(
-                'click',
-                function (e) {
-
-                    if (
-                        !e.target.closest(
-                            '[data-dropdown]'
-                        )
-                    ) {
-
-                        document
-                            .querySelectorAll(
-                                '.dropdown-menu.show'
-                            )
-                            .forEach(
-                                function (menu) {
-
-                                    menu.classList.remove(
-                                        'show'
+                                    playSound(
+                                        'click'
                                     );
 
                                 }
                             );
 
                     }
-
-                }
-            );
+                );
 
 
 
             /* ========================================================
-               6. VIDEO AUTOPLAY ON SCROLL
+               ESCAPE
+            ======================================================== */
+
+            document
+                .addEventListener(
+                    'keydown',
+                    function (e) {
+
+                        if (
+                            e.key ===
+                                'Escape'
+                            &&
+                            menuOpen
+                        ) {
+
+                            toggleMenu(
+                                false
+                            );
+
+                        }
+
+                    }
+                );
+
+
+
+            /* ========================================================
+               DESKTOP DROPDOWN
+            ======================================================== */
+
+            function isTouchDevice() {
+
+                return (
+                    'ontouchstart'
+                    in window
+                    ||
+                    navigator
+                        .maxTouchPoints
+                    > 0
+                );
+
+            }
+
+
+
+            const desktopDropdowns =
+                document
+                    .querySelectorAll(
+                        '[data-dropdown]'
+                    );
+
+
+
+            desktopDropdowns
+                .forEach(
+                    function (dd) {
+
+
+                        const link =
+                            dd.querySelector(
+                                ':scope > a'
+                            );
+
+
+                        const menu =
+                            dd.querySelector(
+                                '.dropdown-menu'
+                            );
+
+
+                        if (
+                            !link ||
+                            !menu
+                        ) {
+                            return;
+                        }
+
+
+
+                        link
+                            .addEventListener(
+                                'click',
+                                function (e) {
+
+                                    if (
+                                        isTouchDevice()
+                                    ) {
+
+                                        e.preventDefault();
+
+
+                                        const wasOpen =
+                                            menu
+                                                .classList
+                                                .contains(
+                                                    'show'
+                                                );
+
+
+                                        document
+                                            .querySelectorAll(
+                                                '.dropdown-menu.show'
+                                            )
+                                            .forEach(
+                                                function (
+                                                    otherMenu
+                                                ) {
+
+                                                    if (
+                                                        otherMenu
+                                                        !==
+                                                        menu
+                                                    ) {
+
+                                                        otherMenu
+                                                            .classList
+                                                            .remove(
+                                                                'show'
+                                                            );
+
+                                                    }
+
+                                                }
+                                            );
+
+
+                                        menu
+                                            .classList
+                                            .toggle(
+                                                'show',
+                                                !wasOpen
+                                            );
+
+
+                                        playSound(
+                                            'click'
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+
+
+                        dd
+                            .addEventListener(
+                                'mouseenter',
+                                function () {
+
+                                    if (
+                                        !isTouchDevice()
+                                    ) {
+
+                                        menu
+                                            .classList
+                                            .add(
+                                                'show'
+                                            );
+
+                                    }
+
+                                }
+                            );
+
+
+
+                        dd
+                            .addEventListener(
+                                'mouseleave',
+                                function () {
+
+                                    if (
+                                        !isTouchDevice()
+                                    ) {
+
+                                        menu
+                                            .classList
+                                            .remove(
+                                                'show'
+                                            );
+
+                                    }
+
+                                }
+                            );
+
+
+                    }
+                );
+
+
+
+            document
+                .addEventListener(
+                    'click',
+                    function (e) {
+
+                        if (
+                            !e.target.closest(
+                                '[data-dropdown]'
+                            )
+                        ) {
+
+                            document
+                                .querySelectorAll(
+                                    '.dropdown-menu.show'
+                                )
+                                .forEach(
+                                    function (menu) {
+
+                                        menu
+                                            .classList
+                                            .remove(
+                                                'show'
+                                            );
+
+                                    }
+                                );
+
+                        }
+
+                    }
+                );
+
+
+
+            /* ========================================================
+               VIDEO AUTOPLAY
             ======================================================== */
 
             const video =
-                document.getElementById(
-                    'about-video'
-                );
+                document
+                    .getElementById(
+                        'about-video'
+                    );
 
 
             const videoSlide =
-                document.getElementById(
-                    'video-slide'
-                );
+                document
+                    .getElementById(
+                        'video-slide'
+                    );
 
 
-            let hasPlayed = false;
+            let hasPlayed =
+                false;
 
-            let playAttempted = false;
+
+            let playAttempted =
+                false;
 
 
 
             function tryPlayVideo() {
 
                 if (
-                    !video ||
-                    hasPlayed ||
+                    !video
+                    ||
+                    hasPlayed
+                    ||
                     !video.paused
                 ) {
-
                     return;
-
                 }
 
 
-                playAttempted = true;
+                playAttempted =
+                    true;
 
 
-                const promise =
+                const playPromise =
                     video.play();
 
 
                 if (
-                    promise !== undefined
+                    playPromise
+                    !== undefined
                 ) {
 
-                    promise
-                        .then(function () {
+                    playPromise
+                        .then(
+                            function () {
 
-                            hasPlayed = true;
+                                hasPlayed =
+                                    true;
 
-                        })
-                        .catch(function () {
+                            }
+                        )
+                        .catch(
+                            function () {
 
-                            playAttempted = false;
+                                playAttempted =
+                                    false;
 
-                        });
+                            }
+                        );
 
                 }
 
@@ -2875,34 +3401,45 @@
 
 
             if (
-                video &&
-                videoSlide &&
-                'IntersectionObserver' in window
+                video
+                &&
+                videoSlide
+                &&
+                'IntersectionObserver'
+                in window
             ) {
 
 
-                const videoObserver =
+                const observer =
                     new IntersectionObserver(
 
                         function (entries) {
 
-                            entries.forEach(
-                                function (entry) {
-
-
-                                    if (
-                                        entry.isIntersecting &&
-                                        entry.intersectionRatio >= 0.4 &&
-                                        !hasPlayed &&
-                                        !playAttempted
+                            entries
+                                .forEach(
+                                    function (
+                                        entry
                                     ) {
 
-                                        tryPlayVideo();
+                                        if (
+                                            entry
+                                                .isIntersecting
+                                            &&
+                                            entry
+                                                .intersectionRatio
+                                            >= 0.4
+                                            &&
+                                            !hasPlayed
+                                            &&
+                                            !playAttempted
+                                        ) {
+
+                                            tryPlayVideo();
+
+                                        }
 
                                     }
-
-                                }
-                            );
+                                );
 
                         },
 
@@ -2919,7 +3456,7 @@
                     );
 
 
-                videoObserver.observe(
+                observer.observe(
                     videoSlide
                 );
 
@@ -2927,67 +3464,75 @@
 
 
 
-            /* Mobile / browser fallback */
-
-            if (videoSlide && video) {
-
-
-                videoSlide.addEventListener(
-                    'click',
-                    function () {
-
-                        if (
-                            video.paused &&
-                            !hasPlayed
-                        ) {
-
-                            tryPlayVideo();
-
-                        }
-
-                    }
-                );
+            if (
+                video
+                &&
+                videoSlide
+            ) {
 
 
+                videoSlide
+                    .addEventListener(
+                        'click',
+                        function () {
 
-                videoSlide.addEventListener(
-                    'touchstart',
-                    function () {
+                            if (
+                                video.paused
+                                &&
+                                !hasPlayed
+                            ) {
 
-                        if (
-                            video.paused &&
-                            !hasPlayed
-                        ) {
+                                tryPlayVideo();
 
-                            tryPlayVideo();
+                            }
 
                         }
-
-                    },
-
-                    {
-                        passive: true
-                    }
-
-                );
+                    );
 
 
 
-                video.addEventListener(
-                    'ended',
-                    function () {
+                videoSlide
+                    .addEventListener(
+                        'touchstart',
+                        function () {
 
-                        hasPlayed = true;
+                            if (
+                                video.paused
+                                &&
+                                !hasPlayed
+                            ) {
 
-                    }
-                );
+                                tryPlayVideo();
+
+                            }
+
+                        },
+
+                        {
+                            passive:
+                                true
+                        }
+                    );
+
+
+
+                video
+                    .addEventListener(
+                        'ended',
+                        function () {
+
+                            hasPlayed =
+                                true;
+
+                        }
+                    );
 
             }
 
 
 
             /* ========================================================
-               7. USER INTERACTION VIDEO FALLBACK
+               VIDEO FALLBACK
             ======================================================== */
 
             function isElementVisible(
@@ -3001,37 +3546,41 @@
 
 
                 const rect =
-                    element.getBoundingClientRect();
+                    element
+                        .getBoundingClientRect();
 
 
-                const viewportHeight =
-                    window.innerHeight ||
-                    document.documentElement.clientHeight;
+                const vh =
+                    window.innerHeight
+                    ||
+                    document
+                        .documentElement
+                        .clientHeight;
 
 
                 const visible =
                     Math.min(
                         rect.bottom,
-                        viewportHeight
-                    ) -
+                        vh
+                    )
+                    -
                     Math.max(
                         rect.top,
                         0
                     );
 
 
-                const total =
+                return (
+                    visible /
                     Math.max(
                         rect.height,
                         1
-                    );
-
-
-                return (
-                    visible /
-                    total
-                ) >= (
-                    threshold ||
+                    )
+                )
+                >=
+                (
+                    threshold
+                    ||
                     0.3
                 );
 
@@ -3039,32 +3588,37 @@
 
 
 
-            document.addEventListener(
-                'click',
-                function () {
+            document
+                .addEventListener(
+                    'click',
+                    function () {
 
-                    if (
-                        video &&
-                        videoSlide &&
-                        !hasPlayed &&
-                        video.paused &&
-                        isElementVisible(
-                            videoSlide,
-                            0.3
-                        )
-                    ) {
+                        if (
+                            video
+                            &&
+                            videoSlide
+                            &&
+                            !hasPlayed
+                            &&
+                            video.paused
+                            &&
+                            isElementVisible(
+                                videoSlide,
+                                0.3
+                            )
+                        ) {
 
-                        tryPlayVideo();
+                            tryPlayVideo();
+
+                        }
 
                     }
-
-                }
-            );
+                );
 
 
 
             /* ========================================================
-               8. INTERACTION SOUNDS
+               SOUNDS
             ======================================================== */
 
             document
@@ -3072,18 +3626,19 @@
                     '.quote, .quote-mobile'
                 )
                 .forEach(
-                    function (element) {
+                    function (el) {
 
-                        element.addEventListener(
-                            'click',
-                            function () {
+                        el
+                            .addEventListener(
+                                'click',
+                                function () {
 
-                                playSound(
-                                    'click'
-                                );
+                                    playSound(
+                                        'click'
+                                    );
 
-                            }
-                        );
+                                }
+                            );
 
                     }
                 );
@@ -3091,9 +3646,11 @@
 
 
             if (
-                window.matchMedia(
-                    '(hover: hover) and (pointer: fine)'
-                ).matches
+                window
+                    .matchMedia(
+                        '(hover: hover) and (pointer: fine)'
+                    )
+                    .matches
             ) {
 
 
@@ -3102,18 +3659,19 @@
                         '.nav-links > li > a'
                     )
                     .forEach(
-                        function (element) {
+                        function (el) {
 
-                            element.addEventListener(
-                                'mouseenter',
-                                function () {
+                            el
+                                .addEventListener(
+                                    'mouseenter',
+                                    function () {
 
-                                    playSound(
-                                        'hover'
-                                    );
+                                        playSound(
+                                            'hover'
+                                        );
 
-                                }
-                            );
+                                    }
+                                );
 
                         }
                     );
@@ -3125,110 +3683,58 @@
                         '.dropdown-menu li a'
                     )
                     .forEach(
-                        function (element) {
+                        function (el) {
 
-                            element.addEventListener(
-                                'mouseenter',
-                                function () {
+                            el
+                                .addEventListener(
+                                    'mouseenter',
+                                    function () {
 
-                                    playSound(
-                                        'hover'
-                                    );
+                                        playSound(
+                                            'hover'
+                                        );
 
-                                }
-                            );
-
-                        }
-                    );
-
-
-
-                document
-                    .querySelectorAll(
-                        '.full-slide img'
-                    )
-                    .forEach(
-                        function (image) {
-
-                            image.addEventListener(
-                                'mouseenter',
-                                function () {
-
-                                    playSound(
-                                        'swoosh'
-                                    );
-
-                                }
-                            );
+                                    }
+                                );
 
                         }
                     );
+
 
             }
 
 
 
             /* ========================================================
-               9. RESIZE / ORIENTATION
+               RESIZE
             ======================================================== */
 
-            function refreshLayout() {
+            window
+                .addEventListener(
+                    'resize',
+                    function () {
 
-                /*
-                 * CSS dvh / svh handles viewport size.
-                 * This function remains available for
-                 * browser-specific future adjustments.
-                 */
+                        if (
+                            window
+                                .innerWidth
+                            > 900
+                            &&
+                            menuOpen
+                        ) {
 
-            }
+                            toggleMenu(
+                                false
+                            );
 
-
-
-            window.addEventListener(
-                'resize',
-                refreshLayout
-            );
-
-
-
-            window.addEventListener(
-                'orientationchange',
-                function () {
-
-                    window.setTimeout(
-                        refreshLayout,
-                        250
-                    );
-
-                }
-            );
-
-
-
-            /* ========================================================
-               10. CLOSE MOBILE MENU AFTER DESKTOP RESIZE
-            ======================================================== */
-
-            window.addEventListener(
-                'resize',
-                function () {
-
-                    if (
-                        window.innerWidth > 900 &&
-                        menuOpen
-                    ) {
-
-                        toggleMenu(false);
+                        }
 
                     }
-
-                }
-            );
+                );
 
 
 
             console.log(
-                'ForPro About Us — responsive desktop/mobile media system loaded.'
+                'ForPro responsive desktop/mobile layout loaded.'
             );
 
 
