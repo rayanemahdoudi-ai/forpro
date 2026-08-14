@@ -2,277 +2,1097 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | ForPro</title>
 
-  <!-- ===== SHARED STYLES (all common CSS) ===== -->
-  <link rel="stylesheet" href="shared.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>About Us | ForPro</title>
 
-  <!-- ===== PAGE-SPECIFIC STYLES ===== -->
-  <style>
-    /* Only the slideshow styles – everything else is in shared.css */
-    html {
-      scroll-snap-type: y mandatory;
-    }
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --navy: #061b2e;
+            --navy2: #0b2945;
+            --blue: #0877c9;
+            --blue-light: #2aa8ff;
+            --white: #ffffff;
+            --light: #f3f8fc;
+            --grey: #66798a;
+            --line: #dce8f1;
+            --header-height: 70px;
+            --safe-top: env(safe-area-inset-top, 0px);
+        }
 
-    .full-slide {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      scroll-snap-align: start;
-      background: #000;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .full-slide img,
-    .full-slide video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    .slide-label {
-      position: absolute;
-      bottom: 50px;
-      left: 50px;
-      color: white;
-      background: rgba(6, 27, 46, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 14px 32px;
-      border-radius: 10px;
-      border-left: 5px solid var(--blue-light);
-      font-size: clamp(20px, 3vw, 32px);
-      font-weight: 800;
-      letter-spacing: 1px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      z-index: 2;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #102235;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #000;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    .slide-label .sub-category {
-      font-size: 14px;
-      font-weight: 400;
-      opacity: 0.8;
-      display: block;
-      margin-top: 4px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .slide-number {
-      position: absolute;
-      bottom: 50px;
-      right: 50px;
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 8px 16px;
-      border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 2;
-    }
+        .container {
+            width: min(92%, 1320px);
+            margin: auto;
+            padding: 0 4px;
+        }
 
-    /* Mobile adjustments for slides */
-    @media (max-width: 768px) {
-      .slide-label {
-        bottom: 30px;
-        left: 20px;
-        padding: 10px 20px;
-        font-size: 18px;
-        border-left-width: 4px;
-      }
-      .slide-label .sub-category {
-        font-size: 11px;
-      }
-      .slide-number {
-        bottom: 30px;
-        right: 20px;
-        font-size: 12px;
-        padding: 4px 12px;
-      }
-    }
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(6, 27, 46, .96);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            height: var(--header-height);
+            padding-top: var(--safe-top);
+        }
 
-    @media (max-width: 480px) {
-      .slide-label {
-        bottom: 20px;
-        left: 15px;
-        padding: 8px 16px;
-        font-size: 15px;
-        border-left-width: 3px;
-      }
-      .slide-label .sub-category {
-        font-size: 10px;
-      }
-      .slide-number {
-        bottom: 20px;
-        right: 15px;
-        font-size: 10px;
-        padding: 3px 10px;
-      }
-    }
-  </style>
+        nav {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: clamp(22px, 5vw, 30px);
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: white;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--blue-light);
+        }
+
+        /* ===== DESKTOP NAV ===== */
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 8px 0;
+            color: white;
+            transition: color 0.3s;
+            white-space: nowrap;
+            font-size: clamp(12px, 1.1vw, 14px);
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 240px;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            list-style: none;
+            padding: 8px 0;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            border-top: 4px solid var(--blue);
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            color: var(--navy);
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 13px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            background: white;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: var(--light);
+            color: var(--blue);
+            border-left: 3px solid var(--blue);
+            padding-left: 26px;
+        }
+
+        .nav-links .quote {
+            background: var(--blue);
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 800;
+            transition: background 0.3s;
+            font-size: clamp(11px, 1vw, 14px);
+        }
+
+        .nav-links .quote:hover {
+            background: var(--blue-light) !important;
+            color: white !important;
+        }
+
+        /* ===== HAMBURGER (mobile) ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px 4px;
+            background: none;
+            border: none;
+            z-index: 1001;
+            touch-action: manipulation;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -7px);
+        }
+
+        /* ===== MOBILE MENU OVERLAY ===== */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 27, 46, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s ease;
+            padding: 80px 30px 40px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-inner {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .mobile-menu-inner ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-inner ul li {
+            margin-bottom: 6px;
+        }
+
+        .mobile-menu-inner ul li a {
+            display: block;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu-inner ul li a:active {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .mobile-menu-inner ul li a.quote-mobile {
+            background: var(--blue);
+            margin-top: 8px;
+            border-radius: 8px;
+            font-weight: 800;
+        }
+
+        .mobile-menu-inner ul li a.quote-mobile:active {
+            background: var(--blue-light);
+        }
+
+        /* Mobile dropdown toggle */
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        .mobile-dropdown-toggle .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .mobile-dropdown-toggle .arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .mobile-sub-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 6px 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .mobile-sub-menu.open {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        .mobile-sub-menu li a {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            padding: 10px 20px !important;
+            color: rgba(255, 255, 255, 0.75) !important;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-sub-menu li a:active {
+            color: white !important;
+            border-left-color: var(--blue-light);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* ===== FULL-SCREEN SLIDES ===== */
+        .full-slide {
+            height: 100vh;
+            height: 100dvh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+            background: #000;
+        }
+
+        .full-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            will-change: transform;
+        }
+
+        .full-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #000;
+            will-change: transform;
+        }
+
+        /* ===== SLIDE LABEL ===== */
+        .slide-label {
+            position: absolute;
+            bottom: clamp(30px, 6vh, 60px);
+            left: clamp(16px, 4vw, 50px);
+            right: clamp(16px, 4vw, 50px);
+            color: white;
+            background: rgba(6, 27, 46, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: clamp(12px, 2.5vw, 18px) clamp(18px, 3vw, 32px);
+            border-radius: 12px;
+            border-left: 4px solid var(--blue-light);
+            font-size: clamp(18px, 4vw, 32px);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            max-width: 90%;
+            word-break: break-word;
+        }
+
+        .slide-label .sub-category {
+            font-size: clamp(11px, 1.6vw, 14px);
+            font-weight: 400;
+            opacity: 0.8;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: clamp(30px, 6vh, 60px);
+            right: clamp(16px, 4vw, 50px);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(11px, 1.2vw, 14px);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: clamp(4px, 0.8vw, 8px) clamp(12px, 1.5vw, 18px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: clamp(12px, 2.5vh, 28px);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: rgba(255, 255, 255, 0.35);
+            font-size: clamp(10px, 1.2vw, 13px);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+            animation: bob 2.4s ease-in-out infinite;
+        }
+
+        .scroll-indicator .chevron {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-right: 2px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+
+        @keyframes bob {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(6px);
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #031522;
+            color: white;
+            padding: 40px 0 30px;
+            scroll-snap-align: end;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            color: #8da7b9;
+            max-width: 500px;
+            font-size: clamp(14px, 1.2vw, 16px);
+        }
+
+        .copyright {
+            margin-top: 25px;
+            padding-top: 18px;
+            border-top: 1px solid #244057;
+            color: #7790a2;
+            font-size: clamp(12px, 1vw, 14px);
+            text-align: center;
+        }
+
+        /* ============================================================ */
+        /* ===== RESPONSIVE BREAKPOINTS ===== */
+        /* ============================================================ */
+
+        /* ---- Tablet & below ---- */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 12px;
+            }
+            .nav-links a {
+                font-size: 12px;
+            }
+            .nav-links .quote {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+
+        /* ---- Mobile (hamburger appears) ---- */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .slide-label {
+                bottom: clamp(24px, 5vh, 40px);
+                left: clamp(14px, 3vw, 24px);
+                right: clamp(14px, 3vw, 24px);
+                padding: clamp(10px, 2vw, 16px) clamp(14px, 3vw, 24px);
+                font-size: clamp(16px, 3.5vw, 22px);
+                border-left-width: 4px;
+                max-width: 92%;
+            }
+
+            .slide-label .sub-category {
+                font-size: clamp(10px, 1.4vw, 12px);
+            }
+
+            .slide-number {
+                bottom: clamp(24px, 5vh, 40px);
+                right: clamp(14px, 3vw, 24px);
+                font-size: clamp(10px, 1.2vw, 12px);
+                padding: 3px 12px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .full-slide {
+                height: 100vh;
+                height: 100dvh;
+            }
+        }
+
+        /* ---- Small phones ---- */
+        @media (max-width: 480px) {
+            :root {
+                --header-height: 60px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .hamburger span {
+                width: 24px;
+                height: 2.5px;
+                gap: 4px;
+            }
+
+            .slide-label {
+                font-size: 15px;
+                padding: 10px 14px;
+                border-left-width: 3px;
+                border-radius: 8px;
+            }
+
+            .slide-label .sub-category {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            .slide-number {
+                font-size: 9px;
+                padding: 2px 10px;
+                bottom: 20px;
+                right: 14px;
+            }
+
+            .mobile-menu-inner ul li a {
+                font-size: 17px;
+                padding: 12px 16px;
+            }
+
+            .mobile-sub-menu li a {
+                font-size: 14px !important;
+                padding: 8px 16px !important;
+            }
+
+            footer {
+                padding: 28px 0 20px;
+            }
+            .footer-content {
+                gap: 20px;
+            }
+        }
+
+        /* ---- Safe area for notched phones ---- */
+        @supports (padding: max(0px)) {
+            .full-slide {
+                padding-top: max(0px, env(safe-area-inset-top));
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* ---- Reduced motion ---- */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .scroll-indicator {
+                animation: none;
+            }
+        }
+
+        /* ---- Touch device dropdown fix (no hover) ---- */
+        @media (hover: none) {
+            .dropdown-menu {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(12px);
+                transition: all 0.25s ease;
+            }
+
+            .dropdown-menu.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
 </head>
 
 <body>
 
-  <!-- ============================================================ -->
-  <!-- HEADER + MOBILE MENU (now from shared.css and shared.js)      -->
-  <!-- ============================================================ -->
-  <header>
-    <div class="container">
-      <nav>
-        <a class="logo" href="index.html">For<span>Pro</span></a>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <nav>
+                <a class="logo" href="index.html">For<span>Pro</span></a>
 
-        <!-- Desktop Navigation -->
-        <ul class="nav-links">
-          <li class="dropdown">
-            <a href="#">Products</a>
-            <ul class="dropdown-menu">
-              <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-              <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-              <li><a href="slab-formwork.html">Slab Formwork</a></li>
-              <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork and Props</a></li>
-              <li><a href="ringlock-scaffolding.html">Ringlock Scaffolding</a></li>
-              <li><a href="safety-system.html">Safety System</a></li>
-              <li><a href="accessories.html">Accessories</a></li>
-              <li><a href="innovative-products.html">Innovative Products and NEXT-GEN Systems</a></li>
+                <!-- DESKTOP NAV -->
+                <ul class="nav-links" id="desktopNav">
+                    <!-- PRODUCTS -->
+                    <li class="dropdown" data-dropdown>
+                        <a href="#">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="wall-and-column.html">Wall &amp; Column Formwork</a></li>
+                            <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                            <li><a href="slab-formwork.html">Slab Formwork</a></li>
+                            <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork</a></li>
+                            <li><a href="safety-system.html">Safety System</a></li>
+                            <li><a href="accessories.html">Accessories</a></li>
+                            <li><a href="innovative-products.html">Innovative Products</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- PROJECTS -->
+                    <li class="dropdown" data-dropdown>
+                        <a href="#">Projects</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="projects.html">All Projects</a></li>
+                            <li><a href="projects.html#bridges">Bridges</a></li>
+                            <li><a href="projects.html#lng">LNG</a></li>
+                            <li><a href="projects.html#nuclear">Nuclear</a></li>
+                            <li><a href="projects.html#tunnels">Tunnels</a></li>
+                            <li><a href="projects.html#hydropower">Hydropower</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="index.html#contact" class="quote">Contact Us</a></li>
+                </ul>
+
+                <!-- HAMBURGER -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU OVERLAY ===== -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-menu-inner">
+            <ul>
+                <!-- Products -->
+                <li>
+                    <div class="mobile-dropdown-toggle" data-mobile-toggle>
+                        <span>Products</span>
+                        <span class="arrow">▾</span>
+                    </div>
+                    <ul class="mobile-sub-menu">
+                        <li><a href="wall-and-column.html">Wall &amp; Column Formwork</a></li>
+                        <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
+                        <li><a href="slab-formwork.html">Slab Formwork</a></li>
+                        <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork</a></li>
+                        <li><a href="safety-system.html">Safety System</a></li>
+                        <li><a href="accessories.html">Accessories</a></li>
+                        <li><a href="innovative-products.html">Innovative Products</a></li>
+                    </ul>
+                </li>
+
+                <!-- Projects -->
+                <li>
+                    <div class="mobile-dropdown-toggle" data-mobile-toggle>
+                        <span>Projects</span>
+                        <span class="arrow">▾</span>
+                    </div>
+                    <ul class="mobile-sub-menu">
+                        <li><a href="projects.html">All Projects</a></li>
+                        <li><a href="projects.html#bridges">Bridges</a></li>
+                        <li><a href="projects.html#lng">LNG</a></li>
+                        <li><a href="projects.html#nuclear">Nuclear</a></li>
+                        <li><a href="projects.html#tunnels">Tunnels</a></li>
+                        <li><a href="projects.html#hydropower">Hydropower</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="index.html#contact" class="quote-mobile">Contact Us</a></li>
             </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">Projects</a>
-            <ul class="dropdown-menu">
-              <li><a href="projects.html">All Projects</a></li>
-              <li><a href="projects.html#bridges">Bridges</a></li>
-              <li><a href="projects.html#lng">LNG</a></li>
-              <li><a href="projects.html#nuclear">Nuclear</a></li>
-              <li><a href="projects.html#tunnels">Tunnels</a></li>
-              <li><a href="projects.html#hydropower">Hydropower</a></li>
-            </ul>
-          </li>
-          <li><a href="industries.html">Industries</a></li>
-          <li><a href="about us.html">About Us</a></li>
-          <li><a href="index.html#contact" class="quote">Contact Us</a></li>
-        </ul>
-
-        <!-- Hamburger button (appears on mobile) -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Mobile Navigation (slide-out) -->
-  <div class="overlay" id="overlay"></div>
-  <nav class="mobile-nav" id="mobileNav">
-    <ul>
-      <li>
-        <div class="mobile-dropdown-toggle" data-target="mobile-products">
-          Products <span>▸</span>
         </div>
-        <ul class="mobile-sub-menu" id="mobile-products">
-          <li><a href="wall-and-column.html">Wall and Column Formwork</a></li>
-          <li><a href="climbing-formwork.html">Climbing Formwork</a></li>
-          <li><a href="slab-formwork.html">Slab Formwork</a></li>
-          <li><a href="single-sided-wall-formwork.html">Single-sided Wall Formwork</a></li>
-          <li><a href="ringlock-scaffolding.html">Ringlock Scaffolding</a></li>
-          <li><a href="safety-system.html">Safety System</a></li>
-          <li><a href="accessories.html">Accessories</a></li>
-          <li><a href="innovative-products.html">Innovative Products</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="mobile-dropdown-toggle" data-target="mobile-projects">
-          Projects <span>▸</span>
+    </div>
+
+    <!-- ===== SLIDE 1: Our Factory ===== -->
+    <section class="full-slide">
+        <img src="images/f15.png" alt="Our Factory – ForPro legacy" loading="lazy" decoding="async">
+        <div class="slide-label">
+            🏛️ Our Factory
+            <span class="sub-category">The ForPro legacy</span>
         </div>
-        <ul class="mobile-sub-menu" id="mobile-projects">
-          <li><a href="projects.html">All Projects</a></li>
-          <li><a href="projects.html#bridges">Bridges</a></li>
-          <li><a href="projects.html#lng">LNG</a></li>
-          <li><a href="projects.html#nuclear">Nuclear</a></li>
-          <li><a href="projects.html#tunnels">Tunnels</a></li>
-          <li><a href="projects.html#hydropower">Hydropower</a></li>
-        </ul>
-      </li>
-      <li><a href="industries.html">Industries</a></li>
-      <li><a href="about us.html">About Us</a></li>
-      <li><a href="index.html#contact" class="mobile-quote">Contact Us</a></li>
-    </ul>
-  </nav>
-
-  <!-- ============================================================ -->
-  <!-- PAGE CONTENT (Full‑screen slides)                            -->
-  <!-- ============================================================ -->
-
-  <!-- Slide 1 -->
-  <section class="full-slide">
-    <img src="images/f15.png" alt="Our Factory" loading="lazy">
-    <div class="slide-label">
-      🏛️ Our Factory
-      <span class="sub-category">The ForPro legacy</span>
-    </div>
-    <div class="slide-number">01 / 03</div>
-  </section>
-
-  <!-- Slide 2 -->
-  <section class="full-slide" id="industry">
-    <img src="images/f1.png" alt="Our Industry" loading="lazy">
-    <div class="slide-label">
-      🏭 Our Industry
-      <span class="sub-category">Building the future</span>
-    </div>
-    <div class="slide-number">02 / 03</div>
-  </section>
-
-  <!-- Slide 3 (video) -->
-  <section class="full-slide" id="video-slide">
-    <video id="about-video" muted playsinline preload="metadata" poster="images/f1.png">
-      <source src="videos/1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="slide-label">
-      🌏 Find Us
-      <span class="sub-category">Discover our global presence</span>
-    </div>
-    <div class="slide-number">03 / 03</div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- FOOTER (now from shared.css)                                 -->
-  <!-- ============================================================ -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <h3 style="font-size:24px;">For<span style="color:var(--blue-light);">Pro</span></h3>
-          <p style="margin-top:15px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
+        <div class="slide-number">01 / 03</div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <span class="chevron"></span>
         </div>
-        <div>
-          <h4>Quick Links</h4>
-          <p style="color:#8da7b9;line-height:2;">
-            Products<br>
-            Industries<br>
-            Engineering<br>
-            Contact
-          </p>
-        </div>
-      </div>
-      <div class="copyright">© 2026 ForPro Engineering. All rights reserved.</div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- ============================================================ -->
-  <!-- SHARED JAVASCRIPT (hamburger, mobile dropdown, sounds, video)-->
-  <!-- ============================================================ -->
-  <script src="shared.js"></script>
+    <!-- ===== SLIDE 2: Our Industry ===== -->
+    <section class="full-slide" id="industry">
+        <img src="images/f1.png" alt="Our Industry – Building the future" loading="lazy" decoding="async">
+        <div class="slide-label">
+            🏭 Our Industry
+            <span class="sub-category">Building the future</span>
+        </div>
+        <div class="slide-number">02 / 03</div>
+    </section>
+
+    <!-- ===== SLIDE 3: VIDEO ===== -->
+    <section class="full-slide" id="video-slide">
+        <video id="about-video" muted playsinline preload="metadata" aria-label="Find Us – Discover our global presence">
+            <source src="videos/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="slide-label">
+            🌏 Find Us
+            <span class="sub-category">Discover our global presence</span>
+        </div>
+        <div class="slide-number">03 / 03</div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="font-size:clamp(20px,3vw,24px);">For<span style="color:var(--blue-light);">Pro</span></h3>
+                    <p style="margin-top:12px;">Advanced formwork and scaffolding systems for the world's most demanding infrastructure projects.</p>
+                </div>
+                <div>
+                    <h4 style="font-size:clamp(15px,1.2vw,18px);">Quick Links</h4>
+                    <p style="color:#8da7b9;line-height:2;font-size:clamp(13px,1vw,15px);">
+                        Products<br>
+                        Industries<br>
+                        Engineering<br>
+                        Contact
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2026 ForPro Engineering. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // 1. SOUND ENGINE (lightweight, mobile-friendly)
+            // ============================================================
+            let audioCtx = null;
+
+            function getAudioContext() {
+                if (!audioCtx) {
+                    try {
+                        audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+                    } catch (_) { return null; }
+                }
+                return audioCtx;
+            }
+
+            function playSound(type) {
+                try {
+                    const ctx = getAudioContext();
+                    if (!ctx) return;
+                    if (ctx.state === 'suspended') {
+                        ctx.resume().catch(function() {});
+                    }
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    const now = ctx.currentTime;
+
+                    if (type === 'click') {
+                        osc.frequency.value = 900;
+                        gain.gain.setValueAtTime(0.22, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+                        osc.type = 'sine';
+                        osc.start(now);
+                        osc.stop(now + 0.07);
+                    } else if (type === 'hover') {
+                        osc.frequency.value = 620;
+                        gain.gain.setValueAtTime(0.10, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+                        osc.type = 'sine';
+                        osc.start(now);
+                        osc.stop(now + 0.04);
+                    } else if (type === 'swoosh') {
+                        osc.frequency.setValueAtTime(280, now);
+                        osc.frequency.exponentialRampToValueAtTime(680, now + 0.10);
+                        gain.gain.setValueAtTime(0.08, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.10);
+                        osc.type = 'sine';
+                        osc.start(now);
+                        osc.stop(now + 0.10);
+                    }
+                } catch (_) { /* silently ignore */ }
+            }
+
+            // ============================================================
+            // 2. MOBILE MENU
+            // ============================================================
+            const hamburger = document.getElementById('hamburgerBtn');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            let menuOpen = false;
+
+            function toggleMenu(open) {
+                menuOpen = (open !== undefined) ? open : !menuOpen;
+                hamburger.classList.toggle('active', menuOpen);
+                overlay.classList.toggle('open', menuOpen);
+                hamburger.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
+                document.body.style.overflow = menuOpen ? 'hidden' : '';
+                if (menuOpen) playSound('click');
+            }
+
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Close on overlay click (background)
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) toggleMenu(false);
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuOpen) toggleMenu(false);
+            });
+
+            // ============================================================
+            // 3. MOBILE DROPDOWN TOGGLES (accordion)
+            // ============================================================
+            const toggleTriggers = document.querySelectorAll('[data-mobile-toggle]');
+            toggleTriggers.forEach(function(trigger) {
+                trigger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const parent = trigger.parentElement;
+                    const sub = parent.querySelector('.mobile-sub-menu');
+                    const arrow = trigger.querySelector('.arrow');
+                    if (!sub) return;
+
+                    const isOpen = sub.classList.contains('open');
+                    // Close others (optional – accordion style)
+                    document.querySelectorAll('.mobile-sub-menu.open').forEach(function(s) {
+                        if (s !== sub) {
+                            s.classList.remove('open');
+                            const p = s.closest('li');
+                            if (p) {
+                                const a = p.querySelector('.arrow');
+                                if (a) a.classList.remove('open');
+                            }
+                        }
+                    });
+                    sub.classList.toggle('open', !isOpen);
+                    if (arrow) arrow.classList.toggle('open', !isOpen);
+                    playSound('hover');
+                });
+            });
+
+            // Close mobile menu when a link is clicked
+            overlay.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    toggleMenu(false);
+                    playSound('click');
+                });
+            });
+
+            // ============================================================
+            // 4. DESKTOP DROPDOWN: touch-friendly toggle
+            // ============================================================
+            const desktopDropdowns = document.querySelectorAll('[data-dropdown]');
+            desktopDropdowns.forEach(function(dd) {
+                const link = dd.querySelector('a');
+                const menu = dd.querySelector('.dropdown-menu');
+                if (!link || !menu) return;
+
+                // On touch devices, toggle on tap
+                link.addEventListener('click', function(e) {
+                    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                        e.preventDefault();
+                        const wasOpen = menu.classList.contains('show');
+                        // Close all others
+                        document.querySelectorAll('.dropdown-menu.show').forEach(function(m) {
+                            if (m !== menu) m.classList.remove('show');
+                        });
+                        menu.classList.toggle('show', !wasOpen);
+                        playSound('click');
+                    }
+                });
+
+                // Hover still works on desktop
+                dd.addEventListener('mouseenter', function() {
+                    if (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) {
+                        menu.classList.add('show');
+                    }
+                });
+                dd.addEventListener('mouseleave', function() {
+                    if (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) {
+                        menu.classList.remove('show');
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]')) {
+                    document.querySelectorAll('.dropdown-menu.show').forEach(function(m) {
+                        m.classList.remove('show');
+                    });
+                }
+            });
+
+            // ============================================================
+            // 5. VIDEO AUTO-PLAY ON SCROLL (plays once, mobile-friendly)
+            // ============================================================
+            var video = document.getElementById('about-video');
+            var videoSlide = document.getElementById('video-slide');
+            var hasPlayed = false;
+            var playAttempted = false;
+
+            if (video && videoSlide) {
+                // Use Intersection Observer
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !hasPlayed && !playAttempted) {
+                            playAttempted = true;
+                            video.play().then(function() {
+                                hasPlayed = true;
+                                console.log('Video started');
+                            }).catch(function(err) {
+                                console.log('Autoplay blocked:', err);
+                                // Retry on user gesture
+                                playAttempted = false;
+                            });
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                observer.observe(videoSlide);
+
+                // Fallback: click/tap on video slide
+                videoSlide.addEventListener('click', function() {
+                    if (!hasPlayed && video.paused) {
+                        video.play().then(function() {
+                            hasPlayed = true;
+                            playAttempted = true;
+                        }).catch(function() {});
+                    }
+                });
+
+                // Fallback: touchstart for mobile
+                videoSlide.addEventListener('touchstart', function() {
+                    if (!hasPlayed && video.paused) {
+                        video.play().then(function() {
+                            hasPlayed = true;
+                            playAttempted = true;
+                        }).catch(function() {});
+                    }
+                }, { passive: true });
+
+                // When video ends, mark as played
+                video.addEventListener('ended', function() {
+                    hasPlayed = true;
+                });
+
+                // If user interacts with the page, try to play if not yet played
+                document.addEventListener('click', function() {
+                    if (!hasPlayed && videoSlide && isElementInViewport(videoSlide, 0.3)) {
+                        video.play().then(function() {
+                            hasPlayed = true;
+                            playAttempted = true;
+                        }).catch(function() {});
+                    }
+                }, { once: false });
+            }
+
+            function isElementInViewport(el, threshold) {
+                var rect = el.getBoundingClientRect();
+                var vh = window.innerHeight || document.documentElement.clientHeight;
+                var visible = Math.min(rect.bottom, vh) - Math.max(rect.top, 0);
+                var total = rect.bottom - rect.top;
+                return visible / total >= (threshold || 0.3);
+            }
+
+            // ============================================================
+            // 6. ATTACH SOUNDS TO INTERACTIVE ELEMENTS
+            // ============================================================
+            document.addEventListener('DOMContentLoaded', function() {
+                // Buttons
+                document.querySelectorAll('.btn, .quote, .learn-more, .quote-mobile').forEach(function(el) {
+                    el.addEventListener('click', function() { playSound('click'); });
+                });
+
+                // Nav links (desktop)
+                document.querySelectorAll('.nav-links > li > a, .nav-links a.quote').forEach(function(el) {
+                    el.addEventListener('mouseenter', function() { playSound('hover'); });
+                });
+
+                // Dropdown items
+                document.querySelectorAll('.dropdown-menu li a, .mobile-sub-menu li a').forEach(function(el) {
+                    el.addEventListener('mouseenter', function() { playSound('hover'); });
+                });
+
+                // Images (swoosh)
+                document.querySelectorAll('.full-slide img').forEach(function(img) {
+                    img.addEventListener('mouseenter', function() { playSound('swoosh'); });
+                    img.addEventListener('touchstart', function() { playSound('swoosh'); }, { passive: true });
+                });
+            });
+
+            // ============================================================
+            // 7. RESIZE SAFEGUARD: ensure full-slide covers viewport
+            // ============================================================
+            function refreshSlideHeights() {
+                // No-op: CSS uses vh/dvh which are dynamic
+            }
+            window.addEventListener('resize', refreshSlideHeights);
+            window.addEventListener('orientationchange', function() {
+                setTimeout(refreshSlideHeights, 300);
+            });
+
+            // ============================================================
+            // 8. KEYBOARD ACCESSIBILITY: close menu on Escape
+            // ============================================================
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuOpen) {
+                    toggleMenu(false);
+                }
+            });
+
+            console.log('ForPro · About Us — fully responsive & mobile-ready');
+        })();
+    </script>
 
 </body>
 
