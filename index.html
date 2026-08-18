@@ -142,7 +142,6 @@
     /* CONTACT */
     .contact { background:var(--light); }
     .contact-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
-    /* The form is replaced with a mailto button */
     .contact-button-wrapper {
       display: flex;
       align-items: center;
@@ -166,9 +165,6 @@
       transform: translateY(-6px);
       box-shadow: 0 20px 50px rgba(8,119,201,0.4);
       background: var(--blue-light);
-    }
-    .contact-button-wrapper .btn-email::before {
-      display: none; /* remove the gradient sweep for simplicity */
     }
 
     /* FOOTER */
@@ -382,11 +378,11 @@
     <div class="label">GET IN TOUCH</div>
     <h2>Let's build something together.</h2>
     <div class="contact-layout">
-      <!-- REPLACED FORM WITH MAILTO BUTTON -->
+      <!-- BUTTON NOW OPENS OUTLOOK WEB APP -->
       <div class="contact-button-wrapper">
-        <a href="mailto:info@forpro.com" class="btn-email">✉️ EMAIL US</a>
+        <a href="https://outlook.office.com/mail/deeplink?to=info@forpro.com" target="_blank" class="btn-email">✉️ EMAIL US</a>
       </div>
-      <!-- END OF REPLACEMENT -->
+      <!-- END OF BUTTON -->
       <div>
         <h3 style="margin-bottom:20px;">Global Locations</h3>
         <div style="margin-bottom:25px;"><h4 style="color:var(--navy); font-size:16px; margin-bottom:5px;">ForPro Shanghai</h4><p style="color:var(--grey); margin:5px 0;">📞 021-33508070</p><p style="color:var(--grey); margin:5px 0;">✉️ Market@forpro.com.cn</p></div>
