@@ -142,10 +142,34 @@
     /* CONTACT */
     .contact { background:var(--light); }
     .contact-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
-    form { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
-    input, select, textarea { width:100%; padding:15px; border:1px solid #ccdbe7; font-size:15px; font-family:inherit; }
-    textarea { height:140px; }
-    .full { grid-column:1/-1; }
+    /* The form is replaced with a mailto button */
+    .contact-button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+    .contact-button-wrapper .btn-email {
+      background: var(--blue);
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      padding: 24px 50px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(8,119,201,0.3);
+      display: inline-block;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .contact-button-wrapper .btn-email:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(8,119,201,0.4);
+      background: var(--blue-light);
+    }
+    .contact-button-wrapper .btn-email::before {
+      display: none; /* remove the gradient sweep for simplicity */
+    }
 
     /* FOOTER */
     footer { background:#031522; color:white; padding:60px 0; }
@@ -349,7 +373,7 @@
 <section class="cta" id="contact">
   <div class="container cta-box">
     <h2>Ready to engineer your next project?</h2>
-    <a href="#" class="btn">CONTACT US</a>
+    <a href="#contact" class="btn">CONTACT US</a>
   </div>
 </section>
 
@@ -358,14 +382,11 @@
     <div class="label">GET IN TOUCH</div>
     <h2>Let's build something together.</h2>
     <div class="contact-layout">
-      <form>
-        <input type="text" placeholder="Full Name" class="full">
-        <input type="email" placeholder="Email Address">
-        <input type="text" placeholder="Phone Number">
-        <select><option>Project Type</option><option>Formwork</option><option>Scaffolding</option><option>Shoring</option></select>
-        <textarea placeholder="Tell us about your project..." class="full"></textarea>
-        <button type="submit" class="btn full" style="background:var(--blue);color:white;border:none;padding:16px;font-weight:800;">SEND MESSAGE</button>
-      </form>
+      <!-- REPLACED FORM WITH MAILTO BUTTON -->
+      <div class="contact-button-wrapper">
+        <a href="mailto:info@forpro.com" class="btn-email">✉️ EMAIL US</a>
+      </div>
+      <!-- END OF REPLACEMENT -->
       <div>
         <h3 style="margin-bottom:20px;">Global Locations</h3>
         <div style="margin-bottom:25px;"><h4 style="color:var(--navy); font-size:16px; margin-bottom:5px;">ForPro Shanghai</h4><p style="color:var(--grey); margin:5px 0;">📞 021-33508070</p><p style="color:var(--grey); margin:5px 0;">✉️ Market@forpro.com.cn</p></div>
